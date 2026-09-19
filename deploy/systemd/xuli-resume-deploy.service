@@ -1,7 +1,0 @@
-[Unit]
-Description=Deploy xuli-resume from origin/main
-
-[Service]
-Type=oneshot
-WorkingDirectory=/data/projects/repos/xuli-resume
-ExecStart=/usr/bin/bash /data/projects/repos/xuli-resume/scripts/deploy-production.sh

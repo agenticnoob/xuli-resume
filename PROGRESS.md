@@ -18,6 +18,7 @@
 | 9    | 2026-09-18 | **加入内容型手绘插画** | 首页工作台、项目蓝图、实践日志 3 张透明 WebP 插画；完成桌面/移动端回归 |
 | 10   | 2026-09-18 | **生产部署改为主机主动拉取** | systemd user timer 轮询 main；安全 fast-forward + Docker 重建；Actions 通过 revision endpoint 验收 |
 | 11   | 2026-09-18 | **公开身份脱敏与手绘角色头像** | 全站统一 AXMORF；移除真人证件照；新增透明 WebP 头像与 Vibe Journal 公开快照脱敏 |
+| 12   | 2026-09-20 | **生产托管迁移至 Vercel** | 原生 Git 集成发布；SPA rewrite；移除本地 Docker、Nginx、systemd 与映射链路 |
 
 ## 阶段 4 详情（vibe-coding-journal 下游消费侧）
 
@@ -343,7 +344,7 @@ npm run sync:vibe-journal:dry            # 仅计算 diff，不写盘
 - 首页到项目页、移动端菜单到项目页/关于页的交互通过。
 - 页面无横向溢出，浏览器控制台无错误，`git diff --check` 通过。
 
-## 阶段 10 详情（生产部署去公网 SSH）
+## 阶段 10 详情（生产部署去公网 SSH，已由阶段 12 替代）
 
 ### 根因
 
@@ -374,3 +375,20 @@ npm run sync:vibe-journal:dry            # 仅计算 diff，不写盘
 - `npm run build`：通过。
 - 关于页完成 1440×1000 桌面端与 390×844 移动端浏览器检查；页面无溢出，控制台无错误。
 - 实际打开包含原始私有姓名的 Vibe Journal 文档，浏览器只显示 `AXMORF`；源码可见文本、生成快照和 `dist/` 均无真实姓名与旧照片引用。
+
+## 阶段 12 详情（生产托管迁移至 Vercel）
+
+### 目标与结果
+
+- 采用 Vercel 原生 Git 集成：`main` 作为 Production Branch，其他分支和 Pull Request 自动生成 Preview Deployment。
+- 生产仓库迁移为 `agenticnoob/xuli-resume` fork；本地 `origin` 指向该 fork，`upstream` 保留 `Skedush/xuli-resume`。
+- 新增 `vercel.json`，将所有前端路由 rewrite 到 `index.html`，支持 React Router 深链接。
+- GitHub Actions 改为纯构建门禁，不再轮询本地 `/version.txt` 或承担第二套发布逻辑。
+- 删除仓库中的 Dockerfile、Docker Compose、Nginx、systemd timer 与本地主动拉取脚本，避免新旧发布权威并存。
+
+### 切换与验证
+
+- Vercel 项目 `agent-first/xuli-resume` 的首次 Production Deployment 状态为 `READY`，生产别名为 `xuli-resume.vercel.app`。
+- `resume.zzzxc.com` 已通过 Vercel `configured-correctly` 校验，权威 DNS 指向项目专属 Vercel CNAME。
+- 旧 `xuli-resume-deploy.timer` 已禁用并移入回收站；旧容器已停止并删除，8888 端口不再监听；其他 Cloudflare Tunnel 与项目未改动。
+- Vercel Git 连接已绑定 `agenticnoob/xuli-resume`，Production Branch 为 `main`。

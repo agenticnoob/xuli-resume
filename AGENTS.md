@@ -1,6 +1,6 @@
 # PROJECT KNOWLEDGE BASE
 
-**Updated:** 2026-09-18
+**Updated:** 2026-09-20
 **Project:** AXMORF 工程实践手账 (xuli-resume)
 
 ## OVERVIEW
@@ -204,11 +204,13 @@ npm run sync:vibe-journal:dry     # 仅计算 diff，不写盘
 ```
 
 ## DEPLOY
-- 生产机的 `xuli-resume-deploy.timer` 每分钟主动检查 GitHub `main`
-- `scripts/deploy-production.sh` 只允许 fast-forward，随后执行 Docker Compose build/up 并验证 `/version.txt`
-- GitHub Actions 运行独立生产构建，并等待 `/version.txt` 等于当前 commit SHA
-- 不依赖公网入站 SSH、固定公网 IP 或路由器端口映射
-- 环境: Docker + Nginx (端口 8888)
+- 生产仓库是 `agenticnoob/xuli-resume`；`Skedush/xuli-resume` 仅作为 fork upstream，不是 Vercel 发布源
+- 生产托管使用 Vercel 原生 Git 集成；`main` 自动发布到 Production，其他分支与 Pull Request 自动生成 Preview
+- Vercel 自动识别 Vite，构建命令为 `npm run build`，输出目录为 `dist`
+- `vercel.json` 提供 React Router SPA 深链接 rewrite；修改路由时保持该规则有效
+- GitHub Actions 只负责独立执行 `npm ci` 与 `npm run build`，不负责上传产物或轮询生产地址
+- 自定义域名 `resume.zzzxc.com` 在 Vercel Domains 中管理；DNS 以 Vercel 控制台给出的当前记录为准
+- 不再维护本地 Docker、Nginx、systemd timer、端口映射或 Tunnel 发布链路
 
 ## 用户偏好
 

@@ -55,17 +55,13 @@ npm run sync:vibe-journal:dry
 
 ## 部署
 
-生产机通过 `xuli-resume-deploy.timer` 每分钟主动检查 GitHub `main`。发现新提交后，`scripts/deploy-production.sh` 会验证工作区、只允许 fast-forward，然后重建 Docker Compose 服务并检查 `/version.txt`。
+生产环境使用 Vercel 原生 Git 集成，不再依赖本地 Docker、Nginx、systemd timer、端口映射或 Tunnel。生产仓库是 `agenticnoob/xuli-resume`；它 fork 自 `Skedush/xuli-resume`，本地保留 `upstream` remote 以便按需同步原仓库更新。Vercel 连接生产仓库后：
 
-GitHub Actions 不再通过公网 SSH 进入生产机；它负责运行 `npm ci`、`npm run build`，随后等待 `/version.txt` 返回本次 commit SHA，从而验证代码确实上线。这避免了动态公网 IP、路由器端口映射和入站 SSH 对部署稳定性的影响。
+- `main` 分支的提交自动创建 Production Deployment；
+- 其他分支和 Pull Request 自动创建 Preview Deployment；
+- 构建命令为 `npm run build`，输出目录为 `dist`；
+- `vercel.json` 将所有应用路由重写到 `index.html`，保证 React Router 深链接可直接访问。
 
-安装或刷新生产机 timer：
+GitHub Actions 只在独立环境运行 `npm ci` 和 `npm run build`，作为代码构建门禁；实际发布状态、历史版本与回滚由 Vercel 管理。Vercel 项目 `agent-first/xuli-resume` 已连接生产仓库，`resume.zzzxc.com` 已完成域名校验和 DNS 切换。
 
-```bash
-mkdir -p ~/.config/systemd/user
-cp deploy/systemd/xuli-resume-deploy.* ~/.config/systemd/user/
-systemctl --user daemon-reload
-systemctl --user enable --now xuli-resume-deploy.timer
-```
-
-生产地址：[resume.zzzxc.com](https://resume.zzzxc.com)。
+生产地址：[resume.zzzxc.com](https://resume.zzzxc.com)。Vercel 项目关联信息保存在本机 `.vercel/`，该目录已忽略，不提交到仓库。

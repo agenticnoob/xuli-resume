@@ -42,9 +42,12 @@ AXMORF 工程实践手账已形成稳定的浅色“工程师工作手账”设�
 
 ## 生产部署
 
-- 生产机通过 systemd user timer 主动检查 GitHub `main`，不再接受 GitHub-hosted Runner 的公网 SSH 部署。
-- 部署脚本只允许 fast-forward，并在 Docker 重建后核对 `/version.txt` 中的完整 commit SHA。
-- GitHub Actions 在独立环境完成生产构建，并以线上 revision 与 `github.sha` 一致作为发布成功标准。
+- 生产仓库已迁移为 `agenticnoob/xuli-resume` fork；原 `Skedush/xuli-resume` 保留为 upstream。
+- Vercel 已连接生产 fork：`main` 发布 Production，其他分支与 Pull Request 发布 Preview。
+- `vercel.json` 提供 React Router SPA 深链接 rewrite；Vercel 使用 `npm run build` 构建 `dist`。
+- GitHub Actions 只负责独立构建验证，不再轮询本地服务的 `/version.txt`。
+- 仓库已移除 Docker、Nginx、systemd timer 与本地主动拉取部署脚本。
+- `resume.zzzxc.com` 已通过 Vercel 域名校验；旧 timer 已移入回收站，旧容器已删除，8888 端口已关闭。
 
 ## 提交边界
 
