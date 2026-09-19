@@ -2,10 +2,127 @@
   "schemaVersion": 1,
   "source": {
     "repository": "agenticnoob/vibe-journal-pipeline",
-    "revision": "1daa195115bc4104f260560b7f08e94ea624f899",
-    "generatedAt": "2026-09-19T22:56:32.567838+08:00"
+    "revision": "03bb8fb39b63777952978d883dbbfd7d0f016760",
+    "generatedAt": "2026-09-20T02:50:48.149916+08:00"
   },
   "entries": [
+    {
+      "date": "2026-09-19",
+      "sessionCount": 5,
+      "turnCount": 20,
+      "skillsTouched": [
+        {
+          "id": "git",
+          "name": "Git",
+          "category": "vcs",
+          "count": 6
+        },
+        {
+          "id": "python",
+          "name": "Python",
+          "category": "language",
+          "count": 4
+        },
+        {
+          "id": "bash",
+          "name": "Bash",
+          "category": "shell",
+          "count": 3
+        },
+        {
+          "id": "npm",
+          "name": "npm",
+          "category": "package-manager",
+          "count": 3
+        },
+        {
+          "id": "remotion",
+          "name": "Remotion",
+          "category": "framework",
+          "count": 2
+        },
+        {
+          "id": "ffmpeg",
+          "name": "FFmpeg",
+          "category": "tool",
+          "count": 2
+        },
+        {
+          "id": "sqlite",
+          "name": "SQLite",
+          "category": "database",
+          "count": 2
+        },
+        {
+          "id": "ssh",
+          "name": "SSH",
+          "category": "protocol",
+          "count": 2
+        },
+        {
+          "id": "codex",
+          "name": "Codex",
+          "category": "ai-coding-tool",
+          "count": 2
+        },
+        {
+          "id": "hermes",
+          "name": "Hermes",
+          "category": "agent-framework",
+          "count": 2
+        },
+        {
+          "id": "opencode",
+          "name": "OpenCode",
+          "category": "ai-coding-tool",
+          "count": 1
+        },
+        {
+          "id": "cloudflare",
+          "name": "Cloudflare",
+          "category": "cloud",
+          "count": 1
+        },
+        {
+          "id": "ubuntu",
+          "name": "Ubuntu",
+          "category": "domain",
+          "count": 1
+        },
+        {
+          "id": "macos",
+          "name": "macOS",
+          "category": "domain",
+          "count": 1
+        }
+      ],
+      "timelineEvent": "修复 vibe-journal-pipeline 的 Codex 日志跨日漏读问题并验证真实日志恢复，同时为每日定时任务增加自动提交推送逻辑。",
+      "tools": [
+        "Git（fetch/pull/commit/push、worktree、refs/heads/master）",
+        "Python（journal.py、日志读取器、回归测试）",
+        "Bash（vibe-journal-daily.sh 定时脚本、shell 语法检查）",
+        "npm（create-axmorf-studio 包、project:* 生产命令）",
+        "Remotion 与 FFmpeg/FFprobe（视频渲染与媒体处理）",
+        "SQLite（Hermes/OpenCode 数据库读取）",
+        "SSH（远端 Codex 日志目录采集）",
+        "Codex / Hermes / OpenCode（三类 agent 日志来源）",
+        "Cloudflare（HTTP→HTTPS 308 跳转修复）",
+        "Ubuntu 与 macOS（双机开发与发布流程）"
+      ],
+      "work": [
+        "【luju-living】核对微信兼容修复是否已同步远程：重新 fetch origin/main，确认远程 main 为 ffa55bc，本地与远程一致、工作区干净。远程历史包含四个微信修复提交（2df6cf9 旧移动浏览器 randomUUID 兼容、34a18b0 微信 WebView 来源校验回退、63ce134 Sec-Fetch-Site 支持、ca68ec7 Cloudflare HTTP→HTTPS 308 跳转），后续图片轮播提交建立在这些修复之上，未覆盖或回退微信登录修复。",
+        "【luju-living】确认推荐开发发布流程：Mac 作为开发环境，先 git fetch origin、git switch main、git pull --ff-only，修改测试提交推送 GitHub；GitHub main 为唯一源码权威；Ubuntu 保持工作区干净不直接开发，使用 release.py deploy --commit <完整SHA> 发布已推送且可从 origin/main 追溯的提交，发布脚本自行 fetch 并在独立 worktree 构建、备份、迁移和切换。本次直接在 Ubuntu 修改已提交推送不算丢失，Mac 下次开发前同步即可。随后在 Mac 环境 ~/AgentWorkspace/projects/luju-living 拉取远程最新代码，main 快进更新至 ffa55bc（fix(client): preload adjacent carousel images），本地与 origin/main 一致，工作区干净无冲突。",
+        "【axmorf-studio】核对发布包 create-axmorf-studio 创建 Workspace 后制作视频的流程：不需要启动 axmorf-studio 源码仓库，也不需要一直运行 npm run dev；制作过程中 Agent 在 create 生成的 Workspace 中执行生产命令。@axmorf/studio 提供生产 CLI 和渲染运行时，Workspace-local Skill 与用户配置由 creator 生成。npm run dev 是可选 Web 控制中心/实时预览；npm run project:* 是生产流程命令，通常由 Agent 自动调用。用户以后在生成的 Workspace 目录中打开 Codex 描述视频需求即可，制作期间 Agent 与生产/渲染进程需继续运行，完成后文件保存在 deliveries/<storyId>/。",
+        "【axmorf-studio】梳理制作命令顺序与进程残留：主要命令均在 create 生成的 Workspace 内执行——doctor 环境检查；project:create:context → project:create 创建视频 Project；project:execution:resolve 确定串行或子 Agent 并行；project:produce:inspect 检查可制作性、成本、缓存复用；project:produce:prepare 按需生成旁白、准备固定产物、创建任务；每个待创作任务执行 project:task:bind → describe → 创作 → finalize → check → commit；project:produce:continue 等待任务完成并自动组装、渲染、复验并退出；完成后 project:check -- --project <id> --level final 只读复验最终交付。continue 内部调用 Remotion 渲染视频和封面，以及 FFmpeg/FFprobe 处理和检查媒体，不需要用户另启渲染服务。正常完成时 CLI 返回退出，等待任务的文件监听器和定时器会关闭；渲染进程有超时及退出清理，macOS/Linux 按进程组清理子进程。手动启动的 npm run dev/web/preview 是独立常驻界面服务，制作完成不会自动关闭，需要自行停止。异常中断仍可能残留；当前旁白音频处理使用普通 spawn，尚未接入统一超时和进程组清理机制，是明确清理缺口。相关进程管理测试 19 项全部通过；未实际制作一条视频验证全流程结束后的进程状态，也未修改代码。",
+        "【axmorf-studio】说明 inline 与 subagents 两种执行模式差别：两种模式走同一套生产、验证和交付流程，区别主要是由谁创作、能否同时创作；“多个线程”指宿主原生子 Agent，不是 Node.js 多线程。inline 由主 Agent 自己逐个完成所有任务，一次一个任务，适合任务少或宿主不支持子 Agent；subagents 由主 Agent 调度，子 Agent 分别创作，默认最多 4 个，受宿主能力限制，每个任务使用全新子 Agent 和独立 workspace。并行主要加速 Agent 创作阶段，不会自动把最终渲染变成四路并行。两种模式的合同、校验标准和四文件交付要求相同，但 Agent 创作出的具体画面可能不同。制作结束后的进程清理机制相同；子 Agent 生命周期由宿主管理。inline 不会消除异常中断清理缺口。当前 subagents 如果无法使用子 Agent，会报告阻塞，不会自动降级为 inline。",
+        "【vibe-journal-pipeline】核查三类 agent 日志采集兼容性：当前启用 Hermes 4 个数据库、Codex 本机与远端目录、OpenCode 本机数据库。Hermes 与 OpenCode 现存数据库仍可读取，但两个 Hermes profile 数据库已不存在并被静默跳过；OpenCode 最新消息停在 6 月 25 日，无法证明近期覆盖完整。Codex 存在明确漏读：原逻辑按会话创建日期目录读取，未按消息时间筛选，导致跨日续聊消息归错日期或漏读。实测本机 9 月 17 日 48 条只读到 16 条，远端 9 月 19 日 6 条读到 0 条。另有归档会话未纳入采集、新版子 agent 标记识别不完整。Hermes 还存在压缩历史兼容隐患：新版本可能保留 active=0、compacted=1 的历史，而项目只读 active=1。",
+        "【vibe-journal-pipeline】修复 Codex 读取逻辑：改为按每条消息时间和指定时区归属日期，扫描旧会话及归档，兼容新版子 agent 标记，本机与 SSH 使用同一套逻辑。回归测试覆盖北京时间午夜边界、跨月续聊、归档读取和新版子 agent 标记。真实日志验证：本机 9 月 17 日恢复 48 条，远端 9 月 19 日读到 6 条，远端 9 月 18 日仅保留当天 110 条。全量 132 项测试通过，语法检查与差异检查通过，文档同步。扫描历史每处约 6–17 秒。已有日志未重新生成，改动当时尚未提交。",
+        "【vibe-journal-pipeline】确认当前定时任务：1 个启用任务 vibe-journal-daily，每天 00:05 UTC+8 运行 vibe-journal-daily.sh，no_agent 模式，仅本地保存。用户要求任务完成后自动提交并推送，且保持纯脚本模式。",
+        "【vibe-journal-pipeline】修改 ~/.hermes/scripts/vibe-journal-daily.sh：进入仓库，显式设置 VIBE_JOURNAL_GIT_COMMIT=true，执行 python journal.py；journal.py 仅提交 data/journal/YYYY-MM-DD.json、data/skills.json、data/TIMELINE.json；只有输出包含 committed=True 才执行 git push origin HEAD:refs/heads/master。无新 commit 不推送；commit 失败则拒绝推送；远端分支变化导致 push 失败则任务失败，不自动 pull/rebase。验证：shell 语法通过，真实脚本 smoke test 对已有 9 月 18 日 journal 正确跳过且不推送；隔离伪 python/git 成功路径确认收到 committed=True 后调用 push origin HEAD:refs/heads/master；仓库保持干净并与 origin/master 同步。",
+        "【vibe-journal-pipeline】此前 Codex 修复、测试、文档及 9 月 16–18 日日志和派生数据已提交推送，commit ca958c7，132 项测试与 123 篇日志校验通过。历史日志尚未按修复后读取器重新生成，已在文档注明。"
+      ],
+      "resumeHighlight": "定位并修复 vibe-journal-pipeline 中 Codex 日志按会话创建日期而非消息时间归档导致的跨日漏读问题：改为按消息时间与指定时区归属日期、扫描归档会话并兼容新版子 agent 标记，本机与 SSH 共用同一套逻辑；回归测试覆盖午夜边界、跨月续聊、归档读取与新标记，真实日志验证本机 9 月 17 日由 16 条恢复至 48 条、远端 9 月 19 日由 0 条恢复至 6 条，全量 132 项测试通过；同时为每日定时任务增加纯脚本自动提交推送（仅提交 journal/skills/TIMELINE 三类文件，committed=True 才 push origin HEAD:refs/heads/master，不自动 pull/rebase），并通过 shell 语法检查与隔离伪 python/git 成功路径验证。"
+    },
     {
       "date": "2026-09-18",
       "sessionCount": 4,
@@ -162,9 +279,9 @@
           "count": 1
         },
         {
-          "id": "canvas",
-          "name": "Canvas",
-          "category": "domain",
+          "id": "canvas2d",
+          "name": "Canvas 2D",
+          "category": "api",
           "count": 1
         },
         {
@@ -332,12 +449,6 @@
           "name": "HSTS",
           "category": "domain",
           "count": 2
-        },
-        {
-          "id": "seo",
-          "name": "SEO",
-          "category": "domain",
-          "count": 1
         }
       ],
       "timelineEvent": "庐居移动端微信登录问题经多轮排查最终定位为 HTTP 非安全上下文导致 crypto.randomUUID 缺失与 Secure Cookie 失效，改用 Cloudflare CF-Visitor 可信标记做服务端 308 强制 HTTPS 跳转并补 HSTS 后上线修复；同日完成AXMORF简历站全面改版并通过 Cloudflare Tunnel 部署到 resume.zzzxc.com。",
@@ -621,7 +732,7 @@
           "count": 1
         },
         {
-          "id": "compose",
+          "id": "dockercompose",
           "name": "Docker Compose",
           "category": "container",
           "count": 3
@@ -784,18 +895,6 @@
           "count": 6
         },
         {
-          "id": "supabase",
-          "name": "Supabase",
-          "category": "cloud",
-          "count": 4
-        },
-        {
-          "id": "render",
-          "name": "Render",
-          "category": "cloud",
-          "count": 4
-        },
-        {
           "id": "eslint",
           "name": "ESLint",
           "category": "tool",
@@ -847,8 +946,6 @@
         "Git",
         "GitHub Actions",
         "Vercel",
-        "Supabase",
-        "Render",
         "ESLint",
         "Prettier",
         "Vitest",
@@ -3054,27 +3151,13 @@
           "name": "Hermes",
           "category": "agent-framework",
           "count": 3
-        },
-        {
-          "id": "axmorf",
-          "name": "AXMORF",
-          "category": "framework",
-          "count": 3
-        },
-        {
-          "id": "git",
-          "name": "Git",
-          "category": "vcs",
-          "count": 1
         }
       ],
       "timelineEvent": "封面子任务因工作区绑定失效被错误标记为 host failure，修复窗口关闭，需从工作区创建新的 production attempt。",
       "tools": [
         "TypeScript（.tsx 组件文件：Cover4x3.tsx、Cover3x4.tsx、Root.tsx、index.ts）",
         "rsp CLI（任务管理命令：prepare、task describe、task finalize、task check、task commit、task fail）",
-        "Hermes delegate_task（子 agent 派发机制）",
-        "AXMORF 生产 skill（工作区约束与校验流程规范）",
-        "Git（提及但未实际使用，当前工作目录非 Git 仓库）"
+        "Hermes delegate_task（子 agent 派发机制）"
       ],
       "work": [
         "1. 故障诊断：封面子任务将 Cover4x3.tsx、Cover3x4.tsx、Root.tsx、index.ts 错误写入项目顶层 src/，而非其隔离的任务工作区，导致 rsp task finalize 校验报错 rsp-task-workspace-invalid（\"Task workspace files do not match the exact task authority.\"），整个 production attempt 被标记为 producer-agent-host-failed，无法在同一 attempt 内重试或继续生成 Delivery。",
@@ -3681,8 +3764,8 @@
           "count": 4
         },
         {
-          "id": "gh",
-          "name": "gh",
+          "id": "githubcli",
+          "name": "GitHub CLI",
           "category": "tool",
           "count": 3
         }
@@ -3823,7 +3906,7 @@
           "count": 5
         },
         {
-          "id": "forge",
+          "id": "electronforge",
           "name": "Electron Forge",
           "category": "build-tool",
           "count": 3
@@ -4042,8 +4125,8 @@
           "count": 4
         },
         {
-          "id": "openai-codex",
-          "name": "OpenAI Codex",
+          "id": "codex",
+          "name": "Codex CLI",
           "category": "ai-coding-tool",
           "count": 4
         },
@@ -4198,12 +4281,6 @@
           "id": "gpt-5.6-sol",
           "name": "GPT-5.6 Sol",
           "category": "ai-model",
-          "count": 4
-        },
-        {
-          "id": "openai-codex",
-          "name": "OpenAI Codex",
-          "category": "ai-provider",
           "count": 4
         },
         {
@@ -4719,9 +4796,9 @@
           "count": 3
         },
         {
-          "id": "openai-codex",
-          "name": "OpenAI Codex",
-          "category": "ai-provider",
+          "id": "codex",
+          "name": "Codex CLI",
+          "category": "ai-coding-tool",
           "count": 5
         },
         {
@@ -6122,12 +6199,6 @@
           "name": "Bash",
           "category": "shell",
           "count": 2
-        },
-        {
-          "id": "bigint",
-          "name": "BigInt",
-          "category": "language",
-          "count": 2
         }
       ],
       "timelineEvent": "M2 里程碑完成：用真实 VoxCPM 为 gps-relativity 主题生成并原子封存了 56.7 秒完整旁白，中断续跑与 checksum/sample-frame 验收通过，随后完成 M3 实施计划撰写。",
@@ -6779,12 +6850,6 @@
           "id": "aac",
           "name": "AAC",
           "category": "format",
-          "count": 1
-        },
-        {
-          "id": "tts",
-          "name": "TTS",
-          "category": "tool",
           "count": 1
         },
         {
@@ -7511,12 +7576,6 @@
           "count": 1
         },
         {
-          "id": "shadermaterial",
-          "name": "ShaderMaterial",
-          "category": "library",
-          "count": 2
-        },
-        {
           "id": "lenis",
           "name": "Lenis",
           "category": "library",
@@ -7537,7 +7596,6 @@
         "VoxCPM（唯一 narration provider）",
         "CodeGraph（调用链定位辅助重构）",
         "ESLint/Prettier（changed-files 检查）",
-        "ShaderMaterial（背景 uniforms 语义化迁移）",
         "Lenis（平滑滚动库）"
       ],
       "work": [
@@ -8008,12 +8066,6 @@
           "count": 2
         },
         {
-          "id": "ci",
-          "name": "CI",
-          "category": "tool",
-          "count": 1
-        },
-        {
           "id": "python",
           "name": "Python",
           "category": "language",
@@ -8041,7 +8093,6 @@
         "Vite（生产构建测试）",
         "Node.js（API 生成与验证工具）",
         "npm（包管理、脚本执行）",
-        "CI（verify:skill 全流程）",
         "Python（临时技能验证脚本）",
         "YAML（适配器元数据）",
         "Shell（git 提交、构建、验证命令）"
@@ -8074,7 +8125,7 @@
           "count": 5
         },
         {
-          "id": "next",
+          "id": "nextjs",
           "name": "Next.js",
           "category": "framework",
           "count": 1
@@ -8086,15 +8137,15 @@
           "count": 3
         },
         {
-          "id": "three",
+          "id": "threejs",
           "name": "Three.js",
-          "category": "framework",
+          "category": "library",
           "count": 3
         },
         {
-          "id": "r3f",
-          "name": "R3F",
-          "category": "framework",
+          "id": "reactthreefiber",
+          "name": "React Three Fiber",
+          "category": "library",
           "count": 2
         },
         {
@@ -8164,9 +8215,9 @@
           "count": 2
         },
         {
-          "id": "canvas",
-          "name": "Canvas",
-          "category": "domain",
+          "id": "canvas2d",
+          "name": "Canvas 2D",
+          "category": "api",
           "count": 2
         }
       ],
@@ -8216,9 +8267,9 @@
           "count": 1
         },
         {
-          "id": "@react-three/fiber",
-          "name": "@react-three/fiber",
-          "category": "framework",
+          "id": "reactthreefiber",
+          "name": "React Three Fiber",
+          "category": "library",
           "count": 2
         },
         {
@@ -8721,7 +8772,7 @@
           "count": 2
         },
         {
-          "id": "codex-cli",
+          "id": "codex",
           "name": "Codex CLI",
           "category": "ai-coding-tool",
           "count": 3
@@ -8737,12 +8788,6 @@
           "name": "Blender MCP",
           "category": "tool",
           "count": 2
-        },
-        {
-          "id": "toml",
-          "name": "TOML",
-          "category": "format",
-          "count": 1
         },
         {
           "id": "gltf",
@@ -9013,9 +9058,9 @@
           "count": 2
         },
         {
-          "id": "codex-cli",
+          "id": "codex",
           "name": "Codex CLI",
-          "category": "tool",
+          "category": "ai-coding-tool",
           "count": 2
         },
         {
@@ -9449,7 +9494,7 @@
           "count": 3
         },
         {
-          "id": "three",
+          "id": "threejs",
           "name": "Three.js",
           "category": "library",
           "count": 5
@@ -10619,9 +10664,9 @@
           "count": 1
         },
         {
-          "id": "three",
+          "id": "threejs",
           "name": "Three.js",
-          "category": "framework",
+          "category": "library",
           "count": 1
         },
         {
@@ -10690,7 +10735,7 @@
           "count": 3
         },
         {
-          "id": "three",
+          "id": "threejs",
           "name": "Three.js",
           "category": "library",
           "count": 3
@@ -10702,7 +10747,7 @@
           "count": 2
         },
         {
-          "id": "next",
+          "id": "nextjs",
           "name": "Next.js",
           "category": "framework",
           "count": 2
@@ -11090,7 +11135,7 @@
           "count": 1
         },
         {
-          "id": "next",
+          "id": "nextjs",
           "name": "Next.js",
           "category": "framework",
           "count": 1
@@ -11244,7 +11289,7 @@
           "count": 14
         },
         {
-          "id": "three",
+          "id": "threejs",
           "name": "Three.js",
           "category": "library",
           "count": 9
@@ -11274,9 +11319,9 @@
           "count": 3
         },
         {
-          "id": "canvas",
+          "id": "canvas2d",
           "name": "Canvas 2D",
-          "category": "library",
+          "category": "api",
           "count": 3
         }
       ],
@@ -11425,8 +11470,8 @@
           "count": 1
         },
         {
-          "id": "usegltf",
-          "name": "useGLTF",
+          "id": "@reactthree/drei",
+          "name": "@react-three/drei",
           "category": "library",
           "count": 1
         },
@@ -11443,20 +11488,14 @@
           "count": 1
         },
         {
-          "id": "kanban",
-          "name": "Kanban Board",
-          "category": "domain",
-          "count": 1
-        },
-        {
-          "id": "gpt-4.5",
-          "name": "GPT-4.5",
+          "id": "gpt55",
+          "name": "GPT-5.5",
           "category": "ai-model",
           "count": 1
         },
         {
-          "id": "gpt-4.4-mini",
-          "name": "GPT-4.4-mini",
+          "id": "gpt54mini",
+          "name": "GPT-5.4-mini",
           "category": "ai-model",
           "count": 1
         },
@@ -11469,7 +11508,7 @@
       ],
       "timelineEvent": "新增 fleet profile 和 Kanban board，完善 u-hermes Fleet 工作流，添加带心跳汇报的 uhf-codex-run wrapper。",
       "tools": [
-        "Next.js、React、TypeScript、Three.js、useGLTF、Lenis、Shell、Git；Kanban Board API；GPT-4.5、GPT-4.4-mini、Codex。"
+        "Next.js、React、TypeScript、Three.js、@react-three/drei（useGLTF）、Lenis、Shell、Git；GPT-5.5、GPT-5.4-mini、Codex。"
       ],
       "work": [
         "u-hermes Fleet 工作流升级。 新增 fleet/researcher/builder/reviewer 四个 profile，新建 fleet Kanban board 及对应 wrapper 脚本（uhf、uhf-status、uhf-watch）。重点实现 uhf-codex-run，通过纯 shell 逻辑处理 Codex 任务执行：tee 输出到日志文件、每 60 秒写 heartbeat、关键节点写 comment（启动/diff/测试/退出）、结束后写 result.json 并在 Kanban 记录退出事件，全程不消耗 builder token 做同步。",
@@ -11592,9 +11631,9 @@
           "count": 1
         },
         {
-          "id": "heres",
-          "name": "Hermes",
-          "category": "ai-coding-tool",
+          "id": "hermes",
+          "name": "Hermes Agent",
+          "category": "agent-framework",
           "count": 5
         },
         {
@@ -11673,9 +11712,9 @@
           "count": 1
         },
         {
-          "id": "tailwind",
+          "id": "tailwindcss",
           "name": "Tailwind CSS",
-          "category": "css",
+          "category": "library",
           "count": 1
         },
         {
@@ -11708,12 +11747,6 @@
       "sessionCount": 6,
       "turnCount": 97,
       "skillsTouched": [
-        {
-          "id": "hermes-kanban",
-          "name": "Hermes Kanban",
-          "category": "ai-agent-workflow",
-          "count": 8
-        },
         {
           "id": "python",
           "name": "Python",
@@ -11753,7 +11786,7 @@
       ],
       "timelineEvent": "落地了 vibe-journal-pipeline 多源 SQLite 读取（本地+SSH 远程统一聚合），同时把 2.5D hero 首屏从 6.5/10 视觉冲击提升到 8.5/10",
       "tools": [
-        "Hermes Kanban：协调 uhf-m3 团队，卡死 follow-up 卡的多次 reclaim 与收口指令下发",
+        "Hermes Agent：协调 uhf-m3 团队，卡死 follow-up 卡的多次 reclaim 与收口指令下发",
         "Python：vibe-journal-pipeline 的 journal.py 核心实现，含多源 DB 读取、source 解析、LLM 组装",
         "TypeScript + Vite + GSAP：2.5D hero 重构，主 JS 每帧只写 2 个 CSS 变量驱动 6 层视差",
         "SQLite：本地与远程 Hermes session DB 读取验证",
@@ -11778,12 +11811,6 @@
           "name": "Shell Scripting",
           "category": "system",
           "count": 18
-        },
-        {
-          "id": "kanban",
-          "name": "Kanban Orchestration",
-          "category": "workflow",
-          "count": 12
         },
         {
           "id": "typescript",
@@ -11975,12 +12002,6 @@
           "count": 3
         },
         {
-          "id": "browser-automation",
-          "name": "Browser Automation",
-          "category": "automation",
-          "count": 8
-        },
-        {
           "id": "mcp",
           "name": "MCP (Model Context Protocol)",
           "category": "protocols",
@@ -12055,12 +12076,6 @@
           "name": "systemd",
           "category": "system_service",
           "count": 6
-        },
-        {
-          "id": "network",
-          "name": "Network Diagnostics",
-          "category": "system_tool",
-          "count": 4
         },
         {
           "id": "mcp",
@@ -12306,14 +12321,7 @@
       "date": "2026-05-28",
       "sessionCount": 9,
       "turnCount": 26,
-      "skillsTouched": [
-        {
-          "id": "using-superpowers",
-          "name": "Using Superpowers",
-          "category": "workflow",
-          "count": 1
-        }
-      ],
+      "skillsTouched": [],
       "timelineEvent": "系统 self-improvement 机制自动创建了两个重复的 CLI 工具类 skill（debian-ubuntu-cli-tooling 和 ubuntu-cli-tooling），在用户干预下完成去重并恢复了 hermes-leader-principle。",
       "tools": [
         "系统管理工具：apt-get、dpkg\nShell 环境：bash（别名配置 ~/.bashrc）\n检索工具：ripgrep（rg）、fd-find（fdfind）\n技能管理：Hermes skill create / archive / restore / list\n文档查阅：hermes CLI 文档查询"
@@ -12698,12 +12706,6 @@
           "name": "Python",
           "category": "language",
           "count": 5
-        },
-        {
-          "id": "network-administration",
-          "name": "Network Administration",
-          "category": "system",
-          "count": 4
         }
       ],
       "timelineEvent": "完成 mypc 远程 Ubuntu 工作站的 Docker 数据迁移（/var/lib/docker → [local-path]）、ComfyUI Docker 部署、mihomo 本地代理配置、以及 Hermes/Codex/OpenCode 三大 agent CLI 的 bootstrap，并规划了 [local-path] 目录结构。",
@@ -12739,21 +12741,9 @@
           "count": 5
         },
         {
-          "id": "codex-hermes",
-          "name": "Codex Hermes Workflow",
-          "category": "workflow",
-          "count": 3
-        },
-        {
           "id": "react",
           "name": "React",
           "category": "frontend",
-          "count": 2
-        },
-        {
-          "id": "front-design",
-          "name": "Frontend Design",
-          "category": "design",
           "count": 2
         },
         {
@@ -12785,9 +12775,7 @@
       "tools": [
         "语言：TypeScript（5次）、Python（1次）",
         "框架：React（2次）、FastAPI（1次）、Node.js（1次）、OpenCode（1次）",
-        "工具：Vite（1次）",
-        "设计：前端布局设计（2次）",
-        "工作流：Codex Hermes Workflow（3次）"
+        "工具：Vite（1次）"
       ],
       "work": [
         "今天主要在推进两个项目。",
@@ -13007,16 +12995,10 @@
       "turnCount": 24,
       "skillsTouched": [
         {
-          "id": "native-mcp",
-          "name": "Native MCP",
-          "category": "agent-integration",
+          "id": "mcp",
+          "name": "MCP (Model Context Protocol)",
+          "category": "protocol",
           "count": 4
-        },
-        {
-          "id": "codex-hermes",
-          "name": "Codex-Hermes Workflow",
-          "category": "workflow",
-          "count": 3
         },
         {
           "id": "typescript",
@@ -13031,12 +13013,6 @@
           "count": 2
         },
         {
-          "id": "touchdesigner-mcp",
-          "name": "TouchDesigner MCP",
-          "category": "creative",
-          "count": 2
-        },
-        {
           "id": "git",
           "name": "Git",
           "category": "vcs",
@@ -13045,7 +13021,7 @@
       ],
       "timelineEvent": "搭建并接入了本地 codex-hermes workflow MCP 服务，修复了 Hermes native MCP newline-delimited JSON-RPC 兼容问题，6 个 MCP tools 成功接入 Hermes 并通过 discovery 测试。",
       "tools": [
-        "Hermes：主控层和审查层，负责规划、handoff、review 和 memory hygiene。\nCodex：代码实现和测试层，执行 CODEX_TASK.md 内的任务。\nmy-agents-mcp：自建的本地 stdio MCP 服务，提供 workflow guide、artifact 模板生成和校验。\nTouchDesigner MCP（skill）：用户启动了相关 skill，但本对话内未实际调用 TD 工具。\nGitHub CLI：用于推送 agent-workspace 文档到远端仓库。"
+        "Hermes：主控层和审查层，负责规划、handoff、review 和 memory hygiene。\nCodex：代码实现和测试层，执行 CODEX_TASK.md 内的任务。\nmy-agents-mcp：自建的本地 stdio MCP 服务，提供 workflow guide、artifact 模板生成和校验。\nGitHub CLI：用于推送 agent-workspace 文档到远端仓库。"
       ],
       "work": [
         "移除 OpenHuman，重构工作站方案。把原来的 OpenHuman + Hermes + Codex 改成了 Hermes + Codex + Hermes 内置记忆，删除了 9 个冗余 workflow 文档，精简成 2 个说明文档 + 5 个模板。提交两次：ed2ac41 和 bca7d1e。",
@@ -13074,9 +13050,9 @@
           "count": 14
         },
         {
-          "id": "codex-cli",
+          "id": "codex",
           "name": "Codex CLI",
-          "category": "Coding Agent / Implementation",
+          "category": "ai-coding-tool",
           "count": 9
         },
         {

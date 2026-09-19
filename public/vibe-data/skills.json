@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "source": {
     "repository": "agenticnoob/vibe-journal-pipeline",
-    "revision": "1daa195115bc4104f260560b7f08e94ea624f899",
-    "generatedAt": "2026-09-19T22:56:32.567838+08:00"
+    "revision": "03bb8fb39b63777952978d883dbbfd7d0f016760",
+    "generatedAt": "2026-09-20T02:50:48.149916+08:00"
   },
   "skills": [
     {
@@ -19,18 +19,9 @@
       "id": "@reactthree/drei",
       "name": "@react-three/drei",
       "category": "library",
-      "dayCount": 1,
-      "totalCount": 2,
-      "firstSeen": "2026-07-09",
-      "lastSeen": "2026-07-09"
-    },
-    {
-      "id": "@reactthree/fiber",
-      "name": "@react-three/fiber",
-      "category": "framework",
-      "dayCount": 1,
-      "totalCount": 2,
-      "firstSeen": "2026-07-09",
+      "dayCount": 2,
+      "totalCount": 3,
+      "firstSeen": "2026-06-06",
       "lastSeen": "2026-07-09"
     },
     {
@@ -133,15 +124,6 @@
       "lastSeen": "2026-08-05"
     },
     {
-      "id": "axmorf",
-      "name": "AXMORF",
-      "category": "framework",
-      "dayCount": 1,
-      "totalCount": 3,
-      "firstSeen": "2026-08-28",
-      "lastSeen": "2026-08-28"
-    },
-    {
       "id": "babel",
       "name": "Babel",
       "category": "build-tool",
@@ -154,19 +136,10 @@
       "id": "bash",
       "name": "Bash",
       "category": "shell",
-      "dayCount": 28,
-      "totalCount": 185,
+      "dayCount": 29,
+      "totalCount": 188,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-09-15"
-    },
-    {
-      "id": "bigint",
-      "name": "BigInt",
-      "category": "language",
-      "dayCount": 1,
-      "totalCount": 2,
-      "firstSeen": "2026-08-01",
-      "lastSeen": "2026-08-01"
+      "lastSeen": "2026-09-19"
     },
     {
       "id": "blender",
@@ -187,15 +160,6 @@
       "lastSeen": "2026-07-05"
     },
     {
-      "id": "browserautomation",
-      "name": "Browser Automation",
-      "category": "automation",
-      "dayCount": 1,
-      "totalCount": 8,
-      "firstSeen": "2026-05-31",
-      "lastSeen": "2026-05-31"
-    },
-    {
       "id": "cannones",
       "name": "cannon-es",
       "category": "library",
@@ -205,22 +169,13 @@
       "lastSeen": "2026-07-07"
     },
     {
-      "id": "canvas",
+      "id": "canvas2d",
       "name": "Canvas 2D",
-      "category": "library",
-      "dayCount": 3,
-      "totalCount": 6,
+      "category": "api",
+      "dayCount": 4,
+      "totalCount": 8,
       "firstSeen": "2026-06-08",
       "lastSeen": "2026-09-18"
-    },
-    {
-      "id": "canvas2d",
-      "name": "Canvas2D",
-      "category": "api",
-      "dayCount": 1,
-      "totalCount": 2,
-      "firstSeen": "2026-06-26",
-      "lastSeen": "2026-06-26"
     },
     {
       "id": "cdp",
@@ -250,15 +205,6 @@
       "lastSeen": "2026-09-10"
     },
     {
-      "id": "ci",
-      "name": "CI",
-      "category": "tool",
-      "dayCount": 1,
-      "totalCount": 1,
-      "firstSeen": "2026-07-11",
-      "lastSeen": "2026-07-11"
-    },
-    {
       "id": "claude",
       "name": "Claude",
       "category": "ai-model",
@@ -268,7 +214,7 @@
       "lastSeen": "2026-07-05"
     },
     {
-      "id": "claudecode",
+      "id": "claude-code",
       "name": "Claude Code",
       "category": "ai-coding-tool",
       "dayCount": 1,
@@ -280,10 +226,10 @@
       "id": "cloudflare",
       "name": "Cloudflare",
       "category": "cloud",
-      "dayCount": 8,
-      "totalCount": 29,
+      "dayCount": 9,
+      "totalCount": 30,
       "firstSeen": "2026-06-29",
-      "lastSeen": "2026-09-18"
+      "lastSeen": "2026-09-19"
     },
     {
       "id": "cloudflared",
@@ -316,28 +262,10 @@
       "id": "codex",
       "name": "Codex CLI",
       "category": "ai-coding-tool",
-      "dayCount": 23,
-      "totalCount": 153,
+      "dayCount": 29,
+      "totalCount": 178,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-09-16"
-    },
-    {
-      "id": "codexcli",
-      "name": "Codex CLI",
-      "category": "Coding Agent / Implementation",
-      "dayCount": 3,
-      "totalCount": 14,
-      "firstSeen": "2026-05-17",
-      "lastSeen": "2026-07-05"
-    },
-    {
-      "id": "codexhermes",
-      "name": "Codex-Hermes Workflow",
-      "category": "workflow",
-      "dayCount": 2,
-      "totalCount": 6,
-      "firstSeen": "2026-05-18",
-      "lastSeen": "2026-05-21"
+      "lastSeen": "2026-09-19"
     },
     {
       "id": "comfyui",
@@ -347,15 +275,6 @@
       "totalCount": 14,
       "firstSeen": "2026-05-24",
       "lastSeen": "2026-05-24"
-    },
-    {
-      "id": "compose",
-      "name": "Docker Compose",
-      "category": "container",
-      "dayCount": 1,
-      "totalCount": 3,
-      "firstSeen": "2026-09-15",
-      "lastSeen": "2026-09-15"
     },
     {
       "id": "cron",
@@ -468,11 +387,11 @@
     {
       "id": "dockercompose",
       "name": "Docker Compose",
-      "category": "infrastructure",
-      "dayCount": 4,
-      "totalCount": 20,
+      "category": "container",
+      "dayCount": 5,
+      "totalCount": 23,
       "firstSeen": "2026-05-26",
-      "lastSeen": "2026-06-23"
+      "lastSeen": "2026-09-15"
     },
     {
       "id": "domwebgl",
@@ -539,11 +458,11 @@
     },
     {
       "id": "electronforge",
-      "name": "electron-forge",
+      "name": "Electron Forge",
       "category": "build-tool",
-      "dayCount": 2,
-      "totalCount": 5,
-      "firstSeen": "2026-08-23",
+      "dayCount": 3,
+      "totalCount": 8,
+      "firstSeen": "2026-08-22",
       "lastSeen": "2026-08-24"
     },
     {
@@ -604,10 +523,10 @@
       "id": "ffmpeg",
       "name": "FFmpeg",
       "category": "tool",
-      "dayCount": 37,
-      "totalCount": 130,
+      "dayCount": 38,
+      "totalCount": 132,
       "firstSeen": "2026-06-26",
-      "lastSeen": "2026-09-14"
+      "lastSeen": "2026-09-19"
     },
     {
       "id": "ffprobe",
@@ -619,15 +538,6 @@
       "lastSeen": "2026-09-03"
     },
     {
-      "id": "forge",
-      "name": "Electron Forge",
-      "category": "build-tool",
-      "dayCount": 1,
-      "totalCount": 3,
-      "firstSeen": "2026-08-22",
-      "lastSeen": "2026-08-22"
-    },
-    {
       "id": "framermotion",
       "name": "Framer Motion",
       "category": "frontend",
@@ -635,15 +545,6 @@
       "totalCount": 3,
       "firstSeen": "2026-05-20",
       "lastSeen": "2026-06-01"
-    },
-    {
-      "id": "frontdesign",
-      "name": "Frontend Design",
-      "category": "design",
-      "dayCount": 1,
-      "totalCount": 2,
-      "firstSeen": "2026-05-21",
-      "lastSeen": "2026-05-21"
     },
     {
       "id": "fsusage",
@@ -655,22 +556,13 @@
       "lastSeen": "2026-07-23"
     },
     {
-      "id": "gh",
-      "name": "gh",
-      "category": "tool",
-      "dayCount": 1,
-      "totalCount": 3,
-      "firstSeen": "2026-08-23",
-      "lastSeen": "2026-08-23"
-    },
-    {
       "id": "git",
       "name": "Git",
       "category": "vcs",
       "dayCount": 83,
-      "totalCount": 402,
+      "totalCount": 407,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-09-18"
+      "lastSeen": "2026-09-19"
     },
     {
       "id": "github",
@@ -703,10 +595,10 @@
       "id": "githubcli",
       "name": "GitHub CLI",
       "category": "tool",
-      "dayCount": 1,
-      "totalCount": 3,
+      "dayCount": 2,
+      "totalCount": 6,
       "firstSeen": "2026-06-08",
-      "lastSeen": "2026-06-08"
+      "lastSeen": "2026-08-23"
     },
     {
       "id": "glb",
@@ -745,24 +637,6 @@
       "lastSeen": "2026-07-24"
     },
     {
-      "id": "gpt44mini",
-      "name": "GPT-4.4-mini",
-      "category": "ai-model",
-      "dayCount": 1,
-      "totalCount": 1,
-      "firstSeen": "2026-06-06",
-      "lastSeen": "2026-06-06"
-    },
-    {
-      "id": "gpt45",
-      "name": "GPT-4.5",
-      "category": "ai-model",
-      "dayCount": 1,
-      "totalCount": 1,
-      "firstSeen": "2026-06-06",
-      "lastSeen": "2026-06-06"
-    },
-    {
       "id": "gpt5",
       "name": "GPT-5",
       "category": "ai-model",
@@ -770,6 +644,24 @@
       "totalCount": 4,
       "firstSeen": "2026-08-29",
       "lastSeen": "2026-08-29"
+    },
+    {
+      "id": "gpt54mini",
+      "name": "GPT-5.4-mini",
+      "category": "ai-model",
+      "dayCount": 1,
+      "totalCount": 1,
+      "firstSeen": "2026-06-06",
+      "lastSeen": "2026-06-06"
+    },
+    {
+      "id": "gpt55",
+      "name": "GPT-5.5",
+      "category": "ai-model",
+      "dayCount": 1,
+      "totalCount": 1,
+      "firstSeen": "2026-06-06",
+      "lastSeen": "2026-06-06"
     },
     {
       "id": "gpt56luna",
@@ -817,31 +709,13 @@
       "lastSeen": "2026-09-12"
     },
     {
-      "id": "heres",
-      "name": "Hermes",
-      "category": "ai-coding-tool",
-      "dayCount": 1,
-      "totalCount": 5,
-      "firstSeen": "2026-06-05",
-      "lastSeen": "2026-06-05"
-    },
-    {
       "id": "hermes",
       "name": "Hermes Agent",
       "category": "agent-framework",
-      "dayCount": 21,
-      "totalCount": 234,
+      "dayCount": 23,
+      "totalCount": 241,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-09-12"
-    },
-    {
-      "id": "hermeskanban",
-      "name": "Hermes Kanban",
-      "category": "ai-agent-workflow",
-      "dayCount": 1,
-      "totalCount": 8,
-      "firstSeen": "2026-06-03",
-      "lastSeen": "2026-06-03"
+      "lastSeen": "2026-09-19"
     },
     {
       "id": "homebrew",
@@ -1006,15 +880,6 @@
       "lastSeen": "2026-08-24"
     },
     {
-      "id": "kanban",
-      "name": "Kanban",
-      "category": "workflow",
-      "dayCount": 2,
-      "totalCount": 13,
-      "firstSeen": "2026-06-02",
-      "lastSeen": "2026-06-06"
-    },
-    {
       "id": "lenis",
       "name": "Lenis",
       "category": "library",
@@ -1054,10 +919,10 @@
       "id": "macos",
       "name": "macOS",
       "category": "os",
-      "dayCount": 5,
-      "totalCount": 24,
+      "dayCount": 6,
+      "totalCount": 25,
       "firstSeen": "2026-05-17",
-      "lastSeen": "2026-09-07"
+      "lastSeen": "2026-09-19"
     },
     {
       "id": "markdown",
@@ -1072,9 +937,9 @@
       "id": "mcp",
       "name": "MCP (Model Context Protocol)",
       "category": "protocol",
-      "dayCount": 9,
-      "totalCount": 77,
-      "firstSeen": "2026-05-19",
+      "dayCount": 10,
+      "totalCount": 81,
+      "firstSeen": "2026-05-18",
       "lastSeen": "2026-09-16"
     },
     {
@@ -1168,15 +1033,6 @@
       "lastSeen": "2026-09-09"
     },
     {
-      "id": "nativemcp",
-      "name": "Native MCP",
-      "category": "agent-integration",
-      "dayCount": 1,
-      "totalCount": 4,
-      "firstSeen": "2026-05-18",
-      "lastSeen": "2026-05-18"
-    },
-    {
       "id": "nestjs",
       "name": "NestJS",
       "category": "framework",
@@ -1186,38 +1042,11 @@
       "lastSeen": "2026-09-17"
     },
     {
-      "id": "network",
-      "name": "Network Diagnostics",
-      "category": "system_tool",
-      "dayCount": 1,
-      "totalCount": 4,
-      "firstSeen": "2026-05-30",
-      "lastSeen": "2026-05-30"
-    },
-    {
-      "id": "networkadministration",
-      "name": "Network Administration",
-      "category": "system",
-      "dayCount": 1,
-      "totalCount": 4,
-      "firstSeen": "2026-05-24",
-      "lastSeen": "2026-05-24"
-    },
-    {
-      "id": "next",
-      "name": "Next.js",
-      "category": "framework",
-      "dayCount": 3,
-      "totalCount": 4,
-      "firstSeen": "2026-06-10",
-      "lastSeen": "2026-07-10"
-    },
-    {
       "id": "nextjs",
       "name": "Next.js",
       "category": "framework",
-      "dayCount": 31,
-      "totalCount": 123,
+      "dayCount": 34,
+      "totalCount": 127,
       "firstSeen": "2026-05-26",
       "lastSeen": "2026-09-17"
     },
@@ -1243,10 +1072,10 @@
       "id": "npm",
       "name": "npm",
       "category": "package-manager",
-      "dayCount": 73,
-      "totalCount": 436,
+      "dayCount": 74,
+      "totalCount": 439,
       "firstSeen": "2026-06-05",
-      "lastSeen": "2026-09-18"
+      "lastSeen": "2026-09-19"
     },
     {
       "id": "numpy",
@@ -1321,15 +1150,6 @@
       "lastSeen": "2026-09-15"
     },
     {
-      "id": "openaicodex",
-      "name": "OpenAI Codex",
-      "category": "ai-provider",
-      "dayCount": 3,
-      "totalCount": 13,
-      "firstSeen": "2026-08-14",
-      "lastSeen": "2026-08-20"
-    },
-    {
       "id": "openaicompatible",
       "name": "OpenAI-Compatible API",
       "category": "api",
@@ -1351,10 +1171,10 @@
       "id": "opencode",
       "name": "OpenCode",
       "category": "ai-coding-tool",
-      "dayCount": 5,
-      "totalCount": 14,
+      "dayCount": 6,
+      "totalCount": 15,
       "firstSeen": "2026-05-21",
-      "lastSeen": "2026-06-23"
+      "lastSeen": "2026-09-19"
     },
     {
       "id": "opencv",
@@ -1531,10 +1351,10 @@
       "id": "python",
       "name": "Python",
       "category": "language",
-      "dayCount": 39,
-      "totalCount": 157,
+      "dayCount": 40,
+      "totalCount": 161,
       "firstSeen": "2026-05-17",
-      "lastSeen": "2026-09-16"
+      "lastSeen": "2026-09-19"
     },
     {
       "id": "pytorch",
@@ -1573,15 +1393,6 @@
       "lastSeen": "2026-09-04"
     },
     {
-      "id": "r3f",
-      "name": "R3F",
-      "category": "framework",
-      "dayCount": 1,
-      "totalCount": 2,
-      "firstSeen": "2026-07-10",
-      "lastSeen": "2026-07-10"
-    },
-    {
       "id": "rapier",
       "name": "Rapier",
       "category": "library",
@@ -1611,29 +1422,20 @@
     {
       "id": "reactthreefiber",
       "name": "React Three Fiber",
-      "category": "webgl",
-      "dayCount": 1,
-      "totalCount": 1,
+      "category": "library",
+      "dayCount": 3,
+      "totalCount": 5,
       "firstSeen": "2026-06-04",
-      "lastSeen": "2026-06-04"
+      "lastSeen": "2026-07-10"
     },
     {
       "id": "remotion",
       "name": "Remotion",
       "category": "framework",
-      "dayCount": 65,
-      "totalCount": 543,
+      "dayCount": 66,
+      "totalCount": 545,
       "firstSeen": "2026-05-26",
-      "lastSeen": "2026-09-14"
-    },
-    {
-      "id": "render",
-      "name": "Render",
-      "category": "cloud",
-      "dayCount": 1,
-      "totalCount": 4,
-      "firstSeen": "2026-09-14",
-      "lastSeen": "2026-09-14"
+      "lastSeen": "2026-09-19"
     },
     {
       "id": "rsp",
@@ -1717,15 +1519,6 @@
       "lastSeen": "2026-08-17"
     },
     {
-      "id": "seo",
-      "name": "SEO",
-      "category": "domain",
-      "dayCount": 1,
-      "totalCount": 1,
-      "firstSeen": "2026-09-17",
-      "lastSeen": "2026-09-17"
-    },
-    {
       "id": "sha256",
       "name": "SHA-256",
       "category": "tool",
@@ -1751,15 +1544,6 @@
       "totalCount": 1,
       "firstSeen": "2026-06-07",
       "lastSeen": "2026-06-07"
-    },
-    {
-      "id": "shadermaterial",
-      "name": "ShaderMaterial",
-      "category": "library",
-      "dayCount": 1,
-      "totalCount": 2,
-      "firstSeen": "2026-07-16",
-      "lastSeen": "2026-07-16"
     },
     {
       "id": "shell",
@@ -1810,19 +1594,19 @@
       "id": "sqlite",
       "name": "SQLite",
       "category": "database",
-      "dayCount": 7,
-      "totalCount": 18,
+      "dayCount": 8,
+      "totalCount": 20,
       "firstSeen": "2026-06-02",
-      "lastSeen": "2026-09-11"
+      "lastSeen": "2026-09-19"
     },
     {
       "id": "ssh",
       "name": "SSH",
       "category": "infrastructure",
-      "dayCount": 13,
-      "totalCount": 55,
+      "dayCount": 14,
+      "totalCount": 57,
       "firstSeen": "2026-05-24",
-      "lastSeen": "2026-09-18"
+      "lastSeen": "2026-09-19"
     },
     {
       "id": "stablediffusionimagegeneration",
@@ -1837,9 +1621,9 @@
       "id": "supabase",
       "name": "Supabase",
       "category": "cloud",
-      "dayCount": 2,
-      "totalCount": 5,
-      "firstSeen": "2026-09-14",
+      "dayCount": 1,
+      "totalCount": 1,
+      "firstSeen": "2026-09-16",
       "lastSeen": "2026-09-16"
     },
     {
@@ -1879,20 +1663,11 @@
       "lastSeen": "2026-09-16"
     },
     {
-      "id": "tailwind",
-      "name": "Tailwind CSS",
-      "category": "css",
-      "dayCount": 1,
-      "totalCount": 1,
-      "firstSeen": "2026-06-04",
-      "lastSeen": "2026-06-04"
-    },
-    {
       "id": "tailwindcss",
       "name": "Tailwind CSS",
-      "category": "css",
-      "dayCount": 2,
-      "totalCount": 6,
+      "category": "library",
+      "dayCount": 3,
+      "totalCount": 7,
       "firstSeen": "2026-05-20",
       "lastSeen": "2026-06-05"
     },
@@ -1915,20 +1690,11 @@
       "lastSeen": "2026-09-10"
     },
     {
-      "id": "three",
-      "name": "Three.js",
-      "category": "library",
-      "dayCount": 5,
-      "totalCount": 21,
-      "firstSeen": "2026-06-08",
-      "lastSeen": "2026-07-10"
-    },
-    {
       "id": "threejs",
       "name": "Three.js",
       "category": "library",
-      "dayCount": 37,
-      "totalCount": 193,
+      "dayCount": 42,
+      "totalCount": 214,
       "firstSeen": "2026-06-04",
       "lastSeen": "2026-09-15"
     },
@@ -1955,18 +1721,9 @@
       "name": "TOML",
       "category": "format",
       "dayCount": 1,
-      "totalCount": 3,
+      "totalCount": 2,
       "firstSeen": "2026-07-05",
       "lastSeen": "2026-07-05"
-    },
-    {
-      "id": "touchdesignermcp",
-      "name": "TouchDesigner MCP",
-      "category": "creative",
-      "dayCount": 1,
-      "totalCount": 2,
-      "firstSeen": "2026-05-18",
-      "lastSeen": "2026-05-18"
     },
     {
       "id": "tsup",
@@ -1987,15 +1744,6 @@
       "lastSeen": "2026-09-09"
     },
     {
-      "id": "tts",
-      "name": "TTS",
-      "category": "tool",
-      "dayCount": 1,
-      "totalCount": 1,
-      "firstSeen": "2026-07-24",
-      "lastSeen": "2026-07-24"
-    },
-    {
       "id": "typescript",
       "name": "TypeScript",
       "category": "language",
@@ -2008,10 +1756,10 @@
       "id": "ubuntu",
       "name": "Ubuntu",
       "category": "os",
-      "dayCount": 5,
-      "totalCount": 28,
+      "dayCount": 6,
+      "totalCount": 29,
       "firstSeen": "2026-05-31",
-      "lastSeen": "2026-09-16"
+      "lastSeen": "2026-09-19"
     },
     {
       "id": "ufw",
@@ -2048,24 +1796,6 @@
       "totalCount": 1,
       "firstSeen": "2026-08-05",
       "lastSeen": "2026-08-05"
-    },
-    {
-      "id": "usegltf",
-      "name": "useGLTF",
-      "category": "library",
-      "dayCount": 1,
-      "totalCount": 1,
-      "firstSeen": "2026-06-06",
-      "lastSeen": "2026-06-06"
-    },
-    {
-      "id": "usingsuperpowers",
-      "name": "Using Superpowers",
-      "category": "workflow",
-      "dayCount": 1,
-      "totalCount": 1,
-      "firstSeen": "2026-05-28",
-      "lastSeen": "2026-05-28"
     },
     {
       "id": "uv",
