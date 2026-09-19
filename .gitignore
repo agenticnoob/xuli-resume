@@ -5,8 +5,7 @@ dist/
 .env
 .env.local
 .vercel/
+.journal-source/
 
-# Sync layer test fixtures (kept out of the production HTML bundle;
-# referenced in PROGRESS.md verification table for historical context)
-src/data/vibe-journal-html/__*
+# Historical local backups are not part of the online data contract.
 src/data/*.json.bak

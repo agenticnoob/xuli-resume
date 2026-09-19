@@ -392,3 +392,31 @@ npm run sync:vibe-journal:dry            # 仅计算 diff，不写盘
 - `resume.zzzxc.com` 已通过 Vercel `configured-correctly` 校验，权威 DNS 指向项目专属 Vercel CNAME。
 - 旧 `xuli-resume-deploy.timer` 已禁用并移入回收站；旧容器已停止并删除，8888 端口不再监听；其他 Cloudflare Tunnel 与项目未改动。
 - Vercel Git 连接已绑定 `agenticnoob/xuli-resume`，Production Branch 为 `main`。
+
+## 阶段 13 详情（线上 Pipeline 成为日志与技能唯一数据源）
+
+### 根因与目标
+
+- 原同步器硬编码 `/data/projects/repos/vibe-coding-journal`，读取的是 2026-06 已停止更新的 Markdown 副本；Vercel 构建环境也不可能访问该本机路径。
+- GitHub 私有仓库 `agenticnoob/vibe-journal-pipeline` 已包含 2026-09 的 JSON 日志、Timeline 和全量技能聚合，并已通过 dispatch 驱动 `hero-next`。
+- 简历改为按精确 Pipeline commit SHA 消费线上 JSON；本地旧仓库不再是运行时、构建或部署前提。
+
+### 数据与页面
+
+- `scripts/sync-vibe-journal.mjs` 验证 `data/journal/*.json`、`TIMELINE.json` 和 `skills.json`，原子生成 `public/vibe-data/` 与 bundle 内轻量 manifest。
+- 公开日志保留完整结构化字段，脱敏真实姓名、home 目录和 IP；不复制 conversation archives、cache 或任意未知字段。
+- Vibe Journal 改为按需加载公开 JSON 并用 React 结构化渲染，不再内联 Markdown HTML 或使用 `dangerouslySetInnerHTML`。
+- 技能页使用 Pipeline 的 252 项聚合数据，展示实际累计次数、覆盖天数、首次/最近使用日期，并提供搜索和分组筛选；旧的 30 + 0.5 百分比模型已移除。
+
+### 发布链路
+
+- Pipeline 在验证通过后同时向 `hero-next` 与 `xuli-resume` 发送 `journal_updated`，payload 固定 source repository 与完整 SHA。
+- `sync-vibe-data.yml` 通过只读 deploy key 检出精确源版本，生成数据、运行测试/生产构建，并只提交四个受管 JSON 文件。
+- 受管数据提交继续走现有 Vercel Git 集成，不需要长期 Vercel CLI Token；普通代码提交和 Preview 行为保持不变。
+- Action 在 Vercel 发布后回读 `manifest.json`、journal 和 skills，校验 source revision、条目数量与 SHA-256。
+
+### 本地验证基线
+
+- 当前源版本：`ca958c7593e800380d790be296232d6b71cad7cb`。
+- 生成 123 天日志（最新 2026-09-18）和 252 项技能；第二次同步 `changed=0`。
+- Node test runner 4 项回归通过；`npm run build` 通过。

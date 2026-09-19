@@ -1,0 +1,144 @@
+name: Sync online vibe data
+
+on:
+  repository_dispatch:
+    types: [journal_updated]
+  workflow_dispatch:
+    inputs:
+      source_sha:
+        description: Full vibe-journal-pipeline commit SHA (optional)
+        required: false
+        type: string
+  schedule:
+    - cron: "41 2 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: xuli-resume-vibe-data
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      JOURNAL_REPOSITORY: agenticnoob/vibe-journal-pipeline
+      VERCEL_PRODUCTION_URL: ${{ vars.VERCEL_PRODUCTION_URL }}
+    steps:
+      - name: Resolve requested source revision
+        id: requested_source
+        env:
+          EVENT_SOURCE: ${{ github.event.client_payload.source_repository }}
+          REQUESTED_SHA: ${{ inputs.source_sha || github.event.client_payload.source_sha }}
+        run: |
+          if [[ "${{ github.event_name }}" == "repository_dispatch" && "$EVENT_SOURCE" != "$JOURNAL_REPOSITORY" ]]; then
+            echo "Unexpected journal source repository: $EVENT_SOURCE" >&2
+            exit 1
+          fi
+          if [[ -n "$REQUESTED_SHA" && ! "$REQUESTED_SHA" =~ ^[a-f0-9]{40}$ ]]; then
+            echo "Expected a full source commit SHA" >&2
+            exit 1
+          fi
+          if [[ "${{ github.event_name }}" == "repository_dispatch" && -z "$REQUESTED_SHA" ]]; then
+            echo "journal_updated requires source_sha" >&2
+            exit 1
+          fi
+          echo "ref=${REQUESTED_SHA:-master}" >> "$GITHUB_OUTPUT"
+
+      - name: Check out the resume default branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Check out the exact online journal revision
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.JOURNAL_REPOSITORY }}
+          ref: ${{ steps.requested_source.outputs.ref }}
+          ssh-key: ${{ secrets.JOURNAL_READ_SSH_KEY }}
+          path: .journal-source
+          persist-credentials: false
+          sparse-checkout: |
+            data/journal
+            data/TIMELINE.json
+            data/skills.json
+          sparse-checkout-cone-mode: false
+
+      - name: Record the exact source revision
+        id: source
+        run: |
+          source_sha="$(git -C .journal-source rev-parse HEAD)"
+          if [[ ! "$source_sha" =~ ^[a-f0-9]{40}$ ]]; then
+            echo "Could not resolve a full source commit SHA" >&2
+            exit 1
+          fi
+          echo "sha=$source_sha" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Generate public data from the online repository
+        run: >-
+          npm run sync:vibe-journal --
+          --source .journal-source/data
+          --revision "${{ steps.source.outputs.sha }}"
+
+      - name: Verify data contracts and production build
+        run: |
+          npm test
+          npm run build
+          git diff --check
+
+      - name: Commit the verified managed snapshots
+        id: publish
+        env:
+          SOURCE_SHA: ${{ steps.source.outputs.sha }}
+        run: |
+          git add -- \
+            public/vibe-data/journal.json \
+            public/vibe-data/skills.json \
+            public/vibe-data/manifest.json \
+            src/data/vibe-data-manifest.json
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git fetch origin main
+          if [[ "$(git rev-parse HEAD)" != "$(git rev-parse origin/main)" ]]; then
+            echo "Resume main advanced during sync; refusing a non-fast-forward data commit" >&2
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(data): sync vibe journal ${SOURCE_SHA:0:12}"
+          git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Verify the production domain
+        run: |
+          for attempt in {1..30}; do
+            if node scripts/verify-vibe-data-deployment.mjs "$VERCEL_PRODUCTION_URL" "${{ steps.source.outputs.sha }}"; then
+              exit 0
+            fi
+            if [[ "$attempt" == 30 ]]; then
+              echo "Production domain did not expose the expected source revision" >&2
+              exit 1
+            fi
+            sleep 10
+          done
+
+      - name: Record sync summary
+        run: |
+          echo "### Online vibe data sync" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Source: ${{ env.JOURNAL_REPOSITORY }}@${{ steps.source.outputs.sha }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Managed files changed: ${{ steps.publish.outputs.changed }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Production: $VERCEL_PRODUCTION_URL" >> "$GITHUB_STEP_SUMMARY"

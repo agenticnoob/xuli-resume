@@ -393,6 +393,11 @@ body {
   );
 }
 
+.skill-data-card {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 32rem;
+}
+
 .timeline-sketch:nth-child(even) .sketch-card { transform: rotate(0.18deg); }
 
 .timeline-pin,
@@ -1002,12 +1007,11 @@ body {
 }
 
 /* ============================================================== */
-/*  VibeJournal reader — scoped styles for pre-rendered HTML docs  */
+/*  VibeJournal reader — scoped styles for structured JSON entries */
 /* ============================================================== */
 
-/* The page-side host wrapper. The HTML snapshot is wrapped in
-   `<article class="vj-doc">`; we style that subtree here so the rest of
-   the site is not affected. */
+/* The page-side host wrapper keeps journal typography isolated from the rest
+   of the site. Content is rendered as React elements from the public JSON. */
 .vj-doc-host .vj-doc {
   color: var(--xuli-text-primary);
   font-size: 0.95rem;
@@ -1195,7 +1199,7 @@ body {
   padding: 0;
 }
 
-/* Tables. Upstream deliverables use pipe-style markdown tables. */
+/* Skill-use tables inside each daily entry. */
 .vj-doc-host .vj-doc table {
   width: 100%;
   border-collapse: collapse;
@@ -1232,21 +1236,6 @@ body {
 
 .vj-doc-host .vj-doc tbody tr:nth-child(even) td {
   background: color-mix(in srgb, var(--xuli-bg-secondary) 50%, transparent);
-}
-
-/* Image fallback if upstream ever embeds one. */
-.vj-doc-host .vj-doc img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 6px;
-  border: 1px solid var(--xuli-border);
-  margin: 1rem 0;
-}
-
-/* Plain-text fallback used when a snapshot is missing. */
-.vj-doc-host .vj-fallback {
-  font-family: var(--xuli-font-mono);
-  color: var(--xuli-text-secondary);
 }
 
 /* Tighten the reader's outer card on very small screens. */
