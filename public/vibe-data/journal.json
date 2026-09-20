@@ -2,10 +2,157 @@
   "schemaVersion": 1,
   "source": {
     "repository": "agenticnoob/vibe-journal-pipeline",
-    "revision": "03bb8fb39b63777952978d883dbbfd7d0f016760",
-    "generatedAt": "2026-09-20T02:50:48.149916+08:00"
+    "revision": "e090a8fe78ce368e761859eab80ed95e69c0cbcd",
+    "generatedAt": "2026-09-21T00:06:35.467286+08:00"
   },
   "entries": [
+    {
+      "date": "2026-09-20",
+      "sessionCount": 3,
+      "turnCount": 51,
+      "skillsTouched": [
+        {
+          "id": "react",
+          "name": "React",
+          "category": "framework",
+          "count": 3
+        },
+        {
+          "id": "typescript",
+          "name": "TypeScript",
+          "category": "language",
+          "count": 3
+        },
+        {
+          "id": "vite",
+          "name": "Vite",
+          "category": "build-tool",
+          "count": 3
+        },
+        {
+          "id": "githubactions",
+          "name": "GitHub Actions",
+          "category": "tool",
+          "count": 5
+        },
+        {
+          "id": "vercel",
+          "name": "Vercel",
+          "category": "cloud",
+          "count": 5
+        },
+        {
+          "id": "docker",
+          "name": "Docker",
+          "category": "container",
+          "count": 2
+        },
+        {
+          "id": "nginx",
+          "name": "nginx",
+          "category": "web-server",
+          "count": 2
+        },
+        {
+          "id": "systemd",
+          "name": "systemd",
+          "category": "tool",
+          "count": 2
+        },
+        {
+          "id": "cloudflare",
+          "name": "Cloudflare",
+          "category": "cloud",
+          "count": 2
+        },
+        {
+          "id": "playwright",
+          "name": "Playwright",
+          "category": "tool",
+          "count": 2
+        },
+        {
+          "id": "python",
+          "name": "Python",
+          "category": "language",
+          "count": 3
+        },
+        {
+          "id": "unittest",
+          "name": "unittest",
+          "category": "library",
+          "count": 2
+        },
+        {
+          "id": "json",
+          "name": "JSON",
+          "category": "format",
+          "count": 3
+        },
+        {
+          "id": "git",
+          "name": "Git",
+          "category": "vcs",
+          "count": 4
+        },
+        {
+          "id": "github",
+          "name": "GitHub",
+          "category": "vcs-host",
+          "count": 4
+        },
+        {
+          "id": "repositorydispatch",
+          "name": "repository_dispatch",
+          "category": "protocol",
+          "count": 3
+        },
+        {
+          "id": "deploykey",
+          "name": "Deploy Key",
+          "category": "tool",
+          "count": 2
+        },
+        {
+          "id": "githubsecrets",
+          "name": "GitHub Secrets",
+          "category": "tool",
+          "count": 2
+        },
+        {
+          "id": "npm",
+          "name": "npm",
+          "category": "package-manager",
+          "count": 2
+        },
+        {
+          "id": "reactrouter",
+          "name": "React Router",
+          "category": "framework",
+          "count": 1
+        }
+      ],
+      "timelineEvent": "xuli-resume 完成从本机 Docker/Nginx 发布迁移到 Vercel，并打通 vibe-journal-pipeline 通过 repository_dispatch 精确 SHA 自动供稿、脱敏、测试、提交与生产部署的完整链路。",
+      "tools": [
+        "React 18 + TypeScript 5 + Vite 5 简历站改造与构建验证",
+        "GitHub Actions 工作流、repository_dispatch 跨仓库触发、Deploy Key 与 Secrets 配置",
+        "Vercel Git 集成、vercel.json SPA rewrite、域名绑定与 Cloudflare DNS 调整",
+        "Playwright 桌面与移动端验证、TypeScript/Vite 生产构建、git diff --check",
+        "Python stdlib + unittest 日志审计与技能清理脚本",
+        "JSON 数据管道、隐私脱敏、精确 commit SHA 与内容哈希回读校验",
+        "Docker、Nginx、systemd timer 旧发布链路下线与回收"
+      ],
+      "work": [
+        "【xuli-resume 发布链路迁移】原发布链路为本机 Docker + Nginx + systemd timer 每分钟检查 GitHub main，并通过 /version.txt 验证。新增 vercel.json 为 React Router SPA 配置 rewrite 支持深链接；GitHub Actions 改为纯构建验证；移除 Docker、Nginx、systemd timer 与本地主动拉取脚本；更新 README、AGENTS 与迁移记录。npm run build 与 git diff --check 通过。Vercel 项目 agent-first/xuli-resume 首次生产部署成功，状态 READY，生产地址 xuli-resume.vercel.app。resume.zzzxc.com 已绑定并完成域名所有权确认，Cloudflare DNS 改为 CNAME 到 55a5a3e83a1b9f8b.vercel-dns-017.com 且代理关闭为 DNS only。旧 systemd timer 禁用并移入回收站，旧 Docker 容器停止并删除，8888 端口不再监听。",
+        "【GitHub 自动部署权限处理】原仓库 Skedush/xuli-resume 属个人账号，当前用户 agenticnoob 仅有 Collaborator 推送权限，无管理员权限；Vercel 规则要求个人账号仓库只能由 Owner 连接 GitHub App。agent-first Vercel Team 为 Hobby 计划，不能邀请团队成员。用户决定 fork 到当前账号维护：已创建 agenticnoob/xuli-resume，本地 origin 改为该 fork，upstream 保留 Skedush/xuli-resume 只读 fetch 并禁止 push。Vercel 已连接 fork，Production Branch 为 main。迁移提交 c97384b 推送后触发 Vercel Git 自动部署，状态 READY，来源确认为该提交；resume.zzzxc.com 已绑定最新部署并通过域名校验，GitHub Actions 构建验证成功。",
+        "【xuli-resume 数据源改造与上线】用户要求唯一权威数据源改为 GitHub 线上私有仓库 agenticnoob/vibe-journal-pipeline 的最新 JSON，不再读取本机 [local-path] 或旧仓库 agenticnoob/vibe-coding-journal。移除旧本地 Markdown 同步链路，vibeJournalSync.ts 不再依赖本机绝对路径。新增跨仓库同步工作流：Pipeline 更新后通过 repository_dispatch 通知简历仓库，简历仓库检出精确 Pipeline commit SHA，生成受管 JSON，测试通过后提交到 main，再由现有 Vercel Git 集成发布。日志页改为结构化 JSON 展示；技能页改为真实使用次数、覆盖天数、时间范围，不再显示人为掌握度百分比。增加隐私脱敏：真实姓名、本机路径、IP、SSH 用户主机等被替换，公开字段采用白名单。配置 Pipeline 只读 Deploy Key、跨仓库 Dispatch Secret、Actions Secrets、生产域名变量。Vercel 项目级长期 CI token 创建被 API 拒绝（403，Cannot create tokens for this app），未保存 Vercel Token，改为保留现有 Git 发布链。下游通知从串联改为都尝试发送、最后统一判定，避免单个通知失败阻断另一个。",
+        "【xuli-resume 验证与上线结果】简历数据合同测试 4/4 通过；TypeScript/Vite 生产构建通过；Playwright 桌面与 390×844 移动端验证通过，JSON 请求 200，控制台零错误，无横向溢出；部署快照 SHA、哈希、数量校验通过；_site-content/ 未修改、未提交。xuli-resume 分支 axmorf/online-vibe-pipeline 提交 0128f2e 已合并推送到 main；vibe-journal-pipeline 分支 axmorf/notify-xuli-resume 提交 1daa195 已合并推送到 master；自动数据提交 027b1b8。线上数据源 SHA 为 1daa195115bc4104f260560b7f08e94ea624f899。生产地址 https://resume.zzzxc.com，Vercel 状态 Ready。线上数据 123 篇日志、252 项技能，最新日期 2026-09-18。/vibe-journal 与 /skills 均 HTTP 200，Vercel 错误日志无错误。完整链路已跑通：Pipeline 更新 → Dispatch → 精确 SHA 检出 → 生成/脱敏/测试 JSON → 自动提交 → Vercel 生产部署 → 公网回读校验。",
+        "【vibe-journal-pipeline 技能清理】审计发现 252 项技能中约 20–30 项需清理或合并，问题包括工作流被当成技术、泛化能力、重复名称、模型名错误、技术细节过碎、仅讨论未使用。已修正 35 篇日志，技能从 252 项降到 222 项，8 篇同步纠正今天用了啥。补齐别名映射；同日重复计数取最大值，避免虚增。收紧生成与校验规则；小众但真实使用的工具保留。新增只读审计命令 python3 journal.py --audit-skills。验证：140 项测试通过，124 篇日志校验通过，派生数据独立重建一致。逐项修改清单位于 [local-path]。",
+        "【vibe-journal-pipeline 后续同步】已合入远端 1daa195，保留双站点通知更新，已推送提交 03bb8fb 至 master。140 项测试、124 篇日志校验通过，CI 成功，两个下游通知均已发送，工作区干净。尚未核验两个网站的部署结果。",
+        "【hero-next 第三章动态化评估】用户询问第三章是否可以动态捕捉 GitHub 项目并根据 README 触发 GitHub Actions 自动更新。结论为可以，适合做成 GitHub 自动供稿、Actions 自动更新第三章，不需要额外数据库或常驻后台。现有 .github/workflows/journal-build.yml 已有日志数据构建与部署流程可复用。建议流程：发现新仓库或 README 更新 → 筛选展示项目 → 提取信息并生成中英文简介 → 校验项目数据快照 → 构建部署 → 验证第三章和详情页。发现新项目推荐用 Actions 定时扫描公开仓库；GitHub create 事件指创建分支或标签，不能直接监听账号新增仓库。若希望 README 提交后更快更新，可让各项目 Action 发送 projects_updated 通知到网站仓库，再用定时扫描兜底。README 建议生成统一项目数据：名称、简介、技术栈、功能、GitHub 地址、演示地址、中英文介绍、来源版本。建议用 GitHub topic 如 portfolio 控制收录，避免实验仓库、fork、空项目全部进入作品集。当前第三章房间模型在 src/projects/model.ts 明确限定四面墙、四个项目，并检查项目数量必须等于四。推荐方案为保留四个精选项目，同时增加动态项目目录，新项目自动进入目录与详情页；备选方案为分组展厅，每组最多四个项目，支持切换组别，需要更多交互与渲染改造。本次仅完成源码核查和方案评估，尚未修改代码或启用自动发布。"
+      ],
+      "resumeHighlight": "主导 xuli-resume 从本机 Docker/Nginx/systemd 发布链路迁移到 Vercel，并打通 vibe-journal-pipeline 通过 GitHub repository_dispatch 精确 commit SHA 自动供稿、隐私脱敏、合同测试、自动提交与生产部署的端到端链路，线上 123 篇日志、222 项技能数据稳定发布，Playwright 桌面与移动端验证零错误。"
+    },
     {
       "date": "2026-09-19",
       "sessionCount": 5,
