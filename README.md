@@ -24,7 +24,7 @@
 - `/education` 教育
 - `/ai-philosophy` AI 哲学
 - `/development-log` AI 工程实录
-- `/vibe-journal` Vibe 日志
+- `/vibe-journal` 实践日志：顶部公开数据来源、完整时间线、吸附式日期目录、结构化正文与当日技能卡片
 
 ## 本地开发
 
@@ -43,6 +43,8 @@ npm run sync:vibe-journal -- --source /path/to/vibe-journal-pipeline/data --revi
 ```
 
 唯一权威源是 GitHub 私有仓库 `agenticnoob/vibe-journal-pipeline`。CLI 入口 `scripts/sync-vibe-journal.mjs` 校验精确 source SHA、每日 JSON、Timeline 与技能聚合，然后生成 `public/vibe-data/` 和轻量 manifest。日志页展示完整公开 journal 字段；技能页展示 `day_count`、`total_count` 与首次/最近实践日期，不再使用人为百分比模型。
+
+实践日志顶部明确展示数据来源与隐私边界，并提供全部 timeline event 的横向时间线。桌面端日期目录在阅读正文时保持吸附，切换日期只把视口定位到文章顶部；移动端使用折叠目录。单日技能记录采用响应式卡片网格，次数是当日真实计数。
 
 ```bash
 npm test

@@ -1,6 +1,6 @@
 # PROJECT KNOWLEDGE BASE
 
-**Updated:** 2026-09-20
+**Updated:** 2026-09-21
 **Project:** AXMORF 工程实践手账 (xuli-resume)
 
 ## OVERVIEW
@@ -72,6 +72,8 @@ public/
 - 日志保留全部 3 个 body 字段、会话/轮次数、当日技能计数和 timeline event；技能保留全量 `day_count/total_count/first_seen/last_seen`。
 - 技能页面显示实际使用次数与覆盖天数，不再维护或展示人为 `level` 百分比。
 - 浏览器只请求公开 JSON；私有仓库 deploy key 仅存在于 GitHub Actions，绝不进入 Vite 环境变量或 bundle。
+- 实践日志顶部展示源仓库、精确 SHA 校验和脱敏边界；timeline 展示全部公开 event，不截断为固定天数。
+- 桌面日志目录保持 sticky；切换条目定位到文章卡片顶部而不是页面顶部。单日技能记录使用响应式卡片网格，显示技能名、类别和当日次数。
 
 ## CONSTRAINTS
 - TypeScript: `noUnusedLocals=true`, `noUnusedParameters=true`
@@ -81,7 +83,7 @@ public/
 - 修改同步契约后运行 `npm test`、真实数据 dry-run、两次实际 sync 和 `npm run build`
 
 ## AGENT PITFALLS / CHANGE SAFETY
-- **Navbar 必须保持 `fixed` 吸顶**：移动端和桌面端都依赖顶部固定定位；不要把 `Navbar` 改成 `relative` / `absolute`，否则滚动后会失去吸顶。
+- **Navbar 必须保持 `fixed` 吸顶并遮住下方内容**：移动端和桌面端都依赖顶部固定定位；滚动状态使用不透明纸张底色与底部分隔，不要改成 `relative` / `absolute` 或透明背景，否则正文会与导航文字重叠。
 - **移动端汉堡菜单图标不要用未定义的 Tailwind 颜色类**：例如 `bg-primary` 在本项目里无效；请使用 `bg-text-primary`、`bg-[var(--...)]` 或 `tailwind.config.js` 中真实存在的颜色 token。
 - **移动端菜单背景要用实底**：滚动状态下也要保持 `bg-surface` / 明确的 CSS var 背景和足够的 `z-index`，避免出现"能点但看起来透明"的问题。
 - **改主题/布局时优先改 token，不要在页面里硬编码颜色**：全局主题由 `src/styles/tokens.css` / `src/styles/index.css` 驱动。
@@ -89,6 +91,7 @@ public/
 - **不要在浏览器中读取 GitHub 私有仓库**：页面只消费 `public/vibe-data/`，任何 GitHub 凭据都只属于 CI。
 - **不要把计数伪装成能力百分比**：`totalCount` 是日志命中总数，`dayCount` 是覆盖日期数。
 - **不要手工编辑公开快照**：`public/vibe-data/*.json` 和 manifest 是受管生成物，下次 sync 会覆盖。
+- **日志切换不要滚回整页顶部**：日期、键盘和上一篇/下一篇切换都应通过文章容器的 `scrollIntoView()` 与 `scroll-margin-top` 定位；左侧目录的内部滚动不得带动 window。
 - **验证方式**：至少运行 `npm test` 与 `npm run build`；改动同步逻辑后必须用真实 Pipeline 数据执行 dry-run、实际 sync 两次并证明第二次 `changed=0`。
 
 ## COMMANDS

@@ -34,7 +34,7 @@ function JournalArticle({ entry }: { entry: JournalEntry }) {
       <div className="vj-doc">
         {entry.resumeHighlight ? (
           <>
-            <h2>可写进简历的一件事</h2>
+            <h2>今日总结</h2>
             <blockquote>
               <p>{entry.resumeHighlight}</p>
             </blockquote>
@@ -60,26 +60,20 @@ function JournalArticle({ entry }: { entry: JournalEntry }) {
         {entry.skillsTouched.length > 0 ? (
           <>
             <h2>技能使用记录</h2>
-            <div className="overflow-x-auto">
-              <table>
-                <thead>
-                  <tr>
-                    <th>技能</th>
-                    <th>类别</th>
-                    <th>当日次数</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {entry.skillsTouched.map((skill) => (
-                    <tr key={skill.id}>
-                      <td>{skill.name}</td>
-                      <td><code>{skill.category}</code></td>
-                      <td>{skill.count}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <ul className="vj-skill-grid not-prose" aria-label="当日技能使用记录">
+              {entry.skillsTouched.map((skill) => (
+                <li key={skill.id} className="vj-skill-item">
+                  <span className="vj-skill-copy">
+                    <strong>{skill.name}</strong>
+                    <code>{skill.category}</code>
+                  </span>
+                  <span className="vj-skill-count">
+                    <strong>{skill.count}</strong>
+                    <span>次</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
           </>
         ) : null}
       </div>
@@ -100,8 +94,7 @@ export default function VibeJournal() {
   }, [entries.length, selectedIndex])
 
   useEffect(() => {
-    if (contentRef.current) contentRef.current.scrollTop = 0
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    contentRef.current?.scrollIntoView({ block: 'start', behavior: 'smooth' })
   }, [selectedIndex])
 
   useEffect(() => {
@@ -122,14 +115,28 @@ export default function VibeJournal() {
   }, [entries.length])
 
   useEffect(() => {
-    const active = sidebarRef.current?.querySelector<HTMLElement>(
+    const sidebar = sidebarRef.current
+    const active = sidebar?.querySelector<HTMLElement>(
       `[data-doc-index="${selectedIndex}"]`,
     )
-    active?.scrollIntoView({ block: 'nearest' })
+    if (!sidebar || !active) return
+
+    const activeTop = active.offsetTop
+    const activeBottom = activeTop + active.offsetHeight
+    const visibleTop = sidebar.scrollTop
+    const visibleBottom = visibleTop + sidebar.clientHeight
+    if (activeTop < visibleTop || activeBottom > visibleBottom) {
+      sidebar.scrollTo({
+        top: activeTop - sidebar.clientHeight / 2 + active.offsetHeight / 2,
+        behavior: 'smooth',
+      })
+    }
   }, [selectedIndex])
 
   const current = entries[selectedIndex]
-  const timelineEntries = entries.filter((entry) => entry.timelineEvent).slice(0, 10)
+  const timelineEntries = entries
+    .map((entry, index) => ({ entry, index }))
+    .filter(({ entry }) => entry.timelineEvent)
   const entryNumber = entries.length > 0 ? `${selectedIndex + 1} / ${entries.length}` : '0 / 0'
 
   return (
@@ -142,9 +149,17 @@ export default function VibeJournal() {
             highlightWord="日志"
           />
 
+          <div className="paper-note journal-source-note mb-8 px-4 py-3 sm:px-5">
+            <span className="journal-source-indicator" aria-hidden="true" />
+            <p className="text-[var(--xuli-text-secondary)] text-sm font-body leading-relaxed">
+              数据来自 GitHub 上的 <code className="font-mono text-[var(--xuli-accent)]">{vibeDataManifest.source.repository}</code>。
+              每次源仓库更新后按精确 commit SHA 校验、脱敏并生成公开 JSON；浏览器不接触私有仓库凭据，也不再依赖本机 Markdown 仓库。
+            </p>
+          </div>
+
           <div className="illustrated-intro illustrated-intro-journal mb-8">
             <div className="paper-note bg-[var(--color-card)]/70 p-4 flex flex-col justify-center gap-3">
-              <span className="eyebrow-note self-start">线上数据源</span>
+              <span className="eyebrow-note self-start">数据概览</span>
               <span className="text-[var(--xuli-text-tertiary)] text-xs font-mono">
                 更新：{formatSourceTimestamp(vibeDataManifest.source.generatedAt)}
               </span>
@@ -168,24 +183,39 @@ export default function VibeJournal() {
           </div>
 
           {timelineEntries.length > 0 ? (
-            <div className="journal-timeline overflow-x-auto pb-4 mb-8">
-              <div className="flex items-start justify-start gap-4 min-w-max px-4">
-                {timelineEntries.map((entry) => (
-                  <button
-                    type="button"
-                    key={entry.date}
-                    className="journal-milestone flex flex-col items-center min-w-[170px] max-w-[210px]"
-                    onClick={() => setSelectedIndex(entries.indexOf(entry))}
-                  >
-                    <span className="timeline-dot mb-3" aria-hidden="true">×</span>
-                    <span className="text-[var(--xuli-accent)] text-xs font-mono mb-1">{entry.date}</span>
-                    <span className="text-[var(--xuli-text-primary)] text-xs text-center leading-tight">
-                      {entry.timelineEvent}
-                    </span>
-                  </button>
-                ))}
+            <section className="mb-8" aria-labelledby="journal-timeline-title">
+              <div className="journal-section-heading">
+                <div>
+                  <span className="eyebrow-note">完整轨迹</span>
+                  <h2 id="journal-timeline-title" className="font-display text-xl text-[var(--xuli-text-primary)] mt-2">
+                    实践时间线
+                  </h2>
+                </div>
+                <p className="text-xs font-mono text-[var(--xuli-text-tertiary)]">
+                  {timelineEntries.length} 条记录 · 横向滚动查看全部
+                </p>
               </div>
-            </div>
+              <div className="journal-timeline overflow-x-auto pb-4">
+                <div className="flex items-start justify-start gap-4 min-w-max px-4">
+                  {timelineEntries.map(({ entry, index }) => (
+                    <button
+                      type="button"
+                      key={entry.date}
+                      className={`journal-milestone flex flex-col items-center min-w-[170px] max-w-[210px] ${index === selectedIndex ? 'journal-milestone--active' : ''}`}
+                      onClick={() => setSelectedIndex(index)}
+                      aria-current={index === selectedIndex ? 'date' : undefined}
+                      aria-label={`查看 ${entry.date} 的实践日志`}
+                    >
+                      <span className="journal-timeline-dot mb-3" aria-hidden="true" />
+                      <span className="text-[var(--xuli-accent)] text-xs font-mono mb-1">{entry.date}</span>
+                      <span className="text-[var(--xuli-text-primary)] text-xs text-center leading-tight">
+                        {entry.timelineEvent}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </section>
           ) : null}
 
           {loading ? <LoadingCard message="正在加载线上工程日志…" /> : null}
@@ -236,7 +266,7 @@ export default function VibeJournal() {
                           : 'text-[var(--xuli-text-secondary)] hover:bg-[var(--color-card)]'
                       }`}
                     >
-                      <span className="font-mono text-[10px] text-[var(--xuli-text-tertiary)] mr-2">{entry.date}</span>
+                      <span className="journal-entry-date mr-2">{entry.date}</span>
                       {entry.timelineEvent || entry.resumeHighlight || '实践记录'}
                     </button>
                   ))}
@@ -246,7 +276,7 @@ export default function VibeJournal() {
               <div className="grid grid-cols-1 lg:grid-cols-[280px_minmax(0,1fr)] gap-6 mb-12">
                 <aside
                   ref={sidebarRef}
-                  className="sketch-card hidden lg:block self-start sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto bg-[var(--color-surface)]/60 p-2"
+                  className="journal-sidebar sketch-card hidden lg:block self-start max-h-[calc(100vh-7rem)] overflow-y-auto bg-[var(--color-surface)]/60 p-2"
                 >
                   <div className="px-3 py-2 text-xs font-mono text-[var(--xuli-text-tertiary)] uppercase tracking-wider border-b border-[var(--color-border)]/40 mb-2">
                     每日实践
@@ -264,7 +294,7 @@ export default function VibeJournal() {
                               : 'text-[var(--xuli-text-secondary)] hover:bg-[var(--color-card)] hover:text-[var(--xuli-text-primary)] border-l-2 border-transparent'
                           }`}
                         >
-                          <span className="font-mono text-[10px] text-[var(--xuli-text-tertiary)]">{entry.date}</span>
+                          <span className="journal-entry-date">{entry.date}</span>
                           <span className="block line-clamp-2 leading-tight mt-1">
                             {entry.timelineEvent || entry.resumeHighlight || '实践记录'}
                           </span>
@@ -274,7 +304,7 @@ export default function VibeJournal() {
                   </ul>
                 </aside>
 
-                <article ref={contentRef} className="sketch-card sketch-reader bg-[var(--color-card)] p-6 sm:p-8 min-h-[28rem]">
+                <article ref={contentRef} className="journal-article-shell sketch-card sketch-reader bg-[var(--color-card)] p-6 sm:p-8 min-h-[28rem]">
                   <header className="mb-6 pb-4 border-b border-[var(--color-border)]/40">
                     <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
                       <span className="font-mono text-xs text-[var(--xuli-text-tertiary)]">
@@ -312,12 +342,6 @@ export default function VibeJournal() {
             </>
           ) : null}
 
-          <div className="paper-note bg-[var(--color-card)]/70 p-4">
-            <p className="text-[var(--xuli-text-secondary)] text-sm text-center font-body leading-relaxed">
-              数据来自 GitHub 上的 <code className="font-mono text-[var(--xuli-accent)]">{vibeDataManifest.source.repository}</code>。
-              每次源仓库更新后按精确 commit SHA 校验、脱敏并生成公开 JSON；浏览器不接触私有仓库凭据，也不再依赖本机 Markdown 仓库。
-            </p>
-          </div>
         </div>
       </div>
     </PageTransition>

@@ -17,11 +17,12 @@ const navItems = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [scrolled, setScrolled] = useState(() => window.scrollY > 20)
   const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
+    handleScroll()
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -34,11 +35,7 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 isolate transition-all duration-300 ${
-        scrolled
-          ? 'bg-[var(--xuli-bg-primary)]/95 border-b border-[var(--xuli-border)]/35 shadow-[0_3px_0_rgba(47,55,48,0.08)]'
-          : 'bg-[var(--xuli-bg-primary)]/75'
-      }`}
+      className={`site-navbar fixed top-0 left-0 right-0 z-50 isolate ${scrolled ? 'site-navbar--scrolled' : ''}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">

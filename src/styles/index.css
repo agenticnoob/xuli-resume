@@ -43,9 +43,33 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text-primary);
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
   line-height: 1.6;
   text-rendering: optimizeLegibility;
+}
+
+.site-navbar {
+  background: color-mix(in srgb, var(--xuli-bg-primary) 88%, white);
+  border-bottom: 1px solid transparent;
+  transition: background-color 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.site-navbar--scrolled {
+  background: var(--xuli-bg-primary);
+  border-bottom-color: color-mix(in srgb, var(--xuli-border) 38%, transparent);
+  box-shadow: 0 3px 0 rgba(47, 55, 48, 0.08);
+}
+
+.site-navbar--scrolled::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  bottom: -0.7rem;
+  height: 0.7rem;
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--xuli-bg-primary) 58%, transparent), transparent);
+  pointer-events: none;
 }
 
 /* Refined text selection */
@@ -436,6 +460,8 @@ body {
 
 .journal-timeline {
   position: relative;
+  scroll-snap-type: x proximity;
+  scrollbar-gutter: stable;
 }
 
 .journal-timeline::before {
@@ -447,7 +473,81 @@ body {
   border-top: 2px dashed color-mix(in srgb, var(--xuli-border) 48%, transparent);
 }
 
-.journal-milestone { position: relative; }
+.journal-milestone {
+  position: relative;
+  scroll-snap-align: start;
+  border-radius: 0.5rem;
+}
+
+.journal-timeline-dot {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 0.85rem;
+  height: 0.85rem;
+  border: 2px solid var(--xuli-bg-primary);
+  border-radius: 50%;
+  background: #587c62;
+  box-shadow: 0 0 0 1px color-mix(in srgb, #587c62 55%, var(--xuli-border));
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.journal-milestone:hover .journal-timeline-dot,
+.journal-milestone--active .journal-timeline-dot {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 3px color-mix(in srgb, #587c62 22%, transparent);
+}
+
+.journal-milestone--active {
+  background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--xuli-accent-muted) 72%, transparent));
+}
+
+.journal-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.journal-source-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.journal-source-indicator {
+  flex: 0 0 auto;
+  width: 0.62rem;
+  height: 0.62rem;
+  margin-top: 0.42rem;
+  border-radius: 50%;
+  background: #587c62;
+  box-shadow: 0 0 0 3px color-mix(in srgb, #587c62 18%, transparent);
+}
+
+.journal-sidebar {
+  position: sticky;
+  top: 5.5rem;
+  scrollbar-gutter: stable;
+}
+
+.journal-sidebar.sketch-card:hover {
+  transform: none;
+}
+
+.journal-entry-date {
+  display: inline-block;
+  color: var(--xuli-text-tertiary);
+  font-family: var(--xuli-font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+}
+
+.journal-article-shell {
+  scroll-margin-top: 5.5rem;
+}
 
 .sketch-reader {
   background-image: repeating-linear-gradient(
@@ -1199,43 +1299,85 @@ body {
   padding: 0;
 }
 
-/* Skill-use tables inside each daily entry. */
-.vj-doc-host .vj-doc table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.1rem 0;
-  font-size: 0.88rem;
-  overflow-x: auto;
-  display: block;
-  border: 1px solid var(--xuli-border);
-  border-radius: 6px;
+/* Compact skill-use cards keep long daily records readable without a wide table. */
+.vj-doc-host .vj-doc .vj-skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: 0.65rem;
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
 }
 
-.vj-doc-host .vj-doc thead {
-  background: var(--xuli-bg-secondary);
+.vj-doc-host .vj-doc .vj-skill-grid > li::before {
+  display: none;
 }
 
-.vj-doc-host .vj-doc th,
-.vj-doc-host .vj-doc td {
-  padding: 0.55rem 0.85rem;
-  border-bottom: 1px solid var(--xuli-border);
-  text-align: left;
-  vertical-align: top;
+.vj-doc-host .vj-doc .vj-skill-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0.7rem 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--xuli-border) 48%, transparent);
+  border-radius: 0.35rem 0.7rem 0.42rem 0.62rem;
+  background: color-mix(in srgb, var(--xuli-bg-secondary) 42%, var(--xuli-bg-tertiary));
+  box-shadow: 1px 2px 0 rgba(48, 56, 49, 0.06);
 }
 
-.vj-doc-host .vj-doc th {
-  font-family: var(--xuli-font-body);
-  font-weight: 600;
+.vj-skill-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.vj-doc-host .vj-doc .vj-skill-copy strong {
+  color: var(--xuli-text-primary);
+  font-size: 0.92rem;
+  line-height: 1.35;
+}
+
+.vj-doc-host .vj-doc .vj-skill-copy code {
+  margin-top: 0.28rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--xuli-text-tertiary);
+  font-size: 0.68rem;
+}
+
+.vj-skill-count {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: baseline;
+  gap: 0.15rem;
+  min-width: 2.65rem;
+  justify-content: center;
+  padding: 0.3rem 0.45rem;
+  border-radius: 48% 52% 45% 55%;
+  background: var(--xuli-accent-muted);
   color: var(--xuli-accent);
-  letter-spacing: 0.02em;
+  font-family: var(--xuli-font-mono);
 }
 
-.vj-doc-host .vj-doc tr:last-child td {
-  border-bottom: none;
+.vj-doc-host .vj-doc .vj-skill-count strong {
+  color: inherit;
+  font-size: 1rem;
 }
 
-.vj-doc-host .vj-doc tbody tr:nth-child(even) td {
-  background: color-mix(in srgb, var(--xuli-bg-secondary) 50%, transparent);
+.vj-skill-count span {
+  font-size: 0.64rem;
+}
+
+@media (max-width: 640px) {
+  .journal-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
 }
 
 /* Tighten the reader's outer card on very small screens. */

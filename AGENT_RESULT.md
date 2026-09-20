@@ -2,7 +2,7 @@
 
 ## 当前结果
 
-AXMORF 工程实践手账已形成稳定的浅色“工程师工作手账”设计：首页、项目页和 Vibe 日志页使用内容型手绘插画，关于页使用同一视觉语言的手绘角色头像；公开署名统一为 `AXMORF`，公开产物不再展示真实姓名或真人证件照。
+AXMORF 工程实践手账已形成稳定的浅色“工程师工作手账”设计：首页、项目页和实践日志页使用内容型手绘插画，关于页使用同一视觉语言的手绘角色头像；公开署名统一为 `AXMORF`，公开产物不再展示真实姓名或真人证件照。实践日志现在明确展示线上数据来源与脱敏边界，并提供完整时间线、吸附目录、文章级切换定位和响应式技能卡片。
 
 ## 设计方案
 
@@ -26,19 +26,21 @@ AXMORF 工程实践手账已形成稳定的浅色“工程师工作手账”设�
 ## 关键实现
 
 - `src/styles/tokens.css`：当前设计 token 的唯一事实来源。
-- `src/styles/index.css`：共享 sketch/paper 组件、插画容器和移动端溢出规则。
+- `src/styles/index.css`：共享 sketch/paper 组件、导航遮罩、日志时间线、吸附目录、技能卡片和移动端溢出规则。
+- `src/components/Navbar.tsx`：保持 fixed 吸顶，并根据滚动状态切换为不透明纸张遮罩。
 - `src/components/BackgroundEffects.tsx`：低强度手绘背景线稿。
 - `src/pages/Home.tsx`、`About.tsx`、`Projects.tsx`、`VibeJournal.tsx`：插画与公开角色入口。
-- `src/lib/vibeJournalSync.ts`：保持上游消费语义，只对浏览器可见元数据与 HTML 快照执行公开脱敏。
+- `src/pages/VibeJournal.tsx`：消费公开结构化 JSON，展示顶部来源说明、全部 timeline event、桌面/移动目录、正文和当日技能记录。
+- `src/lib/vibeData.ts`：浏览器侧公开 JSON 类型、SHA-256 校验、请求缓存和加载 hook。
+- `scripts/sync-vibe-journal.mjs`：按精确源 SHA 校验线上 Pipeline 数据，投影公开字段并执行身份、home 路径与 IP 脱敏。
 - `public/favicon.svg`：手绘文档与铅笔标志。
 
 ## 验证结果
 
-- `npm run build`：通过。
-- 9 个路由已完成桌面和移动端浏览器检查，均返回 200。
-- 4 张插画均加载成功；导航与移动端菜单交互通过。
-- 关于页已完成桌面/移动端视觉检查；Vibe Journal 历史文档在浏览器中已脱敏为 `AXMORF`。
-- 页面无横向溢出，控制台无错误，`git diff --check` 通过。
+- `npm test`：4 项全部通过；`npm run build` 与 `git diff --check`：通过。
+- 实践日志已完成 Chrome 1440×1000 与 390×844 浏览器检查：页面标识、公开来源、完整 123 条时间线、导航遮罩、目录切换和技能卡片均通过。
+- 桌面左栏滚动前后保持在 88px；切换条目后文章顶部位于 87.5px，移动端约为 86px，没有回到页面顶部。
+- 桌面与移动端均无页面级横向溢出、Vite error overlay 或控制台错误。
 
 ## 生产部署
 
