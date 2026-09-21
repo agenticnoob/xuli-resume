@@ -2,10 +2,135 @@
   "schemaVersion": 1,
   "source": {
     "repository": "agenticnoob/vibe-journal-pipeline",
-    "revision": "e090a8fe78ce368e761859eab80ed95e69c0cbcd",
-    "generatedAt": "2026-09-21T00:06:35.467286+08:00"
+    "revision": "091b2097ef92fab3f0d8c162ce0183092b2bf710",
+    "generatedAt": "2026-09-22T00:07:00.518508+08:00"
   },
   "entries": [
+    {
+      "date": "2026-09-21",
+      "sessionCount": 3,
+      "turnCount": 42,
+      "skillsTouched": [
+        {
+          "id": "react",
+          "name": "React",
+          "category": "framework",
+          "count": 4
+        },
+        {
+          "id": "typescript",
+          "name": "TypeScript",
+          "category": "language",
+          "count": 5
+        },
+        {
+          "id": "vite",
+          "name": "Vite",
+          "category": "build-tool",
+          "count": 2
+        },
+        {
+          "id": "tailwindcss",
+          "name": "Tailwind CSS",
+          "category": "library",
+          "count": 2
+        },
+        {
+          "id": "playwright",
+          "name": "Playwright",
+          "category": "tool",
+          "count": 2
+        },
+        {
+          "id": "npm",
+          "name": "npm",
+          "category": "package-manager",
+          "count": 3
+        },
+        {
+          "id": "git",
+          "name": "Git",
+          "category": "vcs",
+          "count": 4
+        },
+        {
+          "id": "githubactions",
+          "name": "GitHub Actions",
+          "category": "cloud",
+          "count": 4
+        },
+        {
+          "id": "codex",
+          "name": "Codex CLI",
+          "category": "ai-coding-tool",
+          "count": 3
+        },
+        {
+          "id": "python",
+          "name": "Python",
+          "category": "language",
+          "count": 2
+        },
+        {
+          "id": "bash",
+          "name": "Bash",
+          "category": "shell",
+          "count": 2
+        },
+        {
+          "id": "prettier",
+          "name": "Prettier",
+          "category": "tool",
+          "count": 2
+        },
+        {
+          "id": "json",
+          "name": "JSON",
+          "category": "format",
+          "count": 3
+        },
+        {
+          "id": "vercel",
+          "name": "Vercel",
+          "category": "cloud",
+          "count": 1
+        },
+        {
+          "id": "docker",
+          "name": "Docker",
+          "category": "container",
+          "count": 1
+        },
+        {
+          "id": "webgl",
+          "name": "WebGL",
+          "category": "domain",
+          "count": 2
+        }
+      ],
+      "timelineEvent": "hero-next 第三章 GitHub 项目自动同步方案落地：GitHub Actions 定时扫描 + Codex 按需生成 + 内容 PR 架构已发布到 main（commit 35ab0ea），421 项测试通过，首次云端扫描确认无变化时跳过生成。",
+      "tools": [
+        "React 18 + TypeScript + Vite（xuli-resume 简历站）",
+        "Tailwind CSS（导航栏背景、样式修复）",
+        "Playwright 1.52 + Chrome（桌面 1440×1000 与移动 390×844 实测）",
+        "npm（test / build / check）",
+        "Git + GitHub Actions（xuli-resume 与 hero-next 双仓库）",
+        "Codex（openai/codex-action，用于项目数据生成）",
+        "Python + Bash（vibe-journal-daily.sh 定时任务修复）",
+        "Prettier（生成后格式化，修复 check 失败）",
+        "JSON Schema（projects-schema.json 数据校验）",
+        "Vercel（xuli-resume 生产部署）",
+        "Docker（本机未启动，容器验证待云端）",
+        "WebGL（hero-next 第三章房间模型）"
+      ],
+      "work": [
+        "【xuli-resume 实践日志页优化】修复导航栏滚动后无遮罩导致文字重叠、\"可写进简历的一件事\"改为\"今日总结\"、GitHub 数据来源说明移到顶部、时间线只显示几天改为展示全部、红叉改绿点、切换左侧日志时页面滚到整页顶部而非文章顶部、左侧日志菜单悬浮且时间字体更大、技能使用记录排版优化。根因定位：时间线硬限制前 10 条；切换文章调用 window.scrollTo({top:0})；导航栏滚动背景依赖带透明度 Tailwind 色值；左栏 sticky 被全局 overflow-x:hidden 和卡片 hover transform 破坏。修改 src/components/Navbar.tsx、src/pages/VibeJournal.tsx、src/styles/index.css。验证：npm test 4/4 通过，npm run build 通过；Playwright 实测桌面与移动，时间线 121 条完整展示，左栏吸附 88px，切换文章定位约 87.5px，无控制台错误、无横向溢出，导航背景不透明。文档同步更新 README.md、AGENTS.md、PROGRESS.md、AGENT_RESULT.md。远端 main 在工作期间被数据同步流水线前进 2 个提交，确认只含四个受管 JSON 后安全 fast-forward；最新快照 125 天、123 条时间线、227 项技能、源 SHA e090a8fe…。提交 5e2af33 fix: improve practice journal reading experience 已推送 origin/main，GitHub Verify Build 通过，Vercel Production 部署 READY，自定义域名线上复验通过。",
+        "【定时任务未自动提交推送修复】用户反馈定时任务未自动提交推送。定位原因：macOS 路径大小写差异导致 Python 字符串比较认为输出目录不在 repo_root 内，journal.py 安全跳过 commit。修复 ~/.hermes/scripts/vibe-journal-daily.sh：用 pwd -P 获取规范路径，设置 VIBE_JOURNAL_OUTPUT_DIR 为同一路径下 data，VIBE_JOURNAL_GIT_COMMIT=true，仅在 committed=True 时 push。补发遗漏产物 data/journal/2026-09-20.json、data/skills.json、data/TIMELINE.json，提交 e090a8f journal: 2026-09-20 已推送，远端 origin/master 指向 e090a8fe78ce368e761859eab80ed95e69c0cbcd。",
+        "【hero-next 第三章 GitHub 项目自动同步】用户希望第三章动态捕捉 GitHub 项目，根据 README 自动更新静态页面，不依赖本机。采用「GitHub Actions 定时扫描 + Codex 按需生成 + 内容 PR」架构，无需常驻服务器。第三章保留四个精选项目（现有四面墙模型），新增「全部项目」动态目录。认证方式从 OpenAI API Key 改为 Codex 订阅认证（CI/CD auth），避免额外购买 API。凭据通过 GitHub 环境 Secret 存储，每次生成后自动刷新保存；保存失败则阻止发布。仅当项目新增或 README/元数据变化时才调用模型；无变化时不调用。已实现 .github/workflows/projects-sync.yml（每日北京时间 10:43 定时触发）、scripts/sync-projects.mjs、project-data.mjs、.github/codex/projects-prompt.md、projects-schema.json、data/projects.json、projects.config.json、test/projectSync.test.ts、docs/project-publishing.md。修复 Prettier 格式不一致导致 npm run check 失败的 P1 问题（生成后先 prettier --write 再检查）。第三章 UI 新增「全部项目」目录，保留四个精选墙面。验证：421 项测试通过，构建通过，工作流语法检查通过；桌面/手机交互检查通过（目录阅读后返回恢复焦点、保留精选墙面）；首次云端扫描已成功运行，确认无变化时跳过生成和 PR，未调用模型。代码已发布到 main（commit 35ab0ea），网站部署运行中。",
+        "【hero-next 未完成/待办】用户需完成 GitHub 二次身份验证 + 专用 Codex 订阅登录，才能启用订阅生成部分。云端订阅登录、凭据保存与刷新、过期恢复尚未实测。目前无仓库带 portfolio topic，首次采集前需用户选定项目并添加标签。本机 Docker 未启动，容器运行验证待云端首次配置后进行。"
+      ],
+      "resumeHighlight": "主导 hero-next 第三章 GitHub 项目自动同步方案设计与落地：设计「GitHub Actions 定时扫描 + Codex 按需生成 + 内容 PR」无服务器架构，实现每日北京时间 10:43 自动扫描公开仓库、按 README 变化触发 Codex 生成中英文项目数据、校验后创建可审阅 PR 的完整流水线；保留现有 WebGL 四面墙精选模型并新增动态「全部项目」目录，421 项测试通过、构建与工作流语法检查通过、首次云端扫描验证无变化时正确跳过生成，代码已发布到 main（commit 35ab0ea）并部署上线。"
+    },
     {
       "date": "2026-09-20",
       "sessionCount": 3,
