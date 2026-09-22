@@ -10,11 +10,28 @@
       "role": "产品设计 · Agent 工作流 · 工程交付",
       "stage": "npm 工作区公开测试",
       "description": "围绕“创作需求 → 场景与媒体组织 → 校验与渲染 → 本地交付”，构建由 coding Agent 参与创作、程序负责约束执行与结果检查的视频生产工作区。",
-      "tech": ["Node.js", "Remotion", "Agent 工作流", "媒体处理", "产物校验"],
-      "highlights": ["任务与写入边界", "音频采样驱动时间轴", "隔离修订与失败恢复", "视频、双封面与发布清单校验"],
+      "tech": [
+        "Node.js",
+        "Remotion",
+        "Agent 工作流",
+        "媒体处理",
+        "产物校验"
+      ],
+      "highlights": [
+        "任务与写入边界",
+        "音频采样驱动时间轴",
+        "隔离修订与失败恢复",
+        "视频、双封面与发布清单校验"
+      ],
       "links": [
-        { "label": "源码", "href": "https://github.com/AXMORF/axmorf-studio" },
-        { "label": "项目详情", "href": "https://zzzxc.com/projects/axmorf-studio" }
+        {
+          "label": "源码",
+          "href": "https://github.com/AXMORF/axmorf-studio"
+        },
+        {
+          "label": "项目详情",
+          "href": "https://zzzxc.com/projects/axmorf-studio"
+        }
       ]
     },
     {
@@ -23,9 +40,26 @@
       "role": "全栈业务建模 · 部署运维",
       "stage": "公开演示站",
       "description": "围绕数字游民社区选房与入住管理，组织用户端、管理后台、服务端与数据库的完整实现，并从 Mac 开发环境交付到 Ubuntu 演示环境。",
-      "tech": ["Taro", "React", "NestJS", "PostgreSQL", "Docker", "Cloudflare Tunnel"],
-      "highlights": ["报价到退房完整流程", "PostgreSQL 事务与审计", "H5 / 小程序构建", "备份恢复与版本回退"],
-      "links": [{ "label": "在线演示", "href": "https://living.zzzxc.com" }]
+      "tech": [
+        "Taro",
+        "React",
+        "NestJS",
+        "PostgreSQL",
+        "Docker",
+        "Cloudflare Tunnel"
+      ],
+      "highlights": [
+        "报价到退房完整流程",
+        "PostgreSQL 事务与审计",
+        "H5 / 小程序构建",
+        "备份恢复与版本回退"
+      ],
+      "links": [
+        {
+          "label": "在线演示",
+          "href": "https://living.zzzxc.com"
+        }
+      ]
     },
     {
       "name": "Vibe Journal Pipeline",
@@ -33,11 +67,29 @@
       "role": "Python 数据处理 · LLM 工程",
       "stage": "开源项目",
       "description": "连接多种 AI 开发工具的会话数据与模型接口，将分散的开发对话转为结构化日志、技术清单和公开时间线。",
-      "tech": ["Python", "LLM API", "SQLite", "JSON / JSONL", "SSH", "GitHub Actions"],
-      "highlights": ["多源会话标准化", "分段压缩与输入缓存", "结构化输出校验与修复", "白名单发布与部署核对"],
+      "tech": [
+        "Python",
+        "LLM API",
+        "SQLite",
+        "JSON / JSONL",
+        "SSH",
+        "GitHub Actions"
+      ],
+      "highlights": [
+        "多源会话标准化",
+        "分段压缩与输入缓存",
+        "结构化输出校验与修复",
+        "白名单发布与部署核对"
+      ],
       "links": [
-        { "label": "源码", "href": "https://github.com/agenticnoob/vibe-journal-pipeline" },
-        { "label": "项目详情", "href": "https://zzzxc.com/projects/vibe-journal-pipeline" }
+        {
+          "label": "源码",
+          "href": "https://github.com/agenticnoob/vibe-journal-pipeline"
+        },
+        {
+          "label": "项目详情",
+          "href": "https://zzzxc.com/projects/vibe-journal-pipeline"
+        }
       ]
     },
     {
@@ -46,11 +98,29 @@
       "role": "产品目标 · 架构边界 · 验收",
       "stage": "Windows 分发待目标机复验",
       "description": "主导本地 CPU 运行的针筒视觉测量 MVP，推动视觉推理、桌面交互、数据记录和安装包分发形成完整流程。",
-      "tech": ["Python", "YOLO OBB", "Qt", "多进程", "CSV", "PyInstaller"],
-      "highlights": ["旋转目标局部坐标测量", "父子进程职责分离", "有效帧与记录状态语义", "CI 构建安装程序与便携包"],
+      "tech": [
+        "Python",
+        "YOLO OBB",
+        "Qt",
+        "多进程",
+        "CSV",
+        "PyInstaller"
+      ],
+      "highlights": [
+        "旋转目标局部坐标测量",
+        "父子进程职责分离",
+        "有效帧与记录状态语义",
+        "CI 构建安装程序与便携包"
+      ],
       "links": [
-        { "label": "源码", "href": "https://github.com/agenticnoob/syringe-meter" },
-        { "label": "演示与详情", "href": "https://zzzxc.com/projects/syringe-meter" }
+        {
+          "label": "源码",
+          "href": "https://github.com/agenticnoob/syringe-meter"
+        },
+        {
+          "label": "演示与详情",
+          "href": "https://zzzxc.com/projects/syringe-meter"
+        }
       ],
       "github": {
         "repositoryId": 1312260600,
@@ -64,11 +134,28 @@
       "role": "系统抽象 · 公开 API · npm 发布",
       "stage": "alpha",
       "description": "围绕“保留 DOM 语义，以声明驱动空间视觉”构建可复用运行时，统一管理渲染、资源、输入和生命周期。",
-      "tech": ["TypeScript", "React", "WebGL", "npm workspace", "声明式 API"],
-      "highlights": ["DOM 内容的空间视觉声明", "单运行时资源与生命周期管理", "滚动与输入适配器", "公开包与 Agent 使用指引"],
+      "tech": [
+        "TypeScript",
+        "React",
+        "WebGL",
+        "npm workspace",
+        "声明式 API"
+      ],
+      "highlights": [
+        "DOM 内容的空间视觉声明",
+        "单运行时资源与生命周期管理",
+        "滚动与输入适配器",
+        "公开包与 Agent 使用指引"
+      ],
       "links": [
-        { "label": "源码", "href": "https://github.com/agenticnoob/dom-webgl-workspace" },
-        { "label": "项目详情", "href": "https://zzzxc.com/projects/viselora" }
+        {
+          "label": "源码",
+          "href": "https://github.com/agenticnoob/dom-webgl-workspace"
+        },
+        {
+          "label": "项目详情",
+          "href": "https://zzzxc.com/projects/viselora"
+        }
       ],
       "github": {
         "repositoryId": 1272434230,
@@ -82,9 +169,26 @@
       "role": "Next.js 应用 · 数据发布 · 交互验收",
       "stage": "线上运行",
       "description": "独立安装自研 Viselora npm 包构建完整个人站点，验证从运行时设计、包发布到复杂页面组合与真实交互验收的完整链路。",
-      "tech": ["Next.js", "React", "TypeScript", "Vitest", "GitHub Actions", "Vercel"],
-      "highlights": ["独立应用验证 SDK 边界", "WebGL 单画布场景组合", "SHA-256 数据快照发布", "浏览器自动化交互验收"],
-      "links": [{ "label": "在线地址", "href": "https://zzzxc.com" }]
+      "tech": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Vitest",
+        "GitHub Actions",
+        "Vercel"
+      ],
+      "highlights": [
+        "独立应用验证 SDK 边界",
+        "WebGL 单画布场景组合",
+        "SHA-256 数据快照发布",
+        "浏览器自动化交互验收"
+      ],
+      "links": [
+        {
+          "label": "在线地址",
+          "href": "https://zzzxc.com"
+        }
+      ]
     },
     {
       "name": "技术文档 RAG 问答",
@@ -92,9 +196,148 @@
       "role": "学习原型 · 全链路实践",
       "stage": "个人学习原型",
       "description": "实践文档上传、切分、向量化、检索与流式问答链路，用于理解模型、检索层、接口和界面的协作关系。",
-      "tech": ["FastAPI", "ChromaDB", "BGE-M3", "MiniMax", "SSE", "Docker Compose"],
-      "highlights": ["向量检索与上下文构造", "流式回答与来源片段", "Web 交互", "明确非生产级边界"],
+      "tech": [
+        "FastAPI",
+        "ChromaDB",
+        "BGE-M3",
+        "MiniMax",
+        "SSE",
+        "Docker Compose"
+      ],
+      "highlights": [
+        "向量检索与上下文构造",
+        "流式回答与来源片段",
+        "Web 交互",
+        "明确非生产级边界"
+      ],
       "links": []
+    },
+    {
+      "name": "AI Agent Workspace",
+      "subtitle": "本地多智能体协作工作台",
+      "role": "开源项目",
+      "stage": "开源项目",
+      "description": "面向 Hermes Agent 与 Codex 协作的本地工作空间，通过标准化任务交接、执行结果、评审和记忆候选文档，解决多智能体流程中上下文、产物与职责分散的问题。",
+      "tech": [
+        "Markdown",
+        "Codex",
+        "Hermes Agent",
+        "MCP"
+      ],
+      "highlights": [
+        "提供模板、任务、结果、评审、记忆与工作流目录",
+        "定义从任务上下文到记忆候选的标准产物流转",
+        "支持产物质量校验与敏感信息隔离约定"
+      ],
+      "links": [
+        {
+          "label": "源码",
+          "href": "https://github.com/agenticnoob/ai-agent-workstation"
+        }
+      ],
+      "github": {
+        "repositoryId": 1240860765,
+        "fullName": "agenticnoob/ai-agent-workstation",
+        "fingerprint": "8771ee0f8657de4f8205c2762b95b3b47b1c5a45ed463ee6ea53f706299e554d"
+      }
+    },
+    {
+      "name": "AI Video Studio",
+      "subtitle": "AI 驱动的 Remotion 视频生产工作台",
+      "role": "开源项目",
+      "stage": "开源项目",
+      "description": "从主题或简报出发，结合资料、素材与语音生成专用 Remotion 视频，支持旁白与字幕、组件化场景编排、静帧审阅和 MP4 渲染；同时保留分段编辑、局部重新生成与导出的产品化 Web 流程。",
+      "tech": [
+        "TypeScript",
+        "Next.js",
+        "Remotion",
+        "DeepSeek",
+        "VoxCPM",
+        "F5-TTS",
+        "Docker"
+      ],
+      "highlights": [
+        "采用先生成语音、再按真实时长编排画面的制作流程",
+        "支持分镜规划、分段模板编译、预览、局部重生成与导出",
+        "沉淀视觉原语、区块、配方与模板的分层复用体系",
+        "支持来源截图优先及来源卡片降级记录"
+      ],
+      "links": [
+        {
+          "label": "源码",
+          "href": "https://github.com/agenticnoob/ai-video-studio"
+        }
+      ],
+      "github": {
+        "repositoryId": 1253110411,
+        "fullName": "agenticnoob/ai-video-studio",
+        "fingerprint": "f00256b4446333c30e47795608c6e59d3fcdbc4b1e8f1330023b62818b44cd00"
+      }
+    },
+    {
+      "name": "Spatial — 递归智能界面",
+      "subtitle": "空间化 AI-native 叙事主页",
+      "role": "开源项目",
+      "stage": "开源项目",
+      "description": "中文长滚动个人主页，以固定 WebGL 画布和短句叙事呈现观察、因果、递归、自指、重构五个阶段；滚动过程联动镜头轨迹、场景状态与材质响应，形成围绕递归巨石的空间叙事体验。",
+      "tech": [
+        "Next.js 16",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS v4",
+        "Three.js",
+        "React Three Fiber",
+        "GSAP",
+        "Lenis"
+      ],
+      "highlights": [
+        "单一 WebGL 焦点对象与五阶段叙事联动",
+        "统一动画循环协调滚动、文案、指针与场景状态",
+        "通过镜头环绕、推进、高度和翻滚变化表达空间层次",
+        "采用严格 TypeScript 与静态导出构建"
+      ],
+      "links": [
+        {
+          "label": "源码",
+          "href": "https://github.com/agenticnoob/static-25d-hero"
+        }
+      ],
+      "github": {
+        "repositoryId": 1258561536,
+        "fullName": "agenticnoob/static-25d-hero",
+        "fingerprint": "a407b3d1d56addefbb9f35de86982abf11e98cc9e67e5eaf3ea9ba68d009e6e7"
+      }
+    },
+    {
+      "name": "webgl-scroll",
+      "subtitle": "React 可组合 WebGL 滚动效果库",
+      "role": "开源项目",
+      "stage": "开源项目",
+      "description": "为 React、Next.js 与智能前端工作流提供声明式 WebGL 滚动效果，将运行时、内置效果和 React 触发器拆分为独立包，帮助应用复用滚动特效，同时保留对画布、渲染循环和资源释放的控制。",
+      "tech": [
+        "TypeScript",
+        "React",
+        "Next.js",
+        "Three.js",
+        "GSAP"
+      ],
+      "highlights": [
+        "提供 asset-layer、fade-title、glb-particles 和 pixelated-wipe 内置效果",
+        "按视口距离执行预加载、暂停与卸载调度",
+        "支持宿主资源解析器和内置效果资源清单",
+        "以 core、effects、react 三个包划分运行时、效果与框架绑定"
+      ],
+      "links": [
+        {
+          "label": "源码",
+          "href": "https://github.com/agenticnoob/webgl-scroll"
+        }
+      ],
+      "github": {
+        "repositoryId": 1265195464,
+        "fullName": "agenticnoob/webgl-scroll",
+        "fingerprint": "bfde6e79070a59934dd47b66e7e719decfc94bb14d41266ac97250e78a9afaf3"
+      }
     }
   ]
 }
