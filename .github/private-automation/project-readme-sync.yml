@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: read
-  id-token: write
 
 concurrency:
   group: xuli-resume-project-readme-sync
@@ -141,30 +140,24 @@ jobs:
       - name: Install the pinned Codex CLI
         run: npm install --global "@openai/codex@$CODEX_VERSION"
 
-      - name: Obtain short-lived secret-store credentials
-        id: aws-credentials
-        uses: aws-actions/configure-aws-credentials@v5
+      - name: Create a private session-store token
+        id: session-store-token
+        uses: actions/create-github-app-token@v2
         with:
-          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
-          aws-region: ${{ vars.AWS_REGION }}
-          output-credentials: true
-          output-env-credentials: false
+          app-id: ${{ secrets.SESSION_STORE_APP_ID }}
+          private-key: ${{ secrets.SESSION_STORE_APP_PRIVATE_KEY }}
+          owner: agenticnoob
+          repositories: xuli-resume-automation
+          permission-secrets: write
 
       - name: Restore the dedicated Codex session
         env:
           CODEX_HOME: ${{ runner.temp }}/codex-project-introductions
-          CODEX_AUTH_SECRET_ID: ${{ vars.CODEX_AUTH_SECRET_ID }}
-          AWS_ACCESS_KEY_ID: ${{ steps.aws-credentials.outputs.aws-access-key-id }}
-          AWS_SECRET_ACCESS_KEY: ${{ steps.aws-credentials.outputs.aws-secret-access-key }}
-          AWS_SESSION_TOKEN: ${{ steps.aws-credentials.outputs.aws-session-token }}
-          AWS_REGION: ${{ vars.AWS_REGION }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
         run: |
           mkdir -p "$CODEX_HOME"
           chmod 700 "$CODEX_HOME"
-          aws secretsmanager get-secret-value \
-            --secret-id "$CODEX_AUTH_SECRET_ID" \
-            --query SecretString \
-            --output text > "$CODEX_HOME/auth.json"
+          printf '%s' "$CODEX_AUTH_JSON" > "$CODEX_HOME/auth.json"
           chmod 600 "$CODEX_HOME/auth.json"
           jq -e '.auth_mode == "chatgpt" and ((.tokens.refresh_token // "") | length > 0)' \
             "$CODEX_HOME/auth.json" >/dev/null
@@ -173,7 +166,6 @@ jobs:
         env:
           CODEX_HOME: ${{ runner.temp }}/codex-project-introductions
         run: |
-          unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN AWS_SECURITY_TOKEN
           codex exec - \
             --skip-git-repo-check \
             --ephemeral \
@@ -188,16 +180,14 @@ jobs:
         if: always()
         env:
           CODEX_HOME: ${{ runner.temp }}/codex-project-introductions
-          CODEX_AUTH_SECRET_ID: ${{ vars.CODEX_AUTH_SECRET_ID }}
-          AWS_ACCESS_KEY_ID: ${{ steps.aws-credentials.outputs.aws-access-key-id }}
-          AWS_SECRET_ACCESS_KEY: ${{ steps.aws-credentials.outputs.aws-secret-access-key }}
-          AWS_SESSION_TOKEN: ${{ steps.aws-credentials.outputs.aws-session-token }}
-          AWS_REGION: ${{ vars.AWS_REGION }}
+          GH_TOKEN: ${{ steps.session-store-token.outputs.token }}
         run: |
           test -s "$CODEX_HOME/auth.json"
-          aws secretsmanager put-secret-value \
-            --secret-id "$CODEX_AUTH_SECRET_ID" \
-            --secret-string "file://$CODEX_HOME/auth.json" >/dev/null
+          jq -e '.auth_mode == "chatgpt" and ((.tokens.refresh_token // "") | length > 0)' \
+            "$CODEX_HOME/auth.json" >/dev/null
+          gh secret set CODEX_AUTH_JSON \
+            --repo agenticnoob/xuli-resume-automation \
+            < "$CODEX_HOME/auth.json"
 
       - name: Upload structured model output
         uses: actions/upload-artifact@v4

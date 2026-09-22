@@ -15,6 +15,9 @@ test('private automation pins schedule, model, effort, and managed file boundary
   assert.match(workflow, /gh pr checks "\$pr_url" --watch --fail-fast/)
   assert.match(workflow, /gh pr merge "\$pr_url" --squash/)
   assert.match(workflow, /actions\/create-github-app-token@v2/)
+  assert.match(workflow, /permission-secrets: write/)
+  assert.match(workflow, /gh secret set CODEX_AUTH_JSON/)
+  assert.doesNotMatch(workflow, /AWS_|aws secretsmanager/)
 })
 
 test('public verification rejects expanded automated PR scope', async () => {
