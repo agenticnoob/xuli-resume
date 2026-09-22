@@ -32,6 +32,11 @@ test('private auth helper writes only the protected environment secret', async (
   assert.match(helper, /for \(let attempt = 0; attempt < 3/)
 })
 
+test('model output schema uses the supported structured-output subset', async () => {
+  const schema = await readFile('.github/codex/project-introduction.schema.json', 'utf8')
+  assert.doesNotMatch(schema, /uniqueItems/)
+})
+
 test('public verification rejects expanded automated PR scope', async () => {
   const workflow = await readFile('.github/workflows/verify.yml', 'utf8')
 
