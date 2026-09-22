@@ -83,7 +83,7 @@ public/
 - GitHub 数字仓库 ID 是身份键。内容指纹只覆盖 README、仓库名、描述、主要语言和 topics；代码提交本身不触发 Codex。
 - Codex 只输出 Schema 约束的 `name/subtitle/description/tech/highlights`。可信脚本核对候选 ID、写入 catalog 并生成 GitHub 源码链接。
 - 来源消失、转私有或不再符合条件时写入 `pending`，不自动删除已发布条目。
-- 订阅 `auth.json` 只属于专用私有自动化仓库及其外部 secret store；公开仓库不得保存、接收或上传该会话。
+- 订阅 `auth.json` 只属于专用私有自动化仓库的加密 `CODEX_AUTH_JSON` Secret；由独立 session-store GitHub App 回写刷新，公开仓库不得保存、接收或上传该会话。
 - 自动内容 PR 固定使用 `automation/github-project-introductions`，只能修改 `src/data/projects.json`；`verify.yml` 对该范围再次门禁。
 - GitHub-hosted 定时模板位于 `.github/private-automation/`，cron `43 2 * * *` 对应北京时间 10:43。它使用 GitHub App token 推送/合并，不能替换成不会触发后续 workflow 的目标仓库 `GITHUB_TOKEN`。
 
