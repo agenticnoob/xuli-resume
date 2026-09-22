@@ -114,6 +114,10 @@ jobs:
     if: needs.scan.outputs.candidate_count != '0'
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    # Environment secrets are resolved when this job starts, after the
+    # workflow-level concurrency lock. Queued runs therefore receive the
+    # credential saved by the preceding serialized run.
+    environment: project-content
     steps:
       - name: Check out private automation controls
         uses: actions/checkout@v4
@@ -138,7 +142,7 @@ jobs:
           } > .project-sync/model-prompt.md
 
       - name: Install the pinned Codex CLI
-        run: npm install --global "@openai/codex@$CODEX_VERSION"
+        run: npm install --global --ignore-scripts "@openai/codex@$CODEX_VERSION"
 
       - name: Create a private session-store token
         id: session-store-token
@@ -148,23 +152,23 @@ jobs:
           private-key: ${{ secrets.SESSION_STORE_APP_PRIVATE_KEY }}
           owner: agenticnoob
           repositories: xuli-resume-automation
-          permission-secrets: write
+          permission-environments: write
 
       - name: Restore the dedicated Codex session
+        id: auth
         env:
-          CODEX_HOME: ${{ runner.temp }}/codex-project-introductions
           CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
-        run: |
-          mkdir -p "$CODEX_HOME"
-          chmod 700 "$CODEX_HOME"
-          printf '%s' "$CODEX_AUTH_JSON" > "$CODEX_HOME/auth.json"
-          chmod 600 "$CODEX_HOME/auth.json"
-          jq -e '.auth_mode == "chatgpt" and ((.tokens.refresh_token // "") | length > 0)' \
-            "$CODEX_HOME/auth.json" >/dev/null
+        run: node .automation-control/scripts/project-auth.mjs restore .project-sync
+
+      - name: Verify credential writeback before consuming the login
+        env:
+          GH_TOKEN: ${{ steps.session-store-token.outputs.token }}
+        run: node .automation-control/scripts/project-auth.mjs persist .project-sync
 
       - name: Generate schema-constrained project introductions
+        timeout-minutes: 20
         env:
-          CODEX_HOME: ${{ runner.temp }}/codex-project-introductions
+          CODEX_HOME: ${{ github.workspace }}/.project-sync/codex-home
         run: |
           codex exec - \
             --skip-git-repo-check \
@@ -176,18 +180,11 @@ jobs:
             --output-last-message .project-sync/generated-projects.json \
             < .project-sync/model-prompt.md
 
-      - name: Persist the refreshed dedicated session
-        if: always()
+      - name: Preserve the refreshed login even when generation fails
+        if: always() && steps.auth.outcome == 'success'
         env:
-          CODEX_HOME: ${{ runner.temp }}/codex-project-introductions
           GH_TOKEN: ${{ steps.session-store-token.outputs.token }}
-        run: |
-          test -s "$CODEX_HOME/auth.json"
-          jq -e '.auth_mode == "chatgpt" and ((.tokens.refresh_token // "") | length > 0)' \
-            "$CODEX_HOME/auth.json" >/dev/null
-          gh secret set CODEX_AUTH_JSON \
-            --repo agenticnoob/xuli-resume-automation \
-            < "$CODEX_HOME/auth.json"
+        run: node .automation-control/scripts/project-auth.mjs persist .project-sync
 
       - name: Upload structured model output
         uses: actions/upload-artifact@v4
@@ -196,6 +193,10 @@ jobs:
           path: .project-sync/generated-projects.json
           if-no-files-found: error
           retention-days: 1
+
+      - name: Remove temporary authentication state
+        if: always()
+        run: rm -rf -- .project-sync/codex-home .project-sync/auth-before.json
 
   publish:
     needs: [scan, generate]

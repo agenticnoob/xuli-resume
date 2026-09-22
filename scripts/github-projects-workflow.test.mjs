@@ -15,9 +15,20 @@ test('private automation pins schedule, model, effort, and managed file boundary
   assert.match(workflow, /gh pr checks "\$pr_url" --watch --fail-fast/)
   assert.match(workflow, /gh pr merge "\$pr_url" --squash/)
   assert.match(workflow, /actions\/create-github-app-token@v2/)
-  assert.match(workflow, /permission-secrets: write/)
-  assert.match(workflow, /gh secret set CODEX_AUTH_JSON/)
+  assert.match(workflow, /environment: project-content/)
+  assert.match(workflow, /permission-environments: write/)
+  assert.match(workflow, /Verify credential writeback before consuming the login/)
+  assert.match(workflow, /if: always\(\) && steps\.auth\.outcome == 'success'/)
+  assert.doesNotMatch(workflow, /permission-secrets: write/)
   assert.doesNotMatch(workflow, /AWS_|aws secretsmanager/)
+})
+
+test('private auth helper writes only the protected environment secret', async () => {
+  const helper = await readFile('.github/private-automation/project-auth.mjs', 'utf8')
+  assert.match(helper, /authEnvironment = "project-content"/)
+  assert.match(helper, /"--env", authEnvironment/)
+  assert.match(helper, /current\.tokens\.account_id !== before\.tokens\.account_id/)
+  assert.match(helper, /for \(let attempt = 0; attempt < 3/)
 })
 
 test('public verification rejects expanded automated PR scope', async () => {
