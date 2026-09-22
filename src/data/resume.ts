@@ -1,3 +1,7 @@
+import projectCatalog from './projects.json'
+
+export const projects = projectCatalog.projects
+
 export const profile = {
   name: 'AXMORF',
   title: 'AI 应用构建者 / 全栈工程师',
@@ -78,91 +82,6 @@ export const workExperiences = [
     type: '全职',
     description: '负责内部系统维护、用户支持与技术故障排查。',
     highlights: ['系统维护', '用户支持', '故障排查'],
-  },
-]
-
-export const projects = [
-  {
-    name: 'AXMORF Studio',
-    subtitle: 'Agent 视频生产工作区',
-    role: '产品设计 · Agent 工作流 · 工程交付',
-    stage: 'npm 工作区公开测试',
-    description: '围绕“创作需求 → 场景与媒体组织 → 校验与渲染 → 本地交付”，构建由 coding Agent 参与创作、程序负责约束执行与结果检查的视频生产工作区。',
-    tech: ['Node.js', 'Remotion', 'Agent 工作流', '媒体处理', '产物校验'],
-    highlights: ['任务与写入边界', '音频采样驱动时间轴', '隔离修订与失败恢复', '视频、双封面与发布清单校验'],
-    links: [
-      { label: '源码', href: 'https://github.com/AXMORF/axmorf-studio' },
-      { label: '项目详情', href: 'https://zzzxc.com/projects/axmorf-studio' },
-    ],
-  },
-  {
-    name: 'Luju Living · 庐居',
-    subtitle: '社区居住平台与全栈交付',
-    role: '全栈业务建模 · 部署运维',
-    stage: '公开演示站',
-    description: '围绕数字游民社区选房与入住管理，组织用户端、管理后台、服务端与数据库的完整实现，并从 Mac 开发环境交付到 Ubuntu 演示环境。',
-    tech: ['Taro', 'React', 'NestJS', 'PostgreSQL', 'Docker', 'Cloudflare Tunnel'],
-    highlights: ['报价到退房完整流程', 'PostgreSQL 事务与审计', 'H5 / 小程序构建', '备份恢复与版本回退'],
-    links: [{ label: '在线演示', href: 'https://living.zzzxc.com' }],
-  },
-  {
-    name: 'Vibe Journal Pipeline',
-    subtitle: 'LLM 日志生成与数据发布流水线',
-    role: 'Python 数据处理 · LLM 工程',
-    stage: '开源项目',
-    description: '连接多种 AI 开发工具的会话数据与模型接口，将分散的开发对话转为结构化日志、技术清单和公开时间线。',
-    tech: ['Python', 'LLM API', 'SQLite', 'JSON / JSONL', 'SSH', 'GitHub Actions'],
-    highlights: ['多源会话标准化', '分段压缩与输入缓存', '结构化输出校验与修复', '白名单发布与部署核对'],
-    links: [
-      { label: '源码', href: 'https://github.com/agenticnoob/vibe-journal-pipeline' },
-      { label: '项目详情', href: 'https://zzzxc.com/projects/vibe-journal-pipeline' },
-    ],
-  },
-  {
-    name: 'SyringeMeter',
-    subtitle: '计算机视觉测量与桌面应用',
-    role: '产品目标 · 架构边界 · 验收',
-    stage: 'Windows 分发待目标机复验',
-    description: '主导本地 CPU 运行的针筒视觉测量 MVP，推动视觉推理、桌面交互、数据记录和安装包分发形成完整流程。',
-    tech: ['Python', 'YOLO OBB', 'Qt', '多进程', 'CSV', 'PyInstaller'],
-    highlights: ['旋转目标局部坐标测量', '父子进程职责分离', '有效帧与记录状态语义', 'CI 构建安装程序与便携包'],
-    links: [
-      { label: '源码', href: 'https://github.com/agenticnoob/syringe-meter' },
-      { label: '演示与详情', href: 'https://zzzxc.com/projects/syringe-meter' },
-    ],
-  },
-  {
-    name: 'dom-webgl-workspace / Viselora',
-    subtitle: '声明式 WebGL 运行时与 SDK',
-    role: '系统抽象 · 公开 API · npm 发布',
-    stage: 'alpha',
-    description: '围绕“保留 DOM 语义，以声明驱动空间视觉”构建可复用运行时，统一管理渲染、资源、输入和生命周期。',
-    tech: ['TypeScript', 'React', 'WebGL', 'npm workspace', '声明式 API'],
-    highlights: ['DOM 内容的空间视觉声明', '单运行时资源与生命周期管理', '滚动与输入适配器', '公开包与 Agent 使用指引'],
-    links: [
-      { label: '源码', href: 'https://github.com/agenticnoob/dom-webgl-workspace' },
-      { label: '项目详情', href: 'https://zzzxc.com/projects/viselora' },
-    ],
-  },
-  {
-    name: 'Hero Next',
-    subtitle: 'Viselora 运行时落地应用',
-    role: 'Next.js 应用 · 数据发布 · 交互验收',
-    stage: '线上运行',
-    description: '独立安装自研 Viselora npm 包构建完整个人站点，验证从运行时设计、包发布到复杂页面组合与真实交互验收的完整链路。',
-    tech: ['Next.js', 'React', 'TypeScript', 'Vitest', 'GitHub Actions', 'Vercel'],
-    highlights: ['独立应用验证 SDK 边界', 'WebGL 单画布场景组合', 'SHA-256 数据快照发布', '浏览器自动化交互验收'],
-    links: [{ label: '在线地址', href: 'https://zzzxc.com' }],
-  },
-  {
-    name: '技术文档 RAG 问答',
-    subtitle: '检索增强生成原型',
-    role: '学习原型 · 全链路实践',
-    stage: '个人学习原型',
-    description: '实践文档上传、切分、向量化、检索与流式问答链路，用于理解模型、检索层、接口和界面的协作关系。',
-    tech: ['FastAPI', 'ChromaDB', 'BGE-M3', 'MiniMax', 'SSE', 'Docker Compose'],
-    highlights: ['向量检索与上下文构造', '流式回答与来源片段', 'Web 交互', '明确非生产级边界'],
-    links: [],
   },
 ]
 

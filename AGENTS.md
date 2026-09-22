@@ -1,6 +1,6 @@
 # PROJECT KNOWLEDGE BASE
 
-**Updated:** 2026-09-21
+**Updated:** 2026-09-22
 **Project:** AXMORF 工程实践手账 (xuli-resume)
 
 ## OVERVIEW
@@ -16,11 +16,11 @@ src/
 ├── pages/           # 9 页面 (Home, About, Skills, Experience, Projects, Education, AIPhilosophy, DevelopmentLog, VibeJournal)
 ├── components/      # 6 个共享组件 (Navbar, Footer, Logo, PageHeader, PageTransition, BackgroundEffects)
 ├── lib/             # 浏览器侧线上 JSON 类型、缓存与加载 hook
-├── data/            # 简历静态内容 + 线上数据发布 manifest
+├── data/            # 简历静态内容、项目介绍 catalog + 线上数据发布 manifest
 └── styles/
     ├── tokens.css   # 工程手账设计 token
     └── index.css    # 全局样式、手绘组件与响应式规则
-scripts/             # vibe-journal CLI runner
+scripts/             # vibe-journal 与 GitHub README 项目同步 CLI
 public/
 ├── favicon.svg      # 手绘文档 + 铅笔标志
 ├── illustrations/   # 首页、关于页、项目页、Vibe 日志页的透明 WebP 插画
@@ -36,6 +36,7 @@ public/
 | 修改手绘组件 / 响应式 CSS | `src/styles/index.css` |
 | 修改页面插画 | `public/illustrations/` + 对应页面组件 |
 | 页面头部统一 | `src/components/PageHeader.tsx` |
+| 修改项目介绍数据/同步 | `src/data/projects.json`, `scripts/github-projects.mjs` |
 | 同步线上 Pipeline 数据 | `npm run sync:vibe-journal -- --source <pipeline>/data --revision <sha>` |
 | 修改数据适配器 | `scripts/sync-vibe-journal.mjs` + 对应测试 |
 | 修改日志/技能展示 | `src/pages/VibeJournal.tsx`, `src/pages/Skills.tsx`, `src/lib/vibeData.ts` |
@@ -75,6 +76,17 @@ public/
 - 实践日志顶部展示源仓库、精确 SHA 校验和脱敏边界；timeline 展示全部公开 event，不截断为固定天数。
 - 桌面日志目录保持 sticky；切换条目定位到文章卡片顶部而不是页面顶部。单日技能记录使用响应式卡片网格，显示技能名、类别和当日次数。
 
+## GITHUB PROJECT INTRODUCTION CONTRACT
+
+- 项目页唯一数据源是 `src/data/projects.json`；人工排序、现有素材、职责/阶段与非 GitHub 链接由可信脚本保留。
+- 默认候选是 `agenticnoob` 拥有的公开、非 Fork、未归档且 README 非空的仓库；`excludedRepositories` 支持按仓库名或 `owner/name` 排除。
+- GitHub 数字仓库 ID 是身份键。内容指纹只覆盖 README、仓库名、描述、主要语言和 topics；代码提交本身不触发 Codex。
+- Codex 只输出 Schema 约束的 `name/subtitle/description/tech/highlights`。可信脚本核对候选 ID、写入 catalog 并生成 GitHub 源码链接。
+- 来源消失、转私有或不再符合条件时写入 `pending`，不自动删除已发布条目。
+- 订阅 `auth.json` 只属于专用私有自动化仓库及其外部 secret store；公开仓库不得保存、接收或上传该会话。
+- 自动内容 PR 固定使用 `automation/github-project-introductions`，只能修改 `src/data/projects.json`；`verify.yml` 对该范围再次门禁。
+- GitHub-hosted 定时模板位于 `.github/private-automation/`，cron `43 2 * * *` 对应北京时间 10:43。它使用 GitHub App token 推送/合并，不能替换成不会触发后续 workflow 的目标仓库 `GITHUB_TOKEN`。
+
 ## CONSTRAINTS
 - TypeScript: `noUnusedLocals=true`, `noUnusedParameters=true`
 - 无 ESLint；数据适配器使用 Node 内置 test runner
@@ -100,6 +112,8 @@ npm run dev                       # http://localhost:5173
 npm run build                     # tsc -b && vite build
 npm run preview                   # 预览构建
 npm test                          # 数据适配器回归测试
+npm run projects:validate         # 校验项目介绍 catalog
+npm run projects:scan -- --output .project-sync/scan.json
 npm run sync:vibe-journal -- --source <pipeline>/data --revision <40位sha>
 npm run sync:vibe-journal:dry -- --source <pipeline>/data --revision <40位sha>
 ```
@@ -113,6 +127,7 @@ npm run sync:vibe-journal:dry -- --source <pipeline>/data --revision <40位sha>
 - Vercel 自动识别 Vite，构建命令为 `npm run build`，输出目录为 `dist`
 - `vercel.json` 提供 React Router SPA 深链接 rewrite；修改路由时保持该规则有效
 - GitHub Actions 的 `verify.yml` 是测试/构建门禁；`sync-vibe-data.yml` 是线上数据更新权威，Vercel Git 是发布权威
+- 项目介绍同步由专用私有自动化仓库运行；本仓库只保存无凭据的扫描/校验代码、提示词、Schema 和工作流模板
 - 自定义域名 `resume.zzzxc.com` 在 Vercel Domains 中管理；DNS 以 Vercel 控制台给出的当前记录为准
 - 不再维护本地 Docker、Nginx、systemd timer、端口映射或 Tunnel 发布链路
 

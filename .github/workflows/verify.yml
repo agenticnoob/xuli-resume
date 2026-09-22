@@ -21,6 +21,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Enforce automated project content scope
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.ref == 'automation/github-project-introductions'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          changed_files="$(git diff --name-only "$BASE_SHA" "$HEAD_SHA" | sed '/^$/d')"
+          if [[ "$changed_files" != "src/data/projects.json" ]]; then
+            echo "Automated project PR must change only src/data/projects.json; found:" >&2
+            echo "$changed_files" >&2
+            exit 1
+          fi
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -32,7 +47,9 @@ jobs:
         run: npm ci
 
       - name: Test data contracts
-        run: npm test
+        run: |
+          npm run projects:validate
+          npm test
 
       - name: Build
         run: npm run build

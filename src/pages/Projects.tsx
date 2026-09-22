@@ -31,7 +31,7 @@ export default function Projects() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {projects.map((project, index) => (
               <article
-                key={project.name}
+                key={project.github?.repositoryId ?? project.name}
                 className={`sketch-card bg-[var(--xuli-bg-tertiary)] overflow-hidden flex flex-col ${index < 2 ? 'lg:min-h-[430px]' : ''}`}
               >
                 <div className="p-6 sm:p-7 flex flex-col h-full">

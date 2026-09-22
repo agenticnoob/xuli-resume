@@ -8,6 +8,8 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "test": "node --test scripts/*.test.mjs",
+    "projects:validate": "node scripts/sync-github-projects.mjs validate",
+    "projects:scan": "node scripts/sync-github-projects.mjs scan",
     "sync:vibe-journal": "node scripts/sync-vibe-journal.mjs",
     "sync:vibe-journal:dry": "node scripts/sync-vibe-journal.mjs --dry-run"
   },
