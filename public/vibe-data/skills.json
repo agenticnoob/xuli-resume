@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "source": {
     "repository": "agenticnoob/vibe-journal-pipeline",
-    "revision": "091b2097ef92fab3f0d8c162ce0183092b2bf710",
-    "generatedAt": "2026-09-22T00:07:00.518508+08:00"
+    "revision": "522ab2cf09bcad0e38313fcd48a09961d4cd91b2",
+    "generatedAt": "2026-09-23T00:06:56.763257+08:00"
   },
   "skills": [
     {
@@ -46,10 +46,10 @@
       "id": "actionlint",
       "name": "Actionlint",
       "category": "tool",
-      "dayCount": 3,
-      "totalCount": 5,
+      "dayCount": 4,
+      "totalCount": 7,
       "firstSeen": "2026-08-24",
-      "lastSeen": "2026-09-12"
+      "lastSeen": "2026-09-22"
     },
     {
       "id": "agentmemory",
@@ -262,10 +262,10 @@
       "id": "codex",
       "name": "Codex CLI",
       "category": "ai-coding-tool",
-      "dayCount": 30,
-      "totalCount": 181,
+      "dayCount": 31,
+      "totalCount": 189,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-09-21"
+      "lastSeen": "2026-09-22"
     },
     {
       "id": "comfyui",
@@ -568,10 +568,10 @@
       "id": "git",
       "name": "Git",
       "category": "vcs",
-      "dayCount": 85,
-      "totalCount": 415,
+      "dayCount": 86,
+      "totalCount": 423,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-09-21"
+      "lastSeen": "2026-09-22"
     },
     {
       "id": "github",
@@ -586,19 +586,28 @@
       "id": "githubactions",
       "name": "GitHub Actions",
       "category": "tool",
-      "dayCount": 20,
-      "totalCount": 85,
+      "dayCount": 21,
+      "totalCount": 97,
       "firstSeen": "2026-06-10",
-      "lastSeen": "2026-09-21"
+      "lastSeen": "2026-09-22"
     },
     {
       "id": "githubapi",
-      "name": "GitHub API",
-      "category": "API / Integration",
-      "dayCount": 1,
-      "totalCount": 2,
+      "name": "GitHub REST API",
+      "category": "protocol",
+      "dayCount": 2,
+      "totalCount": 7,
       "firstSeen": "2026-05-17",
-      "lastSeen": "2026-05-17"
+      "lastSeen": "2026-09-22"
+    },
+    {
+      "id": "githubapps",
+      "name": "GitHub Apps",
+      "category": "tool",
+      "dayCount": 1,
+      "totalCount": 6,
+      "firstSeen": "2026-09-22",
+      "lastSeen": "2026-09-22"
     },
     {
       "id": "githubcli",
@@ -692,12 +701,12 @@
     },
     {
       "id": "gpt56sol",
-      "name": "GPT-5.6 Sol",
+      "name": "gpt-5.6-sol",
       "category": "ai-model",
-      "dayCount": 3,
-      "totalCount": 10,
+      "dayCount": 4,
+      "totalCount": 15,
       "firstSeen": "2026-08-14",
-      "lastSeen": "2026-08-20"
+      "lastSeen": "2026-09-22"
     },
     {
       "id": "gpt56terra",
@@ -847,10 +856,10 @@
       "id": "javascript",
       "name": "JavaScript",
       "category": "language",
-      "dayCount": 15,
-      "totalCount": 89,
+      "dayCount": 16,
+      "totalCount": 93,
       "firstSeen": "2026-07-05",
-      "lastSeen": "2026-09-17"
+      "lastSeen": "2026-09-22"
     },
     {
       "id": "jdk",
@@ -883,10 +892,10 @@
       "id": "json",
       "name": "JSON",
       "category": "format",
-      "dayCount": 27,
-      "totalCount": 175,
+      "dayCount": 28,
+      "totalCount": 181,
       "firstSeen": "2026-05-19",
-      "lastSeen": "2026-09-21"
+      "lastSeen": "2026-09-22"
     },
     {
       "id": "jsonschema",
@@ -1081,10 +1090,10 @@
       "id": "nodejs",
       "name": "Node.js",
       "category": "runtime",
-      "dayCount": 66,
-      "totalCount": 327,
+      "dayCount": 67,
+      "totalCount": 331,
       "firstSeen": "2026-05-18",
-      "lastSeen": "2026-09-18"
+      "lastSeen": "2026-09-22"
     },
     {
       "id": "npm",
@@ -1423,10 +1432,10 @@
       "id": "react",
       "name": "React",
       "category": "framework",
-      "dayCount": 76,
-      "totalCount": 445,
+      "dayCount": 77,
+      "totalCount": 450,
       "firstSeen": "2026-05-20",
-      "lastSeen": "2026-09-21"
+      "lastSeen": "2026-09-22"
     },
     {
       "id": "reactdoctor",
@@ -1783,10 +1792,10 @@
       "id": "typescript",
       "name": "TypeScript",
       "category": "language",
-      "dayCount": 114,
-      "totalCount": 947,
+      "dayCount": 115,
+      "totalCount": 953,
       "firstSeen": "2026-05-17",
-      "lastSeen": "2026-09-21"
+      "lastSeen": "2026-09-22"
     },
     {
       "id": "ubuntu",
@@ -1855,10 +1864,10 @@
       "id": "vercel",
       "name": "Vercel",
       "category": "cloud",
-      "dayCount": 11,
-      "totalCount": 41,
+      "dayCount": 12,
+      "totalCount": 45,
       "firstSeen": "2026-06-29",
-      "lastSeen": "2026-09-21"
+      "lastSeen": "2026-09-22"
     },
     {
       "id": "viseloradomwebgl",

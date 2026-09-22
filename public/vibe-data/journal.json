@@ -2,10 +2,117 @@
   "schemaVersion": 1,
   "source": {
     "repository": "agenticnoob/vibe-journal-pipeline",
-    "revision": "091b2097ef92fab3f0d8c162ce0183092b2bf710",
-    "generatedAt": "2026-09-22T00:07:00.518508+08:00"
+    "revision": "522ab2cf09bcad0e38313fcd48a09961d4cd91b2",
+    "generatedAt": "2026-09-23T00:06:56.763257+08:00"
   },
   "entries": [
+    {
+      "date": "2026-09-22",
+      "sessionCount": 3,
+      "turnCount": 75,
+      "skillsTouched": [
+        {
+          "id": "githubactions",
+          "name": "GitHub Actions",
+          "category": "tool",
+          "count": 12
+        },
+        {
+          "id": "githubapps",
+          "name": "GitHub Apps",
+          "category": "tool",
+          "count": 6
+        },
+        {
+          "id": "codex",
+          "name": "Codex CLI",
+          "category": "ai-coding-tool",
+          "count": 8
+        },
+        {
+          "id": "gpt56sol",
+          "name": "gpt-5.6-sol",
+          "category": "ai-model",
+          "count": 5
+        },
+        {
+          "id": "typescript",
+          "name": "TypeScript",
+          "category": "language",
+          "count": 6
+        },
+        {
+          "id": "javascript",
+          "name": "JavaScript",
+          "category": "language",
+          "count": 4
+        },
+        {
+          "id": "react",
+          "name": "React",
+          "category": "framework",
+          "count": 5
+        },
+        {
+          "id": "json",
+          "name": "JSON",
+          "category": "format",
+          "count": 6
+        },
+        {
+          "id": "vercel",
+          "name": "Vercel",
+          "category": "cloud",
+          "count": 4
+        },
+        {
+          "id": "git",
+          "name": "Git",
+          "category": "vcs",
+          "count": 8
+        },
+        {
+          "id": "nodejs",
+          "name": "Node.js",
+          "category": "runtime",
+          "count": 4
+        },
+        {
+          "id": "actionlint",
+          "name": "actionlint",
+          "category": "tool",
+          "count": 2
+        },
+        {
+          "id": "githubapi",
+          "name": "GitHub REST API",
+          "category": "protocol",
+          "count": 5
+        }
+      ],
+      "timelineEvent": "hero-next 作品集站完成 GitHub README 自动同步并上线；同日将同一方案迁移到 xuli-resume 简历站，经三次云端失败修复后成功自动合并发布。",
+      "tools": [
+        "GitHub Actions 定时工作流与手动触发",
+        "GitHub Apps 双应用隔离（Publisher App + Session-store App）",
+        "Codex CLI 0.155.1 与 gpt-5.6-sol 模型（medium 推理强度）",
+        "TypeScript / JavaScript / React 前端工程",
+        "JSON 结构化数据与 Schema 校验",
+        "Vercel 生产部署",
+        "Git 分支、PR、自动合并与受保护分支",
+        "Node.js 脚本与 GitHub REST API",
+        "actionlint 工作流校验"
+      ],
+      "work": [
+        "hero-next 作品集站：完成 GitHub README 自动转项目介绍的全链路。GitHub Actions 每天北京时间 10:43 扫描 agenticnoob 的公开、非 Fork、未归档且有 README 的仓库，按仓库名、描述、Topics、语言和 README 计算指纹，仅新增或指纹变化时调用 Codex（gpt-5.6-sol + medium）。凭据通过 GitHub Environment Secrets 管理，受限令牌仅访问 hero-next，有效期至 2026-12-21。首次云端生成因 Node 精简镜像缺少系统 CA 证书导致 TLS 错误与超时，补齐证书包并加入构建检查后成功，生成耗时约 2 分 36 秒。4 个项目介绍生成完毕，427/450 项测试与生产构建通过，内容 PR #1 自动合并并发布到 https://zzzxc.com/projects。已验证：已有待审核 PR 时跳过模型、相同内容复扫变化数为 0、自动合并仅允许专用分支上只修改 data/projects.json 的 PR。",
+        "hero-next 代码规范重构：按硬编码、低耦合高内聚、单一职责三项标准审查。处理了主题与语言重复实现存储/订阅、项目房间把状态/返回导航/几何计算混在同一模块、案例页通过 slug 前缀和重复查找推断返回位置等问题。第一轮重构后 72 个相关测试通过，全量 56 个测试文件、463 个测试通过，lint、格式、类型检查、独立包边界和生产构建均通过。浏览器验证桌面与移动端：案例返回展厅、弹窗语言切换、目录与生成案例返回、焦点恢复、主题/语言刷新保留、减少动态效果模式正常。原有四条扫描提示判定为已正确清理的可选订阅和测试锚点，未添加规则屏蔽。最终提交 70aa434 推送 origin/main，React Doctor 无新增诊断，自动部署运行中。",
+        "xuli-resume 简历站：将 hero-next 方案迁移到简历网站，范围严格限定为“项目介绍”区域，不改动个人简介、工作经历、教育背景、联系方式等其他内容。项目数据迁移到 src[local-path]；新增 scripts/github-projects.mjs，支持 GitHub 数字仓库 ID 匹配、README/名称/描述/语言/topics 指纹、新项目追加、已有项目更新、排除名单、来源消失仅记录 pending、可信程序校验输出并补充真实仓库链接。独立保存生成提示词与输出 Schema。提供私有自动化工作流模板，每天 10:43 运行，支持手动触发，使用 gpt-5.6-sol + medium，无变化不调用 Codex，复用固定内容 PR，仅允许修改 src[local-path]，验证成功后自动合并，使用 GitHub App token 触发普通 push 检查及 Vercel 部署；verify.yml 增加自动项目 PR 的单文件范围门禁。",
+        "xuli-resume 凭据与权限设计：因 xuli-resume 是公开仓库、自动化在私有 xuli-resume-automation，需要跨仓库发布权限。采用两个 GitHub App：Publisher App 安装到 xuli-resume，权限 Contents/Pull requests 读写、Checks 只读，凭据存仓库级 Secrets RESUME_APP_ID、RESUME_APP_PRIVATE_KEY；Session-store App 安装到 xuli-resume-automation，权限 Environments 读写，凭据存 project-content Environment Secrets SESSION_STORE_APP_ID、SESSION_STORE_APP_PRIVATE_KEY。用户确认选择不过期方案，GitHub App 私钥无固定到期日，installation token 每次运行自动生成。",
+        "xuli-resume 关键修复：发现仓库级 CODEX_AUTH_JSON 在 workflow 排队时读取，串行任务仍可能使用旧凭据，已改为 project-content Environment Secret，job 启动时读取；Session-store App 改用 Environments: write 和 environment-secret API 回写；生成前同值回写探测；Codex 失败后通过 always() 保存刷新后的 auth.json；校验账号 ID、文件类型和完整 Token，回写最多重试三次；回写失败阻止发布。已创建 project-content Environment 并限制 main 分支。",
+        "xuli-resume 云端验收：首次运行因 upload-artifact 默认排除 .project-sync 失败，补 include-hidden-files: true；第二次因 Codex CLI 0.139.0 过旧拒绝 gpt-5.6-sol，升级到 0.155.1；第三次因 Responses 结构化输出不支持 uniqueItems，从模型 Schema 删除该关键字，保留程序侧唯一性校验。最终首次完整运行成功调用 Codex，新增 4 个项目；内容 PR #6 只修改 src[local-path]，检查通过后自动合并；最终 main Verify 与 Vercel Production 成功，线上项目页已包含新项目；零变化复跑 candidates=0，generate/publish 均跳过，确认不调用模型。三次失败均停在发布前并成功保存刷新凭据。",
+        "最终整理与验证：公开仓库 PR #7 合并到 main，提交 d7dd6e2；私有自动化仓库 PR #1 合并到 main，提交 b92c33f。文档已对齐：README 补充真实自动化仓库、双 App 隔离、模型配置和云端验证；AGENTS.md 修正 session-store 权限为 Environments: Read and write；PROGRESS.md 新增阶段 15；AGENT_RESULT.md 更新实现、测试和生产发布状态；私有自动化说明补充 device auth、App 名称和启用状态；公开模板 workflow、认证 helper、提示词、Schema 与私有部署版本一致。个人简历.md 未修改，_site-content/ 保持未跟踪。最终验证：公开仓库 18/18 测试、11 个项目 catalog 校验、生产构建通过；私有自动化 7/7 测试通过；两份 workflow 通过 actionlint；git diff --check 通过；最终 main Verify workflow 成功；Vercel Production 发布成功；私有定时工作流保持 active。当前无待合并 PR。"
+      ],
+      "resumeHighlight": "独立设计并落地一套跨仓库的 GitHub README 自动同步项目介绍系统：以 GitHub Actions 定时扫描 + 内容指纹去重 + Codex CLI（gpt-5.6-sol）生成结构化 JSON + 可信程序校验写入 + 单文件范围门禁自动合并 + Vercel 部署的完整流水线，通过双 GitHub App 隔离与受保护 Environment Secrets 解决公开仓库与私有自动化之间的凭据安全边界问题，并在 hero-next 与 xuli-resume 两个站点完成云端验收与生产发布。"
+    },
     {
       "date": "2026-09-21",
       "sessionCount": 3,
