@@ -27,7 +27,7 @@ test('private automation pins schedule, model, effort, and managed file boundary
 test('private auth helper writes only the protected environment secret', async () => {
   const helper = await readFile('.github/private-automation/project-auth.mjs', 'utf8')
   assert.match(helper, /authEnvironment = "project-content"/)
-  assert.match(helper, /"--env", authEnvironment/)
+  assert.match(helper, /"--env",\s*authEnvironment/)
   assert.match(helper, /current\.tokens\.account_id !== before\.tokens\.account_id/)
   assert.match(helper, /for \(let attempt = 0; attempt < 3/)
 })

@@ -2,7 +2,7 @@
 
 ## 当前结果
 
-AXMORF 工程实践手账已形成稳定的浅色“工程师工作手账”设计：首页、项目页和实践日志页使用内容型手绘插画，关于页使用同一视觉语言的手绘角色头像；公开署名统一为 `AXMORF`，公开产物不再展示真实姓名或真人证件照。实践日志现在明确展示线上数据来源与脱敏边界，并提供完整时间线、吸附目录、文章级切换定位和响应式技能卡片。
+AXMORF 工程实践手账已形成稳定的浅色“工程师工作手账”设计：首页、项目页和实践日志页使用内容型手绘插画，关于页使用同一视觉语言的手绘角色头像；公开署名统一为 `AXMORF`，公开产物不再展示真实姓名或真人证件照。实践日志使用线上 Pipeline 的受校验公开快照。项目介绍已接入 GitHub README 自动更新：新增仓库、README 变化、无关代码变化、仓库改名与来源消失均有明确处理边界，并已完成真实云端生成、自动合并和生产发布。
 
 ## 设计方案
 
@@ -33,11 +33,17 @@ AXMORF 工程实践手账已形成稳定的浅色“工程师工作手账”设�
 - `src/pages/VibeJournal.tsx`：消费公开结构化 JSON，展示顶部来源说明、全部 timeline event、桌面/移动目录、正文和当日技能记录。
 - `src/lib/vibeData.ts`：浏览器侧公开 JSON 类型、SHA-256 校验、请求缓存和加载 hook。
 - `scripts/sync-vibe-journal.mjs`：按精确源 SHA 校验线上 Pipeline 数据，投影公开字段并执行身份、home 路径与 IP 脱敏。
+- `src/data/projects.json`：项目介绍唯一数据源，保留人工排序与非自动字段，以 GitHub 数字仓库 ID 保存自动同步元数据。
+- `scripts/github-projects.mjs`、`scripts/sync-github-projects.mjs`：扫描候选、计算相关内容指纹、校验结构化输出并执行受限写入。
+- `.github/codex/`：独立的不可信 README 提示词与结构化输出 Schema。
+- `.github/private-automation/`：私有 GitHub-hosted Actions 模板、双 GitHub App 权限边界和专用 Codex 会话回写逻辑。
 - `public/favicon.svg`：手绘文档与铅笔标志。
 
 ## 验证结果
 
-- `npm test`：4 项全部通过；`npm run build` 与 `git diff --check`：通过。
+- 公开仓库 `npm test`：18 项全部通过；`npm run build` 与 `git diff --check`：通过。
+- 私有自动化仓库 `npm test`：7 项全部通过；工作流模板、提示词和 Schema 与部署版本一致。
+- 首次真实项目同步新增 4 个项目，内容 PR 只修改 `src/data/projects.json`，检查通过后自动合并并触发 Vercel Production；第二次扫描候选数为 0，生成与发布均跳过。
 - 实践日志已完成 Chrome 1440×1000 与 390×844 浏览器检查：页面标识、公开来源、完整 123 条时间线、导航遮罩、目录切换和技能卡片均通过。
 - 桌面左栏滚动前后保持在 88px；切换条目后文章顶部位于 87.5px，移动端约为 86px，没有回到页面顶部。
 - 桌面与移动端均无页面级横向溢出、Vite error overlay 或控制台错误。
@@ -48,10 +54,11 @@ AXMORF 工程实践手账已形成稳定的浅色“工程师工作手账”设�
 - Vercel 已连接生产 fork：`main` 发布 Production，其他分支与 Pull Request 发布 Preview。
 - `vercel.json` 提供 React Router SPA 深链接 rewrite；Vercel 使用 `npm run build` 构建 `dist`。
 - GitHub Actions 只负责独立构建验证，不再轮询本地服务的 `/version.txt`。
+- GitHub README 项目同步由 `agenticnoob/xuli-resume-automation` 定时运行；publisher App 的合并会触发公开仓库普通 `main` push 检查与 Vercel Git 发布。
 - 仓库已移除 Docker、Nginx、systemd timer 与本地主动拉取部署脚本。
 - `resume.zzzxc.com` 已通过 Vercel 域名校验；旧 timer 已移入回收站，旧容器已删除，8888 端口已关闭。
 
 ## 提交边界
 
-- `_site-content/` 是未跟踪的内容草稿目录，不属于本次视觉改版，不纳入提交。
+- `_site-content/` 是未跟踪的内容草稿目录，不属于当前受管功能或文档更新，不纳入提交。
 - `.sisyphus/plans/` 是历史计划，保留当时语境，不改写为当前状态。

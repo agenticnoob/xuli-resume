@@ -21,6 +21,7 @@
 | 12   | 2026-09-20 | **生产托管迁移至 Vercel** | 原生 Git 集成发布；SPA rewrite；移除本地 Docker、Nginx、systemd 与映射链路 |
 | 13   | 2026-09-20 | **线上 Pipeline 成为日志与技能唯一数据源** | 精确 SHA 同步、公开 JSON、结构化日志阅读器与全量技能统计 |
 | 14   | 2026-09-21 | **实践日志阅读体验优化** | 导航遮罩、完整时间线、吸附目录、文章级定位与技能卡片网格 |
+| 15   | 2026-09-22 | **GitHub README 项目介绍自动更新上线** | 内容指纹、数字仓库 ID、专用 Codex 会话、受限内容 PR 与 Vercel 自动发布 |
 
 ## 阶段 4 详情（vibe-coding-journal 下游消费侧）
 
@@ -439,3 +440,26 @@ npm run sync:vibe-journal:dry            # 仅计算 diff，不写盘
 - `npm test`：4 项全部通过；`npm run build`：通过；`git diff --check`：通过。
 - Chrome 桌面 1440×1000：完整时间线为 123 条，左栏滚动前后均固定在 88px；切换日志后文章顶部为 87.5px，页面没有回到 0。
 - Chrome 移动端 390×844：切换日志后文章顶部约 86px；桌面和移动端均无页面级横向溢出、Vite error overlay 或控制台错误。
+
+## 阶段 15 详情（GitHub README 项目介绍自动更新）
+
+### 目标与边界
+
+- 每天北京时间 10:43 扫描 `agenticnoob` 拥有的公开、非 Fork、未归档且 README 非空的仓库，并支持手动运行。
+- 以 GitHub 数字仓库 ID 识别同一项目；内容指纹只覆盖 README、仓库名、描述、主要语言与 topics，纯代码变化不调用模型。
+- 自动化只新增或更新 `src/data/projects.json` 中的项目介绍，保留人工排序、现有素材、职责/阶段与非 GitHub 链接；来源消失或转私有只进入 `pending`，不自动删除。
+
+### 权限与凭据
+
+- 专用私有仓库 `agenticnoob/xuli-resume-automation` 承载 GitHub-hosted Actions、可信提示词和 Schema。
+- publisher GitHub App 只安装在公开简历仓库，负责读取、推送受限内容分支、创建和合并 PR；session-store App `xuli-resume-session-store` 只安装在私有自动化仓库，仅有 `Environments: Read and write` 与 `Metadata: Read`。
+- 专用 ChatGPT-managed Codex 登录保存在 `project-content` Environment 的 `CODEX_AUTH_JSON`。生成前先验证 Environment Secret 回写，生成后通过 `always()` 保存刷新后的凭据；回写失败会阻断发布。
+- Codex CLI 固定为已验证版本，模型为 `gpt-5.6-sol`，推理强度为 `medium`。README 被视为不可信参考资料，模型只输出 Schema 约束的结构化项目内容。
+
+### 发布与验证
+
+- 首次真实云端运行识别并新增 4 个项目，通过可信脚本写入后创建只包含 `src/data/projects.json` 的内容 PR；PR 的 Verify build 与 Vercel Preview 通过后自动合并。
+- 合并使用 GitHub App token，不使用目标仓库 `GITHUB_TOKEN`，因此后续 `main` push 的 Verify workflow 与 Vercel Production 均被正常触发并成功。
+- 第二次真实云端运行报告 `candidates=0`、`pending=0`，生成与发布 job 均跳过，证明无相关变化时不调用 Codex。
+- 云端调试期间的隐藏 artifact、旧 Codex CLI 与不受支持 Schema 失败均在发布前停止；每次失败后凭据回写仍成功，未产生越界内容提交。
+- 公开仓库 `npm test` 18 项通过、`npm run build` 通过；私有自动化仓库认证与工作流测试 7 项通过。README 更新、代码无关变化、数字 ID 改名匹配、来源消失不删除和幂等写入均有回归测试。

@@ -42,7 +42,9 @@ npm run projects:validate
 
 Codex 提示词与输出 Schema 分别位于 `.github/codex/project-introduction-prompt.md` 和 `.github/codex/project-introduction.schema.json`。Codex 只生成结构化文案，脚本负责核对候选 ID、保留排序、写入项目数据并补充真实源码链接；来源消失或不再符合条件时只写入 `pending`，不删除已发布项目。
 
-订阅认证自动化必须运行在项目专用的私有仓库中。可复制的 GitHub-hosted Actions 工作流与一次性配置说明位于 `.github/private-automation/`。它每天北京时间 10:43 执行，也支持手动运行；固定内容分支会复用已有 PR，只允许 `src/data/projects.json` 进入自动合并。公开简历仓库不保存或直接使用 Codex 登录会话；刷新后的会话由私有自动化仓库的受保护 Environment Secret 保存，并在串行生成 job 启动时读取。
+订阅认证自动化运行在项目专用私有仓库 `agenticnoob/xuli-resume-automation`。可复制的 GitHub-hosted Actions 工作流与一次性配置说明位于 `.github/private-automation/`。它每天北京时间 10:43 执行，也支持手动运行；固定内容分支会复用已有 PR，只允许 `src/data/projects.json` 进入自动合并。公开简历仓库不保存或直接使用 Codex 登录会话；刷新后的会话由私有自动化仓库的受保护 `project-content` Environment Secret 保存，并在串行生成 job 启动时读取。
+
+当前生产配置使用两个相互隔离的 GitHub App：publisher 只访问公开简历仓库，session-store（`xuli-resume-session-store`）只访问私有自动化仓库的 Environment Secret API。Codex 固定使用 `gpt-5.6-sol` 与 `medium` 推理强度。首次真实同步、受限内容 PR 自动合并、`main` push 构建、Vercel Production 发布，以及后续零候选扫描跳过模型均已完成云端验证。
 
 ## Vibe Journal 同步
 
