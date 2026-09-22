@@ -8,7 +8,7 @@ test('private automation pins schedule, model, effort, and managed file boundary
   const workflow = await readFile(workflowPath, 'utf8')
 
   assert.match(workflow, /cron: "43 2 \* \* \*"/)
-  assert.match(workflow, /CODEX_VERSION: 0\.139\.0/)
+  assert.match(workflow, /CODEX_VERSION: 0\.155\.1/)
   assert.match(workflow, /--model gpt-5\.6-sol/)
   assert.match(workflow, /model_reasoning_effort="medium"/)
   assert.match(workflow, /MANAGED_FILE: src\/data\/projects\.json/)
@@ -17,6 +17,7 @@ test('private automation pins schedule, model, effort, and managed file boundary
   assert.match(workflow, /actions\/create-github-app-token@v2/)
   assert.match(workflow, /environment: project-content/)
   assert.match(workflow, /permission-environments: write/)
+  assert.match(workflow, /include-hidden-files: true/)
   assert.match(workflow, /Verify credential writeback before consuming the login/)
   assert.match(workflow, /if: always\(\) && steps\.auth\.outcome == 'success'/)
   assert.doesNotMatch(workflow, /permission-secrets: write/)
@@ -29,6 +30,11 @@ test('private auth helper writes only the protected environment secret', async (
   assert.match(helper, /"--env", authEnvironment/)
   assert.match(helper, /current\.tokens\.account_id !== before\.tokens\.account_id/)
   assert.match(helper, /for \(let attempt = 0; attempt < 3/)
+})
+
+test('model output schema uses the supported structured-output subset', async () => {
+  const schema = await readFile('.github/codex/project-introduction.schema.json', 'utf8')
+  assert.doesNotMatch(schema, /uniqueItems/)
 })
 
 test('public verification rejects expanded automated PR scope', async () => {

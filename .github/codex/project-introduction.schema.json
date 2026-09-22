@@ -18,13 +18,11 @@
           "tech": {
             "type": "array",
             "maxItems": 8,
-            "uniqueItems": true,
             "items": { "type": "string", "minLength": 1, "maxLength": 40 }
           },
           "highlights": {
             "type": "array",
             "maxItems": 4,
-            "uniqueItems": true,
             "items": { "type": "string", "minLength": 1, "maxLength": 100 }
           }
         }
