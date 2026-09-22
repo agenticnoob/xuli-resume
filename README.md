@@ -33,7 +33,16 @@ npm install
 npm run dev
 npm run build
 npm run preview
+npm run projects:validate
 ```
+
+## GitHub README 项目介绍同步
+
+项目页从 `src/data/projects.json` 读取条目；现有排序、展示组件、人工阶段/职责和非 GitHub 链接保持不变。`scripts/sync-github-projects.mjs` 扫描 `agenticnoob` 拥有的公开、非 Fork、未归档且 README 非空的仓库，并以 GitHub 数字仓库 ID 匹配已有项目。指纹只包含 README、仓库名、描述、主要语言和 topics，因此纯代码变化不会进入模型调用。
+
+Codex 提示词与输出 Schema 分别位于 `.github/codex/project-introduction-prompt.md` 和 `.github/codex/project-introduction.schema.json`。Codex 只生成结构化文案，脚本负责核对候选 ID、保留排序、写入项目数据并补充真实源码链接；来源消失或不再符合条件时只写入 `pending`，不删除已发布项目。
+
+订阅认证自动化必须运行在项目专用的私有仓库中。可复制的 GitHub-hosted Actions 工作流与一次性配置说明位于 `.github/private-automation/`。它每天北京时间 10:43 执行，也支持手动运行；固定内容分支会复用已有 PR，只允许 `src/data/projects.json` 进入自动合并。公开简历仓库不保存或直接使用 Codex 登录会话。
 
 ## Vibe Journal 同步
 
@@ -57,6 +66,7 @@ npm run build
 - 手绘组件与响应式样式：`src/styles/index.css`
 - 插画资产：`public/illustrations/`
 - 简历共享数据：`src/data/resume.ts`
+- 项目介绍数据：`src/data/projects.json`
 - 当前工程约束：`AGENTS.md`
 - 阶段记录：`PROGRESS.md`
 
@@ -68,6 +78,7 @@ npm run build
 - 数据 dispatch、每日兜底 schedule 与手工运行均由 `sync-vibe-data.yml` 检出线上 Pipeline，运行数据测试/生产构建，并只提交四个受管 JSON 文件；
 - Vercel 原生 Git 将通过验证的数据提交发布到 Production；同步 Action 随后回读公开 JSON，校验 SHA-256 与 source revision；
 - 其他分支和 Pull Request 自动创建 Preview Deployment；
+- 私有项目同步自动化使用 GitHub App token 创建并自动合并受限内容 PR，确保合并后的普通 `push` 检查与 Vercel Git 发布会触发；
 - 构建命令为 `npm run build`，输出目录为 `dist`；
 - `vercel.json` 将所有应用路由重写到 `index.html`，保证 React Router 深链接可直接访问。
 
