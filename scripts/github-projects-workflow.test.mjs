@@ -17,6 +17,7 @@ test('private automation pins schedule, model, effort, and managed file boundary
   assert.match(workflow, /actions\/create-github-app-token@v2/)
   assert.match(workflow, /environment: project-content/)
   assert.match(workflow, /permission-environments: write/)
+  assert.match(workflow, /include-hidden-files: true/)
   assert.match(workflow, /Verify credential writeback before consuming the login/)
   assert.match(workflow, /if: always\(\) && steps\.auth\.outcome == 'success'/)
   assert.doesNotMatch(workflow, /permission-secrets: write/)

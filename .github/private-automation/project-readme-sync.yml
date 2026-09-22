@@ -106,6 +106,7 @@ jobs:
         with:
           name: project-sync-bundle
           path: .project-sync/
+          include-hidden-files: true
           if-no-files-found: error
           retention-days: 1
 
@@ -191,6 +192,7 @@ jobs:
         with:
           name: generated-projects
           path: .project-sync/generated-projects.json
+          include-hidden-files: true
           if-no-files-found: error
           retention-days: 1
 
