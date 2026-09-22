@@ -8,7 +8,7 @@ test('private automation pins schedule, model, effort, and managed file boundary
   const workflow = await readFile(workflowPath, 'utf8')
 
   assert.match(workflow, /cron: "43 2 \* \* \*"/)
-  assert.match(workflow, /CODEX_VERSION: 0\.139\.0/)
+  assert.match(workflow, /CODEX_VERSION: 0\.155\.1/)
   assert.match(workflow, /--model gpt-5\.6-sol/)
   assert.match(workflow, /model_reasoning_effort="medium"/)
   assert.match(workflow, /MANAGED_FILE: src\/data\/projects\.json/)

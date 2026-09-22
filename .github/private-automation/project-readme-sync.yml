@@ -17,7 +17,7 @@ env:
   TARGET_DEFAULT_BRANCH: main
   UPDATE_BRANCH: automation/github-project-introductions
   MANAGED_FILE: src/data/projects.json
-  CODEX_VERSION: 0.139.0
+  CODEX_VERSION: 0.155.1
 
 jobs:
   scan:
