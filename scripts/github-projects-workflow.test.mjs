@@ -12,7 +12,8 @@ test('private automation pins schedule, model, effort, and managed file boundary
   assert.match(workflow, /--model gpt-5\.6-sol/)
   assert.match(workflow, /model_reasoning_effort="medium"/)
   assert.match(workflow, /MANAGED_FILE: src\/data\/projects\.json/)
-  assert.match(workflow, /gh pr merge "\$pr_url" --auto --squash/)
+  assert.match(workflow, /gh pr checks "\$pr_url" --watch --fail-fast/)
+  assert.match(workflow, /gh pr merge "\$pr_url" --squash/)
   assert.match(workflow, /actions\/create-github-app-token@v2/)
 })
 

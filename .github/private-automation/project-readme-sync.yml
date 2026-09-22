@@ -227,6 +227,7 @@ jobs:
           repositories: xuli-resume
           permission-contents: write
           permission-pull-requests: write
+          permission-checks: read
 
       - name: Resolve the current content branch
         id: target
@@ -316,7 +317,7 @@ jobs:
           gh auth setup-git
           git push origin "HEAD:$UPDATE_BRANCH"
 
-      - name: Create or reuse the content PR and enable auto-merge
+      - name: Create or reuse the content PR and merge after checks
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
@@ -334,6 +335,7 @@ jobs:
               --title "chore(projects): sync GitHub README introductions" \
               --body "Automated project-introduction update from eligible GitHub READMEs. The trusted publisher permits changes only to \`$MANAGED_FILE\`.")"
           fi
-          gh pr merge "$pr_url" --auto --squash --delete-branch
+          gh pr checks "$pr_url" --watch --fail-fast --interval 10
+          gh pr merge "$pr_url" --squash --delete-branch
           echo "PR: $pr_url" >> "$GITHUB_STEP_SUMMARY"
           echo "The GitHub App token, rather than GITHUB_TOKEN, pushes and merges so normal push checks and Vercel Git deployment are triggered." >> "$GITHUB_STEP_SUMMARY"
