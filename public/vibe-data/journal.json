@@ -2,10 +2,166 @@
   "schemaVersion": 1,
   "source": {
     "repository": "agenticnoob/vibe-journal-pipeline",
-    "revision": "522ab2cf09bcad0e38313fcd48a09961d4cd91b2",
-    "generatedAt": "2026-09-23T00:06:56.763257+08:00"
+    "revision": "3b0cfdcbc1e3c65e76702506cfe83974c8ff1b86",
+    "generatedAt": "2026-09-24T00:06:51.238670+08:00"
   },
   "entries": [
+    {
+      "date": "2026-09-23",
+      "sessionCount": 4,
+      "turnCount": 61,
+      "skillsTouched": [
+        {
+          "id": "githubactions",
+          "name": "GitHub Actions",
+          "category": "tool",
+          "count": 12
+        },
+        {
+          "id": "githubapp",
+          "name": "GitHub App",
+          "category": "tool",
+          "count": 8
+        },
+        {
+          "id": "codex",
+          "name": "Codex CLI",
+          "category": "ai-coding-tool",
+          "count": 7
+        },
+        {
+          "id": "gpt56sol",
+          "name": "gpt-5.6-sol",
+          "category": "ai-model",
+          "count": 2
+        },
+        {
+          "id": "typescript",
+          "name": "TypeScript",
+          "category": "language",
+          "count": 4
+        },
+        {
+          "id": "javascript",
+          "name": "JavaScript",
+          "category": "language",
+          "count": 3
+        },
+        {
+          "id": "nextjs",
+          "name": "Next.js",
+          "category": "framework",
+          "count": 3
+        },
+        {
+          "id": "react",
+          "name": "React",
+          "category": "framework",
+          "count": 3
+        },
+        {
+          "id": "nodejs",
+          "name": "Node.js",
+          "category": "runtime",
+          "count": 4
+        },
+        {
+          "id": "npm",
+          "name": "npm",
+          "category": "package-manager",
+          "count": 5
+        },
+        {
+          "id": "vercel",
+          "name": "Vercel",
+          "category": "cloud",
+          "count": 4
+        },
+        {
+          "id": "git",
+          "name": "Git",
+          "category": "vcs",
+          "count": 6
+        },
+        {
+          "id": "python",
+          "name": "Python",
+          "category": "language",
+          "count": 2
+        },
+        {
+          "id": "hermes",
+          "name": "Hermes Agent",
+          "category": "agent-framework",
+          "count": 5
+        },
+        {
+          "id": "ubuntu",
+          "name": "Ubuntu",
+          "category": "os",
+          "count": 2
+        },
+        {
+          "id": "docker",
+          "name": "Docker",
+          "category": "container",
+          "count": 2
+        },
+        {
+          "id": "actionlint",
+          "name": "Actionlint",
+          "category": "tool",
+          "count": 2
+        },
+        {
+          "id": "json",
+          "name": "JSON",
+          "category": "format",
+          "count": 3
+        },
+        {
+          "id": "webgl",
+          "name": "WebGL",
+          "category": "domain",
+          "count": 2
+        },
+        {
+          "id": "telegram",
+          "name": "Telegram",
+          "category": "messaging",
+          "count": 1
+        },
+        {
+          "id": "vite",
+          "name": "Vite",
+          "category": "build-tool",
+          "count": 1
+        }
+      ],
+      "timelineEvent": "Hero Next 完成从单仓库到「私有自动化仓库 + 公开网站仓库 + 双 GitHub App」架构的迁移，并通过一次真实 README 变更跑通了 Codex 生成、内容 PR、Publisher App 合并、Vercel 部署与公开快照验证的完整云端链路。",
+      "tools": [
+        "GitHub Actions 与 GitHub App（hero-next-publisher、hero-next-session-store）",
+        "Codex CLI（@openai/codex@0.155.1，模型 gpt-5.6-sol）",
+        "TypeScript / JavaScript / Node.js 22 / npm",
+        "Next.js、React、WebGL（Viselora Runtime）",
+        "Vercel 免费套餐",
+        "Git 与 Actionlint",
+        "Python（Hermes 日志整理脚本）",
+        "Hermes（Ubuntu 上的升级与 gateway）",
+        "Docker（Codex 隔离容器）",
+        "JSON（projects.json 数据文件）"
+      ],
+      "work": [
+        "架构澄清：对比 xuli-resume 与 Hero Next 的仓库结构。xuli-resume 是私有自动化仓库 agenticnoob/xuli-resume-automation 向公开网站仓库 agenticnoob/xuli-resume 跨仓库写入，因此需要 Publisher GitHub App；Hero Next 原本是单仓库 agenticnoob/hero-next，GITHUB_TOKEN 即可完成自动化与发布，不需要 Publisher App。跨仓库并非功能必需，而是「公开仓库 + Codex 订阅登录（auth.json 自动刷新）+ GitHub-hosted Runner + 私有可信环境」组合的必然结果，OpenAI 官方 CI/CD 认证文档要求此类 auth.json 自动化限于可信私有环境。用户决定 xuli-resume 保持现状，Hero Next 若公开则复用同一架构思想。",
+        "Hero Next 迁移执行：创建私有仓库 agenticnoob/hero-next-automation，初次 CI 通过（run 35820167273），同步 workflow 为 active 但 PROJECT_SYNC_ACTIVE 开关尚未开启。网站仓库 PR #2 合并到 main，删除旧的活动认证 workflow projects-sync.yml；合并产生的 main push 触发 journal-build.yml 生产运行（run 35820269055），含 Vercel 发布与公开快照验证（注意这不是 Publisher App 的跨仓库云端验证）。验证通过：网站 npm run check（427 项测试）、npm run build；私有仓库 npm run check（39 项测试）；两仓库全部 workflow 的 Actionlint 通过；两仓库均无开放 PR。私有仓库 project-content Environment 已建好，仅允许 main 分支，无 required reviewers。",
+        "GitHub App 与凭据配置：用户在 GitHub 页面创建并安装两个专用 App（hero-next-publisher 装到 hero-next；hero-next-session-store 装到 hero-next-automation），保存 4 个 Secret（HERO_APP_ID、HERO_APP_PRIVATE_KEY 在仓库级；SESSION_STORE_APP_ID、SESSION_STORE_APP_PRIVATE_KEY 在 Environment 级）。Agent 用独立临时 CODEX_HOME 运行 codex -c 'cli_auth_credentials_store=\"file\"' -c 'forced_login_method=\"chatgpt\"' login --device-auth，用户在浏览器打开 https://auth.openai.com/codex/device 完成授权；登录文件通过 validateManagedAuth 校验，CODEX_AUTH_JSON 写入 project-content Environment Secret，临时文件已清理。",
+        "完整云端链路验证：首次云端运行（run 35822473230）扫描成功但 4 个纳入范围的公开项目指纹均无变化，generate 和 review 按设计跳过。为触发真实变更，agent 在 agenticnoob/webgl-scroll 仅修改 README 一行：'React adapters require react and react-dom from the host app.' 改为 'The React adapter requires both react and react-dom from the host application.'；webgl-scroll 完整 npm run check 通过（246 项测试、类型检查、构建、打包检查），创建并合并 PR #2 进入 main。随后触发 hero-next-automation 私有云端完整运行，成功完成：专用 Codex 登录恢复、Session-store App token 生成、Environment Secret 写回、Codex 生成、内容 PR、检查、精确合并、Vercel Production 部署、公开快照验证。内容 PR #3 合并，变更范围仅 data/projects.json。第二次无变化扫描成功，正确跳过生成和发布，证明幂等逻辑正常。",
+        "清理与公开前审计：删除旧站点 hero-next 的 project-content Environment 内两个旧 Secret（CODEX_AUTH_JSON、CODEX_AUTH_WRITE_TOKEN），保留 Environment 本身；未删除仓库级 JOURNAL_READ_TOKEN、VERCEL_TOKEN。公开前审计完成：网站 Git 历史、旧项目同步日志、四份历史 Actions artifact、当前生产页面及 13 个静态资源均未检出常见令牌或私钥特征。本地检查曾因终端 Node 26 与项目固定 Node 22 不匹配失败，切到 Node 22 / npm 10 后网站完整 npm run check 通过（427 项测试），私有自动化仓库 39 项测试和格式检查也通过。验证状态文档已更新并合并：hero-next 文档 PR #4、hero-next-automation 文档 PR #1 均进入 main。当前两仓库无开放 PR，hero-next 仍为 private，hero-next-automation 保持 private，定时开关为 true。待用户手动将 agenticnoob/hero-next 改为 public 后，agent 将验证可见性、运行私有 workflow 并检查公开后的完整跨仓库发布链路。",
+        "Hero Next 个人站文案与流程图打磨（zzzxc.com）：用户要求文案风格平常、读到后面有点好笑，参考鲁迅、余华、莫言、刘震云语气，不刻意做作、不复写旧文案。用户认可句子「整套流程里，最不自动的环节仍然是我。」要求去掉《大学》「苟日新，日日新，又日新」引用；补充公开项目每日扫描由 GitHub Actions 自动触发、日志由 Hermes 定时任务每天凌晨自动触发脚本、AI 整理后脚本自动推送（非手动）；说明 Vercel 免费套餐国内打开可能慢，可用搞笑方式表达。两张流程图文字要求手稿风格（老式字迹、断断续续、飞白断笔）但保持可读，「公开项目」「每日日志」必须能辨认，不能整行变淡到看不清；用户指出图中丢失了「整理项目」和「整理日志」的内容区分，要求补回；指出日志推送不是手动，要求修改文案和图中手势图案。最新文案版本中「等我推送后」需改为脚本自动推送，尚未最终定稿。",
+        "Hermes 升级报错处理：用户在 Ubuntu 上 Hermes 升级报错，日志显示代码、Web UI、配置迁移已完成，异常发生在升级后 dashboard 清理阶段。真正错误为 TypeError: _find_stale_dashboard_pids() got an unexpected keyword argument 'scope_home'。原因判断：升级命令拉取新代码后继续使用旧进程中已加载模块，导致 dashboard 清理阶段新旧函数签名不一致，上游已有对应修复 PR。日志显示代码已更新到 v0.21.4、gateway 报告已重启，但命令异常退出，因此不能仅凭首次日志确认升级验证完成。Vite __dirname / configLoader: 'native' 提示只是警告，Web UI 已构建成功，无需修改 Vite 配置。Agent 建议在新终端运行 hermes --version、hermes gateway status、hermes update。用户第二次输出确认：hermes --version 显示 v0.21.4、Up to date；第二次 hermes update 正常结束并显示 Already up to date；先前 TypeError 未复现；gateway 为 active (running)。剩余警告：builder、fleet、researcher、reviewer 与 default 共用 Telegram 和飞书凭据，目前只由 default 接收这些平台消息；若只用 default 可暂不处理，若要其他 profile 分别接收消息需规划各自凭据或路由配置。消息收发是否正常仍需实际发一条消息验证。"
+      ],
+      "resumeHighlight": "主导 Hero Next 从单仓库架构迁移到「私有自动化仓库 + 公开网站仓库 + 双 GitHub App（Publisher + Session-store）」的安全发布架构：设计最小权限模型（Publisher App 仅 Contents/PR 读写、Checks/Actions/Metadata 只读；Session-store App 仅 Environments 读写 + Metadata 只读），实现 Codex 登录凭据的自动刷新与写回校验、内容 PR 的精确范围控制与幂等合并、以及 Vercel 部署与公开快照验证；通过一次真实 README 变更跑通完整云端链路，并完成公开前审计（Git 历史、Actions artifact、生产页面与 13 个静态资源均未检出令牌或私钥特征）。"
+    },
     {
       "date": "2026-09-22",
       "sessionCount": 3,
