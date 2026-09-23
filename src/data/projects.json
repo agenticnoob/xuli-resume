@@ -313,7 +313,7 @@
       "subtitle": "React 可组合 WebGL 滚动效果库",
       "role": "开源项目",
       "stage": "开源项目",
-      "description": "为 React、Next.js 与智能前端工作流提供声明式 WebGL 滚动效果，将运行时、内置效果和 React 触发器拆分为独立包，帮助应用复用滚动特效，同时保留对画布、渲染循环和资源释放的控制。",
+      "description": "为 React、Next.js 与智能前端工作流提供声明式 WebGL 滚动效果，将底层运行时、内置效果与 React 触发器拆分为独立包，便于复用滚动特效，并由宿主应用控制画布、渲染循环与资源释放。",
       "tech": [
         "TypeScript",
         "React",
@@ -323,9 +323,9 @@
       ],
       "highlights": [
         "提供 asset-layer、fade-title、glb-particles 和 pixelated-wipe 内置效果",
-        "按视口距离执行预加载、暂停与卸载调度",
-        "支持宿主资源解析器和内置效果资源清单",
-        "以 core、effects、react 三个包划分运行时、效果与框架绑定"
+        "按视口距离执行预加载、暂停与卸载调度，并限制并发预加载",
+        "支持宿主资源解析器与内置效果资源清单",
+        "以 core、effects、react 三个包划分运行时、效果与 React 绑定"
       ],
       "links": [
         {
@@ -336,7 +336,7 @@
       "github": {
         "repositoryId": 1265195464,
         "fullName": "agenticnoob/webgl-scroll",
-        "fingerprint": "bfde6e79070a59934dd47b66e7e719decfc94bb14d41266ac97250e78a9afaf3"
+        "fingerprint": "62d59eaae42adcea2f442e0af40fa849c9b976780dd8ffd12746a1a5dbd61954"
       }
     }
   ]
