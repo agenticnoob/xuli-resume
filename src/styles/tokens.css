@@ -26,9 +26,9 @@
   --xuli-text-tertiary: #737B72;
 
   /* 字体变量 */
-  --xuli-font-display: 'LXGW WenKai', 'Noto Sans SC', sans-serif;
-  --xuli-font-body: 'Noto Sans SC', sans-serif;
-  --xuli-font-mono: 'IBM Plex Mono', 'Noto Sans SC', monospace;
+  --xuli-font-display: 'LXGW WenKai', 'Noto Sans SC Variable', 'Noto Sans SC', sans-serif;
+  --xuli-font-body: 'Noto Sans SC Variable', 'Noto Sans SC', sans-serif;
+  --xuli-font-mono: 'IBM Plex Mono', 'Noto Sans SC Variable', 'Noto Sans SC', monospace;
 
   /* 组件形状与背景强度 */
   --xuli-card-radius: 0.45rem 0.85rem 0.55rem 0.75rem;

@@ -5,7 +5,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import BackgroundEffects from './components/BackgroundEffects'
 import PageTransition from './components/PageTransition'
-import { siteRoutes } from './siteRoutes'
+import { preloadSiteRoute, siteRoutes } from './siteRoutes'
 
 function RouteStatus({ message }: { message: string }) {
   return (
@@ -32,10 +32,15 @@ function NotFound() {
 
 function App() {
   const location = useLocation()
+  const activeRoute = siteRoutes.find((route) => route.path === location.pathname)
 
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [location.pathname])
+
+  useEffect(() => {
+    if (activeRoute) preloadSiteRoute(activeRoute)
+  }, [activeRoute])
 
   return (
     <div className="min-h-screen bg-bg layout-shell">
