@@ -1,6 +1,6 @@
 # PROJECT KNOWLEDGE BASE
 
-**Updated:** 2026-09-22
+**Updated:** 2026-09-25
 **Project:** AXMORF 工程实践手账 (xuli-resume)
 
 ## OVERVIEW
@@ -11,10 +11,11 @@ React 18 + TypeScript 5 + Vite 5 简历网站，9 页面展示技术能力、AI 
 ## STRUCTURE
 ```
 src/
-├── App.tsx          # 路由 + AnimatePresence
+├── App.tsx          # 全局路由渲染 + Suspense + AnimatePresence + 404
+├── siteRoutes.ts    # 路由/导航单一数据源 + 页面懒加载
 ├── main.tsx         # 入口 (BrowserRouter)
 ├── pages/           # 9 页面 (Home, About, Skills, Experience, Projects, Education, AIPhilosophy, DevelopmentLog, VibeJournal)
-├── components/      # 6 个共享组件 (Navbar, Footer, Logo, PageHeader, PageTransition, BackgroundEffects)
+├── components/      # 7 个共享组件（导航/页脚/标志/页头/转场/背景/状态卡）
 ├── lib/             # 浏览器侧线上 JSON 类型、缓存与加载 hook
 ├── data/            # 简历静态内容、项目介绍 catalog + 线上数据发布 manifest
 └── styles/
@@ -30,8 +31,9 @@ public/
 ## WHERE TO LOOK
 | Task | Location |
 |------|----------|
-| 添加新页面 | `src/pages/` + `src/App.tsx` |
-| 修改导航/页脚 | `src/components/Navbar.tsx`, `Footer.tsx` |
+| 添加新页面 | `src/pages/` + `src/siteRoutes.ts` |
+| 修改路由/导航文案/页脚可见性 | `src/siteRoutes.ts` |
+| 修改导航/页脚交互 | `src/components/Navbar.tsx`, `Footer.tsx` |
 | 修改主题 token | `src/styles/tokens.css` |
 | 修改手绘组件 / 响应式 CSS | `src/styles/index.css` |
 | 修改页面插画 | `public/illustrations/` + 对应页面组件 |
@@ -47,6 +49,7 @@ public/
 - **样式**: Tailwind class，拼写错误会被忽略
 - **动画**: Framer Motion + CSS GPU 加速
 - **无 ESLint**: 项目无 lint 配置
+- **路由**: 路径与标签仅在 `siteRoutes.ts` 定义；页面使用 `React.lazy` 按路由拆包，不在单页重复包裹全局转场
 
 ## VISUAL SYSTEM
 
@@ -93,6 +96,7 @@ public/
 - 代码中无 DO NOT/NEVER 注释
 - 同步逻辑保持无运行时依赖，写入必须原子化且重复运行 `changed=0`
 - 修改同步契约后运行 `npm test`、真实数据 dry-run、两次实际 sync 和 `npm run build`
+- 类型检查使用 `tsc --noEmit`；仓库不跟踪 `*.tsbuildinfo` 或由 `vite.config.ts` 生成的 JS/声明文件
 
 ## AGENT PITFALLS / CHANGE SAFETY
 - **Navbar 必须保持 `fixed` 吸顶并遮住下方内容**：移动端和桌面端都依赖顶部固定定位；滚动状态使用不透明纸张底色与底部分隔，不要改成 `relative` / `absolute` 或透明背景，否则正文会与导航文字重叠。
@@ -109,7 +113,8 @@ public/
 ## COMMANDS
 ```bash
 npm run dev                       # http://localhost:5173
-npm run build                     # tsc -b && vite build
+npm run typecheck                 # 应用与 Vite 配置无产物类型检查
+npm run build                     # npm run typecheck && vite build
 npm run preview                   # 预览构建
 npm test                          # 数据适配器回归测试
 npm run projects:validate         # 校验项目介绍 catalog

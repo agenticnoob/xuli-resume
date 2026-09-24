@@ -2,18 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Logo from './Logo'
-
-const navItems = [
-  { path: '/', label: '首页', en: 'Home' },
-  { path: '/about', label: '关于', en: 'About' },
-  { path: '/skills', label: '技能', en: 'Skills' },
-  { path: '/experience', label: '经历', en: 'Experience' },
-  { path: '/projects', label: '项目', en: 'Projects' },
-  { path: '/education', label: '教育', en: 'Education' },
-  { path: '/ai-philosophy', label: 'AI思考', en: 'AI Thinking' },
-  { path: '/development-log', label: 'Agent工程', en: 'Agent Engineering' },
-  { path: '/vibe-journal', label: '实践日志', en: 'Practice Journal' },
-]
+import { siteRoutes } from '../siteRoutes'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -29,7 +18,16 @@ export default function Navbar() {
 
   useEffect(() => {
     setIsOpen(false)
-  }, [location])
+  }, [location.pathname])
+
+  useEffect(() => {
+    if (!isOpen) return
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsOpen(false)
+    }
+    window.addEventListener('keydown', closeOnEscape)
+    return () => window.removeEventListener('keydown', closeOnEscape)
+  }, [isOpen])
 
   return (
     <motion.nav
@@ -47,10 +45,11 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">
-            {navItems.map((item) => (
+            {siteRoutes.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
+                aria-current={location.pathname === item.path ? 'page' : undefined}
                 className={`relative px-3 py-2 group transition-colors duration-200 ${
                   location.pathname === item.path ? 'text-accent' : 'text-secondary hover:text-primary'
                 }`}
@@ -64,7 +63,7 @@ export default function Navbar() {
           </div>
 
           <button
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => setIsOpen((open) => !open)}
             aria-label={isOpen ? '关闭导航菜单' : '打开导航菜单'}
             aria-expanded={isOpen}
             aria-controls="mobile-navigation"
@@ -98,7 +97,7 @@ export default function Navbar() {
             className="absolute left-0 right-0 top-full z-40 lg:hidden border-y border-[var(--xuli-border)]/45 bg-[var(--xuli-bg-primary)] shadow-[0_8px_0_rgba(47,55,48,0.08)]"
           >
             <div className="px-4 py-4 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto">
-              {navItems.map((item, i) => (
+              {siteRoutes.map((item, i) => (
                 <motion.div
                   key={item.path}
                   initial={{ opacity: 0, x: -20 }}
@@ -107,6 +106,7 @@ export default function Navbar() {
                 >
                   <Link
                     to={item.path}
+                    aria-current={location.pathname === item.path ? 'page' : undefined}
                     className={`flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200 ${
                       location.pathname === item.path
                         ? 'bg-accent/10 text-accent'
@@ -114,7 +114,7 @@ export default function Navbar() {
                     }`}
                   >
                     <span className="font-body">{item.label}</span>
-                    <span className="text-xs text-tertiary font-mono">{item.en}</span>
+                    <span className="text-xs text-tertiary font-mono">{item.englishLabel}</span>
                   </Link>
                 </motion.div>
               ))}

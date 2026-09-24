@@ -1,18 +1,34 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Suspense, useEffect } from 'react'
+import { Link, Route, Routes, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
-import { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import BackgroundEffects from './components/BackgroundEffects'
-import Home from './pages/Home'
-import About from './pages/About'
-import Skills from './pages/Skills'
-import Experience from './pages/Experience'
-import Projects from './pages/Projects'
-import Education from './pages/Education'
-import AIPhilosophy from './pages/AIPhilosophy'
-import DevelopmentLog from './pages/DevelopmentLog'
-import VibeJournal from './pages/VibeJournal'
+import PageTransition from './components/PageTransition'
+import { siteRoutes } from './siteRoutes'
+
+function RouteStatus({ message }: { message: string }) {
+  return (
+    <div className="min-h-screen flex items-center justify-center px-4" role="status">
+      <div className="paper-note bg-card px-6 py-4 text-sm text-tertiary">{message}</div>
+    </div>
+  )
+}
+
+function NotFound() {
+  return (
+    <div className="min-h-screen flex items-center justify-center px-4">
+      <div className="sketch-card bg-card max-w-lg p-8 text-center">
+        <span className="eyebrow-note">404</span>
+        <h1 className="font-display text-3xl text-primary mt-3 mb-3">这页手记还没有写</h1>
+        <p className="text-secondary mb-6">请检查地址，或回到首页继续查看。</p>
+        <Link to="/" className="btn btn-primary">
+          返回首页
+        </Link>
+      </div>
+    </div>
+  )
+}
 
 function App() {
   const location = useLocation()
@@ -27,18 +43,17 @@ function App() {
       <BackgroundEffects />
       <Navbar />
       <main className="relative z-10 layout-content">
-        <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/skills" element={<Skills />} />
-            <Route path="/experience" element={<Experience />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/education" element={<Education />} />
-            <Route path="/ai-philosophy" element={<AIPhilosophy />} />
-            <Route path="/development-log" element={<DevelopmentLog />} />
-            <Route path="/vibe-journal" element={<VibeJournal />} />
-          </Routes>
+        <AnimatePresence mode="wait" initial={false}>
+          <PageTransition key={location.pathname}>
+            <Suspense fallback={<RouteStatus message="正在翻开手记…" />}>
+              <Routes location={location}>
+                {siteRoutes.map(({ path, Component }) => (
+                  <Route key={path} path={path} element={<Component />} />
+                ))}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </PageTransition>
         </AnimatePresence>
       </main>
       <Footer />

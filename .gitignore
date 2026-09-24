@@ -2,6 +2,9 @@ node_modules/
 .DS_Store
 *.log
 dist/
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
 .env
 .env.local
 .vercel/

@@ -30,16 +30,7 @@
   --xuli-font-body: 'Noto Sans SC', sans-serif;
   --xuli-font-mono: 'IBM Plex Mono', 'Noto Sans SC', monospace;
 
-  /* 间距变量 */
-  --xuli-space-xs: 0.25rem;
-  --xuli-space-sm: 0.5rem;
-  --xuli-space-md: 1rem;
-  --xuli-space-lg: 1.5rem;
-  --xuli-space-xl: 2rem;
-
-  /* 生成式布局变量 */
-  --xuli-layout-max-width: 64rem;
-  --xuli-layout-content-gap: 1.5rem;
+  /* 组件形状与背景强度 */
   --xuli-card-radius: 0.45rem 0.85rem 0.55rem 0.75rem;
   --xuli-grid-opacity: 0.7;
 }

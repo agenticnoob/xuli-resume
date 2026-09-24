@@ -26,11 +26,15 @@
 - `/development-log` AI 工程实录
 - `/vibe-journal` 实践日志：顶部公开数据来源、完整时间线、吸附式日期目录、结构化正文与当日技能卡片
 
+路由路径、中英文导航标签、Footer 可见性与页面懒加载统一由 `src/siteRoutes.ts` 管理。`App.tsx` 集中负责 Suspense 加载态、页面转场和 404；各页面只保留自身内容与交互。生产构建会为 9 个页面生成独立 chunk，避免将所有页面一次性加入首屏。
+
 ## 本地开发
 
 ```bash
 npm install
 npm run dev
+npm run typecheck
+npm test
 npm run build
 npm run preview
 npm run projects:validate
@@ -53,7 +57,7 @@ npm run sync:vibe-journal:dry -- --source /path/to/vibe-journal-pipeline/data --
 npm run sync:vibe-journal -- --source /path/to/vibe-journal-pipeline/data --revision <40位sha>
 ```
 
-唯一权威源是 GitHub 私有仓库 `agenticnoob/vibe-journal-pipeline`。CLI 入口 `scripts/sync-vibe-journal.mjs` 校验精确 source SHA、每日 JSON、Timeline 与技能聚合，然后生成 `public/vibe-data/` 和轻量 manifest。日志页展示完整公开 journal 字段；技能页展示 `day_count`、`total_count` 与首次/最近实践日期，不再使用人为百分比模型。
+唯一权威源是 GitHub 私有仓库 `agenticnoob/vibe-journal-pipeline`。CLI 入口 `scripts/sync-vibe-journal.mjs` 校验精确 source SHA、每日 JSON、Timeline 与技能聚合，并行读取独立日志后再确定性排序，最终生成 `public/vibe-data/` 和轻量 manifest。日志页展示完整公开 journal 字段；技能页展示 `day_count`、`total_count` 与首次/最近实践日期，不再使用人为百分比模型。
 
 实践日志顶部明确展示数据来源与隐私边界，并提供全部 timeline event 的横向时间线。桌面端日期目录在阅读正文时保持吸附，切换日期只把视口定位到文章顶部；移动端使用折叠目录。单日技能记录采用响应式卡片网格，次数是当日真实计数。
 
@@ -66,6 +70,8 @@ npm run build
 
 - 设计 token：`src/styles/tokens.css`
 - 手绘组件与响应式样式：`src/styles/index.css`
+- 路由、导航与页面懒加载：`src/siteRoutes.ts`
+- 全局转场、加载态与 404：`src/App.tsx`
 - 插画资产：`public/illustrations/`
 - 简历共享数据：`src/data/resume.ts`
 - 项目介绍数据：`src/data/projects.json`

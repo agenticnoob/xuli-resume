@@ -187,12 +187,11 @@ export async function buildPublicSnapshots({ source: sourceDirectory, revision }
     .sort((a, b) => a.name.localeCompare(b.name))
   if (!journalFiles.length) throw new Error('data/journal: no JSON records found')
 
-  const entries = []
-  for (const entry of journalFiles) {
+  const entries = await Promise.all(journalFiles.map(async (entry) => {
     if (!entry.isFile()) throw new Error(`data/journal/${entry.name}: expected a regular file`)
     const value = JSON.parse(await readFile(path.join(journalDirectory, entry.name), 'utf8'))
-    entries.push(parseJournal(value, entry.name, timeline))
-  }
+    return parseJournal(value, entry.name, timeline)
+  }))
   entries.sort((a, b) => b.date.localeCompare(a.date))
 
   const { generatedAt, skills } = parseSkills(

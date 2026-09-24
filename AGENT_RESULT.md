@@ -2,7 +2,7 @@
 
 ## 当前结果
 
-AXMORF 工程实践手账已形成稳定的浅色“工程师工作手账”设计：首页、项目页和实践日志页使用内容型手绘插画，关于页使用同一视觉语言的手绘角色头像；公开署名统一为 `AXMORF`，公开产物不再展示真实姓名或真人证件照。实践日志使用线上 Pipeline 的受校验公开快照。项目介绍已接入 GitHub README 自动更新：新增仓库、README 变化、无关代码变化、仓库改名与来源消失均有明确处理边界，并已完成真实云端生成、自动合并和生产发布。
+AXMORF 工程实践手账已形成稳定的浅色“工程师工作手账”设计：首页、项目页和实践日志页使用内容型手绘插画，关于页使用同一视觉语言的手绘角色头像；公开署名统一为 `AXMORF`。实践日志使用线上 Pipeline 的受校验公开快照，项目介绍已接入 GitHub README 自动更新。当前应用架构已收口为单一路由配置、按页面懒加载、集中转场/加载/404 边界和无产物类型检查，历史随机布局与生成文件已移除。
 
 ## 设计方案
 
@@ -27,11 +27,14 @@ AXMORF 工程实践手账已形成稳定的浅色“工程师工作手账”设�
 
 - `src/styles/tokens.css`：当前设计 token 的唯一事实来源。
 - `src/styles/index.css`：共享 sketch/paper 组件、导航遮罩、日志时间线、吸附目录、技能卡片和移动端溢出规则。
+- `src/siteRoutes.ts`：9 个页面的路径、导航标签、Footer 可见性与懒加载入口。
+- `src/App.tsx`：全局 Suspense、页面转场、加载态与 404 边界。
 - `src/components/Navbar.tsx`：保持 fixed 吸顶，并根据滚动状态切换为不透明纸张遮罩。
+- `src/components/StatusCard.tsx`：技能与实践日志共用的加载、错误与空状态容器。
 - `src/components/BackgroundEffects.tsx`：低强度手绘背景线稿。
 - `src/pages/Home.tsx`、`About.tsx`、`Projects.tsx`、`VibeJournal.tsx`：插画与公开角色入口。
 - `src/pages/VibeJournal.tsx`：消费公开结构化 JSON，展示顶部来源说明、全部 timeline event、桌面/移动目录、正文和当日技能记录。
-- `src/lib/vibeData.ts`：浏览器侧公开 JSON 类型、SHA-256 校验、请求缓存和加载 hook。
+- `src/lib/vibeData.ts`：浏览器侧公开 JSON 类型、manifest 版本化 URL、请求缓存和加载 hook。
 - `scripts/sync-vibe-journal.mjs`：按精确源 SHA 校验线上 Pipeline 数据，投影公开字段并执行身份、home 路径与 IP 脱敏。
 - `src/data/projects.json`：项目介绍唯一数据源，保留人工排序与非自动字段，以 GitHub 数字仓库 ID 保存自动同步元数据。
 - `scripts/github-projects.mjs`、`scripts/sync-github-projects.mjs`：扫描候选、计算相关内容指纹、校验结构化输出并执行受限写入。
@@ -42,11 +45,13 @@ AXMORF 工程实践手账已形成稳定的浅色“工程师工作手账”设�
 ## 验证结果
 
 - 公开仓库 `npm test`：18 项全部通过；`npm run build` 与 `git diff --check`：通过。
+- `npm run typecheck` 使用 `tsc --noEmit` 检查应用与 Vite 配置；构建后不会重新生成 `vite.config.js` 或 `*.tsbuildinfo`。
+- 路由懒加载后首屏 JS 从 344.44 kB 降至 290.13 kB（gzip 115.34 → 95.39 kB）；CSS 从 45.86 kB 降至 38.39 kB。
+- 真实 Pipeline 数据 dry-run、首次实际 sync 与第二次幂等 sync 通过，第二次 `changed=0`；受管公开快照未被本地验证改写。
+- 真实浏览器已覆盖 9 个正式路由、404 和 375 px 移动菜单；无页面级横向溢出或应用脚本错误，Esc 可关闭菜单。
 - 私有自动化仓库 `npm test`：7 项全部通过；工作流模板、提示词和 Schema 与部署版本一致。
 - 首次真实项目同步新增 4 个项目，内容 PR 只修改 `src/data/projects.json`，检查通过后自动合并并触发 Vercel Production；第二次扫描候选数为 0，生成与发布均跳过。
-- 实践日志已完成 Chrome 1440×1000 与 390×844 浏览器检查：页面标识、公开来源、完整 123 条时间线、导航遮罩、目录切换和技能卡片均通过。
-- 桌面左栏滚动前后保持在 88px；切换条目后文章顶部位于 87.5px，移动端约为 86px，没有回到页面顶部。
-- 桌面与移动端均无页面级横向溢出、Vite error overlay 或控制台错误。
+- 当前项目目录包含 12 个已发布条目、0 个 `pending`；当前受管快照来自 Pipeline `3b0cfdcbc1e3c65e76702506cfe83974c8ff1b86`，包含 128 天日志、126 条 timeline event 和 230 项技能。结构优化已在最新自动同步数据之上完成，没有手工改写受管 JSON。
 
 ## 生产部署
 

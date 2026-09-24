@@ -22,6 +22,7 @@
 | 13   | 2026-09-20 | **线上 Pipeline 成为日志与技能唯一数据源** | 精确 SHA 同步、公开 JSON、结构化日志阅读器与全量技能统计 |
 | 14   | 2026-09-21 | **实践日志阅读体验优化** | 导航遮罩、完整时间线、吸附目录、文章级定位与技能卡片网格 |
 | 15   | 2026-09-22 | **GitHub README 项目介绍自动更新上线** | 内容指纹、数字仓库 ID、专用 Codex 会话、受限内容 PR 与 Vercel 自动发布 |
+| 16   | 2026-09-25 | **全仓架构与可维护性优化** | 路由单一数据源、页面懒加载、转场收口、无产物类型检查与历史 CSS/生成物清理 |
 
 ## 阶段 4 详情（vibe-coding-journal 下游消费侧）
 
@@ -463,3 +464,24 @@ npm run sync:vibe-journal:dry            # 仅计算 diff，不写盘
 - 第二次真实云端运行报告 `candidates=0`、`pending=0`，生成与发布 job 均跳过，证明无相关变化时不调用 Codex。
 - 云端调试期间的隐藏 artifact、旧 Codex CLI 与不受支持 Schema 失败均在发布前停止；每次失败后凭据回写仍成功，未产生越界内容提交。
 - 公开仓库 `npm test` 18 项通过、`npm run build` 通过；私有自动化仓库认证与工作流测试 7 项通过。README 更新、代码无关变化、数字 ID 改名匹配、来源消失不删除和幂等写入均有回归测试。
+
+## 阶段 16 详情（全仓架构与可维护性优化）
+
+### 结构收口
+
+- 新增 `src/siteRoutes.ts`，统一管理 9 个页面的路径、中英文导航标签、Footer 可见性和 `React.lazy` 页面入口，消除 App、Navbar 与 Footer 的重复配置。
+- 全局 Suspense、AnimatePresence、转场和 404 收口到 `App.tsx`；页面不再重复包裹 `PageTransition`。提取共享 `StatusCard`，删除从未被引用的 `useScrollAnimation`。
+- Navbar 增加 `aria-current` 与 Esc 关闭移动菜单；Logo 使用唯一 SVG filter ID，避免导航和页脚的 ID 冲突。
+
+### 构建与清理
+
+- `npm run typecheck` 分别检查应用和 Vite 配置且不写入产物；生产构建不再生成或跟踪 `vite.config.js`、`vite.config.d.ts` 和 `*.tsbuildinfo`。
+- 删除未使用的旧随机首页布局、过期动画和工具类；CSS 从 45.86 kB 降至 38.39 kB（gzip 9.84 → 8.53 kB）。
+- 9 个页面改为独立 chunk；首屏 JS 从 344.44 kB 降至 290.13 kB（gzip 115.34 → 95.39 kB）。Vibe Journal 每日 JSON 改为并行读取，解析后仍按日期确定性排序。
+
+### 验证
+
+- `npm test` 18/18、`npm run typecheck`、`npm run build`、`npm run projects:validate` 与 `git diff --check` 全部通过。
+- 真实 Pipeline 数据 dry-run 与首次同步各报告 4 个目标文件，第二次同步 `changed=0`；验证在临时目录完成，没有改写受管公开快照。
+- 真实浏览器覆盖 9 个正式路由和 404，并验证 375 px 移动菜单及 Esc 关闭；均无页面级横向溢出或应用脚本错误。本机网络不可达 Google Fonts，页面按字体回退链正常渲染。
+- 发布前已接入远端 `main` 上 4 个自动化数据提交；最终基线包含 12 个项目、128 天日志、126 条 timeline event、230 项技能，且 `pending=0`。

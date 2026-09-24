@@ -1,6 +1,6 @@
 import { useDeferredValue, useMemo, useState } from 'react'
 import PageHeader from '../components/PageHeader'
-import PageTransition from '../components/PageTransition'
+import StatusCard from '../components/StatusCard'
 import { practiceAreas } from '../data/resume'
 import {
   formatSourceTimestamp,
@@ -140,14 +140,6 @@ function CategoryCard({ group }: { group: SkillGroup }) {
   )
 }
 
-function StatusCard({ message }: { message: string }) {
-  return (
-    <div className="sketch-card bg-card p-8 text-center" role="status">
-      <p className="text-tertiary text-sm">{message}</p>
-    </div>
-  )
-}
-
 export default function Skills() {
   const { data, error, loading } = useVibeSnapshot(loadSkillsSnapshot)
   const [query, setQuery] = useState('')
@@ -182,99 +174,97 @@ export default function Skills() {
   }, [data?.skills])
 
   return (
-    <PageTransition>
-      <div className="min-h-screen">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <PageHeader
-            title="技术"
-            subtitle="从线上工程日志聚合实际使用次数、覆盖天数与最近实践时间"
-            highlightWord="实践"
+    <div className="min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <PageHeader
+          title="技术"
+          subtitle="从线上工程日志聚合实际使用次数、覆盖天数与最近实践时间"
+          highlightWord="实践"
+        />
+
+        <div className="paper-note bg-card p-4 mb-6">
+          <p className="text-secondary text-xs text-center font-medium leading-relaxed">
+            下方不是主观“掌握度”。数据由 <code className="font-mono text-accent">vibe-journal-pipeline</code> 全量日志确定性聚合；条形长度仅用于同组内比较使用频次。
+          </p>
+        </div>
+
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+          {practiceAreas.map((area) => (
+            <article key={area.title} className="sketch-card bg-card p-5">
+              <h2 className="font-display text-lg text-primary mb-2">{area.title}</h2>
+              <p className="text-accent text-sm mb-3 leading-relaxed">{area.tools}</p>
+              <p className="text-tertiary text-sm leading-relaxed">{area.boundary}</p>
+            </article>
+          ))}
+        </section>
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+          {[
+            ['技能记录', `${data?.skills.length ?? vibeDataManifest.skills.skillCount}`],
+            ['原始分类', `${summary.categoryCount}`],
+            ['累计使用', `${summary.totalCount}`],
+            ['最近实践', summary.latestDate || vibeDataManifest.journal.latestDate],
+          ].map(([label, value]) => (
+            <div key={label} className="paper-note bg-card p-3 text-center">
+              <div className="font-display text-xl text-primary">{value}</div>
+              <div className="text-[10px] font-mono text-tertiary mt-1">{label}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="sketch-card bg-card p-4 mb-6">
+          <label htmlFor="skill-search" className="block text-xs font-mono text-tertiary mb-2">
+            检索全部技能记录
+          </label>
+          <input
+            id="skill-search"
+            type="search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="输入技能或分类，例如 TypeScript、cloud、agent"
+            className="w-full bg-surface border border-[var(--color-border)] rounded-md px-3 py-2 text-sm text-primary placeholder:text-tertiary focus:outline-none focus:ring-2 focus:ring-[var(--xuli-accent-muted)]"
           />
-
-          <div className="paper-note bg-card p-4 mb-6">
-            <p className="text-secondary text-xs text-center font-medium leading-relaxed">
-              下方不是主观“掌握度”。数据由 <code className="font-mono text-accent">vibe-journal-pipeline</code> 全量日志确定性聚合；条形长度仅用于同组内比较使用频次。
-            </p>
-          </div>
-
-          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
-            {practiceAreas.map((area) => (
-              <article key={area.title} className="sketch-card bg-card p-5">
-                <h2 className="font-display text-lg text-primary mb-2">{area.title}</h2>
-                <p className="text-accent text-sm mb-3 leading-relaxed">{area.tools}</p>
-                <p className="text-tertiary text-sm leading-relaxed">{area.boundary}</p>
-              </article>
-            ))}
-          </section>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
-            {[
-              ['技能记录', `${data?.skills.length ?? vibeDataManifest.skills.skillCount}`],
-              ['原始分类', `${summary.categoryCount}`],
-              ['累计使用', `${summary.totalCount}`],
-              ['最近实践', summary.latestDate || vibeDataManifest.journal.latestDate],
-            ].map(([label, value]) => (
-              <div key={label} className="paper-note bg-card p-3 text-center">
-                <div className="font-display text-xl text-primary">{value}</div>
-                <div className="text-[10px] font-mono text-tertiary mt-1">{label}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="sketch-card bg-card p-4 mb-6">
-            <label htmlFor="skill-search" className="block text-xs font-mono text-tertiary mb-2">
-              检索全部技能记录
-            </label>
-            <input
-              id="skill-search"
-              type="search"
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder="输入技能或分类，例如 TypeScript、cloud、agent"
-              className="w-full bg-surface border border-[var(--color-border)] rounded-md px-3 py-2 text-sm text-primary placeholder:text-tertiary focus:outline-none focus:ring-2 focus:ring-[var(--xuli-accent-muted)]"
-            />
-            <div className="flex flex-wrap gap-2 mt-3" aria-label="技能分组筛选">
+          <div className="flex flex-wrap gap-2 mt-3" aria-label="技能分组筛选">
+            <button
+              type="button"
+              onClick={() => setActiveGroup('all')}
+              className={`paper-tag px-3 py-1.5 text-xs ${activeGroup === 'all' ? 'text-accent bg-[var(--xuli-accent-muted)]' : 'text-secondary'}`}
+            >
+              全部
+            </button>
+            {allGroups.map((group) => (
               <button
                 type="button"
-                onClick={() => setActiveGroup('all')}
-                className={`paper-tag px-3 py-1.5 text-xs ${activeGroup === 'all' ? 'text-accent bg-[var(--xuli-accent-muted)]' : 'text-secondary'}`}
+                key={group.id}
+                onClick={() => setActiveGroup(group.id)}
+                className={`paper-tag px-3 py-1.5 text-xs ${activeGroup === group.id ? 'text-accent bg-[var(--xuli-accent-muted)]' : 'text-secondary'}`}
               >
-                全部
+                {group.title} · {group.skills.length}
               </button>
-              {allGroups.map((group) => (
-                <button
-                  type="button"
-                  key={group.id}
-                  onClick={() => setActiveGroup(group.id)}
-                  className={`paper-tag px-3 py-1.5 text-xs ${activeGroup === group.id ? 'text-accent bg-[var(--xuli-accent-muted)]' : 'text-secondary'}`}
-                >
-                  {group.title} · {group.skills.length}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {loading ? <StatusCard message="正在加载线上技能统计…" /> : null}
-          {error ? <StatusCard message={`技能数据暂时无法加载：${error}`} /> : null}
-          {!loading && !error && visibleGroups.length === 0 ? (
-            <StatusCard message="没有匹配的技能记录。" />
-          ) : null}
-
-          {visibleGroups.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
-              {visibleGroups.map((group) => (
-                <CategoryCard key={group.id} group={group} />
-              ))}
-            </div>
-          ) : null}
-
-          <div className="paper-note bg-card p-4 mt-8 text-center">
-            <p className="text-tertiary text-xs font-mono leading-relaxed">
-              source {vibeDataManifest.source.revision.slice(0, 12)} · 更新于 {formatSourceTimestamp(vibeDataManifest.source.generatedAt)} · 共 {vibeDataManifest.skills.skillCount} 项
-            </p>
+            ))}
           </div>
         </div>
+
+        {loading ? <StatusCard message="正在加载线上技能统计…" /> : null}
+        {error ? <StatusCard message={`技能数据暂时无法加载：${error}`} /> : null}
+        {!loading && !error && visibleGroups.length === 0 ? (
+          <StatusCard message="没有匹配的技能记录。" />
+        ) : null}
+
+        {visibleGroups.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
+            {visibleGroups.map((group) => (
+              <CategoryCard key={group.id} group={group} />
+            ))}
+          </div>
+        ) : null}
+
+        <div className="paper-note bg-card p-4 mt-8 text-center">
+          <p className="text-tertiary text-xs font-mono leading-relaxed">
+            source {vibeDataManifest.source.revision.slice(0, 12)} · 更新于 {formatSourceTimestamp(vibeDataManifest.source.generatedAt)} · 共 {vibeDataManifest.skills.skillCount} 项
+          </p>
+        </div>
       </div>
-    </PageTransition>
+    </div>
   )
 }
