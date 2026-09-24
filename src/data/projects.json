@@ -338,6 +338,38 @@
         "fullName": "agenticnoob/webgl-scroll",
         "fingerprint": "62d59eaae42adcea2f442e0af40fa849c9b976780dd8ffd12746a1a5dbd61954"
       }
+    },
+    {
+      "name": "Hero Next",
+      "subtitle": "双语交互式个人网站",
+      "role": "开源项目",
+      "stage": "开源项目",
+      "description": "基于 Next.js App Router 构建的独立个人网站，以章节形式呈现个人介绍、AI 与哲学文章、公开项目、公共频道和每日记录。针对桌面与移动端提供差异化阅读和交互布局，并支持中英文内容、主题切换、项目案例展示及日志分页浏览。",
+      "tech": [
+        "TypeScript",
+        "Next.js App Router",
+        "React",
+        "WebGL",
+        "Vercel",
+        "GitHub Actions"
+      ],
+      "highlights": [
+        "共享类型化内容与持久化语言、主题状态",
+        "桌面端提供 WebGL 项目展厅、透视日志与动态文章索引",
+        "移动端、触屏及横向短窗口采用适配阅读布局",
+        "支持项目案例的拦截式对话框与独立页面路由模式切换呈现形式，保留上下文或直接访问完整页面。"
+      ],
+      "links": [
+        {
+          "label": "源码",
+          "href": "https://github.com/agenticnoob/hero-next"
+        }
+      ],
+      "github": {
+        "repositoryId": 1366880001,
+        "fullName": "agenticnoob/hero-next",
+        "fingerprint": "d7f831f15d8966ba79174b4c4277a2b02489de3bb683a4660bc47e7eb5c743ba"
+      }
     }
   ]
 }
