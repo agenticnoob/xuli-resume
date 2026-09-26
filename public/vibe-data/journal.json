@@ -2,10 +2,277 @@
   "schemaVersion": 1,
   "source": {
     "repository": "agenticnoob/vibe-journal-pipeline",
-    "revision": "3b0cfdcbc1e3c65e76702506cfe83974c8ff1b86",
-    "generatedAt": "2026-09-24T00:06:51.238670+08:00"
+    "revision": "ed37fec31233ca73029c4582350132be05903df5",
+    "generatedAt": "2026-09-27T00:05:39.096399+08:00"
   },
   "entries": [
+    {
+      "date": "2026-09-26",
+      "sessionCount": 1,
+      "turnCount": 23,
+      "skillsTouched": [
+        {
+          "id": "nodejs",
+          "name": "Node.js",
+          "category": "runtime",
+          "count": 4
+        },
+        {
+          "id": "javascript",
+          "name": "JavaScript",
+          "category": "language",
+          "count": 3
+        },
+        {
+          "id": "npm",
+          "name": "npm",
+          "category": "package-manager",
+          "count": 2
+        },
+        {
+          "id": "playwright",
+          "name": "Playwright",
+          "category": "ai-coding-tool",
+          "count": 2
+        },
+        {
+          "id": "gpt6astra",
+          "name": "GPT-6 Astra",
+          "category": "ai-model",
+          "count": 1
+        },
+        {
+          "id": "gpt6sol",
+          "name": "GPT-6 Sol",
+          "category": "ai-model",
+          "count": 1
+        }
+      ],
+      "timelineEvent": "完成《Opus 5.5降价数字怎么看》视频制作与三平台发布，修复封面校验、话题匹配和标签写入故障后，小红书与抖音进入审核、B站已公开。",
+      "tools": [
+        "Node.js 与 JavaScript 脚本",
+        "npm 与 AXMORF 公开制作命令",
+        "浏览器自动化与像素级封面核验",
+        "GPT-6 Astra 与 GPT-6 Sol 自动任务模型配置"
+      ],
+      "work": [
+        "每日视频流程：完成《Opus 5.5降价数字怎么看》选题，依据 Anthropic 官方公告核实 token 单价下降 20%、缓存读取下降 60%、典型任务成本约降 40%。制作 54.83 秒、1080×1920、30fps 中文视频及双封面，通过 AXMORF final 校验、首帧检查和无覆盖交接预检。",
+        "发布故障定位与修复：确认失败不在视频制作，而在发布前检查。修复封面校验误用 Ego 浏览器辅助进程运行 Node 脚本的问题；补上抖音上传后预览和保存后双封面两次像素核验，避免保存视频截图；将小红书“效率”话题改为精确匹配，避免误选“效率神机营”；识别 B站 `Claude` 为保留话题并改用话题搜索添加；同时修正抖音 AI 声明控件和 B站封面输入初始化兼容问题。",
+        "修复后 36 项全量测试通过，三平台封面均通过像素比对。恢复原草稿并各提交一次：小红书、抖音后台确认为审核中，B站确认已公开，原有三条草稿保留。未盲重试，运行记录和作品 ID 已保存。",
+        "复盘与配置调整：取得昨日作品小红书次日数据 86 次观看、2 赞、1 收藏；抖音取数超时、B站作品匹配失败，均记为未知。确认本次缺少片头是制作时主动设置 `introSceneTemplateId: null` 的意图偏差，并非渲染故障。将后续每日视频默认画风改为手绘插画风，减少科技面板、霓虹和粒子效果，并保留品牌片头片尾。",
+        "核实发布模式为 Agent 统筹选题、脚本和画面设计，浏览器脚本执行上传、填表、检查和提交，异常时由 Agent 检查真实页面、修复并恢复草稿；尚未实现逐步观察决策及强制发布前视觉审核。将每日制作 Agent 从 `gpt-6-astra`/`high` 改为 `gpt-6-sol`/`medium`，保留每天北京时间 09:00 的执行时间。"
+      ],
+      "resumeHighlight": "定位并修复跨平台视频发布链路中的进程调用、上传时序、话题模糊匹配和平台保留标签问题，通过像素级封面核验与 36 项回归测试恢复既有草稿，最终完成小红书、抖音、B站各一次安全提交。"
+    },
+    {
+      "date": "2026-09-25",
+      "sessionCount": 6,
+      "turnCount": 82,
+      "skillsTouched": [
+        {
+          "id": "javascript",
+          "name": "JavaScript",
+          "category": "language",
+          "count": 12
+        },
+        {
+          "id": "typescript",
+          "name": "TypeScript",
+          "category": "language",
+          "count": 6
+        },
+        {
+          "id": "react",
+          "name": "React",
+          "category": "framework",
+          "count": 5
+        },
+        {
+          "id": "vite",
+          "name": "Vite",
+          "category": "build-tool",
+          "count": 4
+        },
+        {
+          "id": "nodejs",
+          "name": "Node.js",
+          "category": "runtime",
+          "count": 5
+        },
+        {
+          "id": "npm",
+          "name": "npm",
+          "category": "package-manager",
+          "count": 4
+        },
+        {
+          "id": "git",
+          "name": "Git",
+          "category": "vcs",
+          "count": 5
+        },
+        {
+          "id": "github",
+          "name": "GitHub",
+          "category": "vcs-host",
+          "count": 4
+        },
+        {
+          "id": "vercel",
+          "name": "Vercel",
+          "category": "cloud",
+          "count": 3
+        },
+        {
+          "id": "playwright",
+          "name": "Playwright",
+          "category": "tool",
+          "count": 4
+        },
+        {
+          "id": "ffmpeg",
+          "name": "FFmpeg",
+          "category": "tool",
+          "count": 2
+        },
+        {
+          "id": "json",
+          "name": "JSON",
+          "category": "format",
+          "count": 3
+        },
+        {
+          "id": "css",
+          "name": "CSS",
+          "category": "language",
+          "count": 3
+        },
+        {
+          "id": "html",
+          "name": "HTML",
+          "category": "format",
+          "count": 2
+        },
+        {
+          "id": "remotion",
+          "name": "Remotion",
+          "category": "framework",
+          "count": 2
+        },
+        {
+          "id": "codex",
+          "name": "Codex CLI",
+          "category": "ai-coding-tool",
+          "count": 3
+        },
+        {
+          "id": "systemd",
+          "name": "systemd",
+          "category": "tool",
+          "count": 1
+        },
+        {
+          "id": "cron",
+          "name": "cron",
+          "category": "tool",
+          "count": 1
+        }
+      ],
+      "timelineEvent": "we-media 建成每日自主选题→AXMORF 制作→三平台浏览器自动发布→记录与复盘的完整流程，并真实完成一条视频在抖音、小红书、B站的端到端发布。",
+      "tools": [
+        "JavaScript / TypeScript / React 18 / Vite 5（xuli-resume 重构与性能优化）",
+        "Node.js + npm + Playwright（we-media 三平台发布脚本与浏览器自动化）",
+        "Git / GitHub / Vercel（提交、变基、Verify 与生产部署）",
+        "FFmpeg / ffprobe（视频素材时长与文件校验）",
+        "Remotion（AXMORF 视频制作交付物来源）",
+        "Codex 本地定时任务（每日 09:00 北京时间自动运行）",
+        "JSON / CSS / HTML（数据交接、字体与页面结构）"
+      ],
+      "work": [
+        "hero-next（个人站双仓库迁移）：确认网站仓库已 Public、自动化仓库 Private，均无待合并 PR，私有定时工作流 active，当日自动扫描与网站生产运行成功。核对本地检出落后远端（网站仍在 axmorf/two-repo-project-automation 分支，自动化仓库 main 落后 2 个文档提交），不影响线上；唯一未提交文件为AXMORF-个人简历.md，用户明确不上传。澄清自动化链路为私有仓库定时运行→读网站 main→建内容 PR→检查通过后合并→触发部署，与本地分支无关。",
+        "xuli-resume 架构重构：新增 src/siteRoutes.ts 统一路由、导航文字、Footer 可见性与懒加载配置，消除三处重复；App.tsx 集中管理页面转场、加载状态与 404；9 个页面按路由拆包，首屏 JS 344.44→290.13 kB（gzip 115.34→95.39 kB），CSS 45.86→38.39 kB；提取通用 StatusCard，删除未使用的 useScrollAnimation，清除约 400 行旧随机首页布局与过期动画；Navbar 增加 aria-current、Esc 关闭菜单、函数式状态更新，修复 Navbar/Footer 两个 Logo 共用 SVG filter ID 的潜在冲突；sync-vibe-journal.mjs 并行读取独立日志文件并保持排序与输出确定性；package.json 改为无产物类型检查，删除并忽略 .tsbuildinfo、重复 Vite 配置产物、.DS_Store。未修改 _site-content/ 与任何受管公开数据快照。验证 18/18 测试、生产构建、catalog 11 项 0 pending、真实 Pipeline dry-run changed=4 与首次同步 changed=4、第二次 changed=0，浏览器回归 9 路由 + 404 正常，桌面与 375px 移动端无横向溢出。提交 60d74ad 精确 34 个路径，本机 GitHub HTTPS 与 SSH 转发握手失败后改用已连接 GitHub 能力绕过；远端 main 期间新增 4 个自动化提交（头 e22570f），无损变基后重构提交为 fec326e，最终 GitHub main 更新到 cfbc66d，本地与远端一致。",
+        "xuli-resume 性能优化：诊断实践日志页数据为构建时生成的 public/vibe-data/journal.json（约 639 KB，gzip 约 181 KB，请求 159–259 ms），真正瓶颈是 index.html 中 Google Fonts 外链阻塞约 9 秒、正文约 10.5 秒才出现。移除外链改为同源 Unicode 分片 WOFF2，保留 LXGW WenKai、Noto Sans SC、IBM Plex Mono 视觉体系，字体 CSS 首屏渲染后异步加载；路由支持 hover/focus 预取，实践日志同时预取路由分包与 JSON；vercel.json 为 /vibe-data/*.json 配置一年 immutable 缓存。验证 18/18 测试、TypeScript 类型检查、Vite 生产构建、vercel build --prod 均通过，桌面 1440×1000 与移动 390×844 无控制台错误与横向溢出，生产冷启动正文约 1.9 秒，较优化前约 10.5 秒提升约 82%，JSON 返回 max-age=31536000, immutable。提交 ba3af05，GitHub Verify 成功，Vercel 部署 dpl_DV2mzxMeGBHEatRmA2f6Q6tNPwdQ READY，生产地址 resume.zzzxc.com/vibe-journal。未做按月拆分，建议数据增长到数百天后再分片。",
+        "we-media 小红书封面修复：入口 scripts/publish.js 默认只做本地素材预检，加 --run 才上传；素材来自本地 data/，由 data/publishing.json 的 outputFileName 指定，当前为 data/ai-in-your-workflow.mp4（约 13 MB），标题“你嘴里的 AI，进入你的工作流了吗？”，封面 cover-3x4.png / cover-4x3.png；上游 scripts/pull-video-data.sh 可从 mypc 的 remotion-story-producer/deliveries/ 同步素材但发布入口不自动拉取；平台顺序小红书→抖音→B站。发现元数据计划时长约 179 秒而 ffprobe 实测约 149 秒，预检只确认文件存在不校验时长。用户报错 cover_operator_not_found，根因是小红书改版后“编辑封面”入口藏在封面预览悬浮层、旧选择器要求的 .pointer 类已不存在、新版保存按钮改为“完成”、已有封面时上传输入框暂时消失。经用户授权在当前草稿实跑 node scripts/publish.js --run --platforms xhs 验证，修复 publish.js 与 publish-xiaohongshu.js 的封面入口查找、等待条件（改为真实图片输入框出现）、保存按钮路径，并用保存前后预览变化回读防止把视频自动截取封面误判为上传成功。18 项测试通过，实跑封面、合集、原创声明完成并交还审核页，日志确认 finalPublishClicked: false。",
+        "we-media B 站发布修复：用户报告脚本卡在上传页，排查发现旧脚本直接向隐藏文件输入框写入视频导致 B 站上传请求 HTTP 400，改为点击可见上传区后由页面弹出选择器接收文件，同一视频约 20 秒上传完成；若当前编辑页已上传同名视频则继续填表不重复上传。后续报错 Active Bilibili upload tab not found in task space，原因是上传页在任务空间无页面标签时脚本误判，已修正为认领未标记的活动上传页并新增回归测试。22 项测试通过，两个入口预检通过，独立 B 站脚本曾在真实页面完成标题、简介、标签、合集、封面填写并回读校验，停在审核页未点击“立即投稿”。最后一次真实页面核对时浏览器提示用户已接管任务空间，故不能声称最新修复已在用户页面跑通。",
+        "we-media 每日自动视频生产流程（已实现并真实试跑）：用户明确授权视频通过校验后使用已登录创作者账号执行最终发布，旧 review-only 规则被替换，但保留无副作用预检，最终提交必须用 --publish-final --platforms <...>，避免普通 --run 误发布。选题规则为从 X/海外资讯发现近期 AI 产品/工具/技术热点，用官方公告、产品文档、论文核实，记录来源链接、发布时间、关键事实，去重并排除传闻，无合格热点时使用常青选题不编造新闻。制作按 AXMORF 的 AGENTS.md 与 axmorf-video Skill，仅调用公开 npm 命令不修改包内部实现；首个选题为 OpenAI 官方公告的 GPT-6 Sol/Luna，制作约 32.1 秒竖屏 1080×1920、30fps、中文图表式解说，四件交付物通过 project:check --level final。交接从 AXMORF publish.json 提取 publishing 字段生成独立 data/gpt-6-sol-luna-20260925/ 目录不覆盖旧素材，离线预检通过。发布前回读真实页面的素材、标题、正文、话题、封面、声明、公开范围，单次点击后从账号后台查证，结果不明禁止盲重试。状态机区分 submitted、under_review、public、unknown、blocked，填表完成不等于发布成功。复盘次日与第七天只记录页面可见指标，未知数据明确留空，当前因日期未到指标为 null、原因 not_due。已创建并更新 Codex 本地任务，每天北京时间 09:00 执行三平台流程，访问 we-media 与 AXMORF 两个工作目录，异常时通知用户。",
+        "真实试跑结果：抖音已公开，作品 ID 7689346304199118120，链接 https://www.douyin.com/user/self?modal_id=7689346304199118120，满足单平台试跑验收。小红书首次发布后线上缩略图为深色空白首帧，原因是平台未采用交付的文字封面，已在原笔记编辑页重新设置 AXMORF 交付封面并核实后台卡片显示正常，未重复发布，作品 ID 6ab60e51000000001802ca2a，修复后恢复“已发布”。B站首次阻塞，因上传页自动载入 3 条未提交旧草稿无法安全区分新旧视频，改为在“继续编辑”中用“添加视频”创建独立第四条投稿，核对文件大小与任务 ID 后投稿，旧草稿保留，作品 ID BV1sXhC6yEai，链接 https://www.bilibili.com/video/BV1sXhC6yEai/，账号后台显示“已通过”。脚本层面小红书增加封面像素比对拦截近乎空白首帧并核对保存后与发布后的线上封面图像，B站增加独立上传条目与原草稿保留校验避免误触旧草稿；发布、交接、到期取数已沉淀为可复用脚本，操作顺序写入 DAILY_RUNBOOK.md。测试 32/32 通过，离线预检通过，三平台只读取数探测在真实账号页成功。",
+        "剩余边界：新版统一 --publish-final 脚本尚未在下一条新作品上完整执行一次自动最终发布，现有作品受防重复提交保护不会拿来重发；次日及第七天正式复盘尚未到期；当前不需要用户手动介入。"
+      ],
+      "resumeHighlight": "主导 we-media 从人工发布升级为每日自主选题→AXMORF 制作→三平台浏览器自动发布→记录与复盘的端到端流程，通过封面像素比对、独立上传条目校验、发布前回读与后台查证等机制保证幂等与安全，并真实完成一条视频在抖音、小红书、B站的端到端发布（抖音 7689346304199118120、小红书 6ab60e51000000001802ca2a、B站 BV1sXhC6yEai），32/32 测试通过。"
+    },
+    {
+      "date": "2026-09-24",
+      "sessionCount": 1,
+      "turnCount": 9,
+      "skillsTouched": [
+        {
+          "id": "githubactions",
+          "name": "GitHub Actions",
+          "category": "tool",
+          "count": 6
+        },
+        {
+          "id": "githubapps",
+          "name": "GitHub Apps",
+          "category": "tool",
+          "count": 2
+        },
+        {
+          "id": "vercel",
+          "name": "Vercel",
+          "category": "cloud",
+          "count": 3
+        },
+        {
+          "id": "codex",
+          "name": "Codex CLI",
+          "category": "ai-coding-tool",
+          "count": 3
+        },
+        {
+          "id": "json",
+          "name": "JSON",
+          "category": "format",
+          "count": 2
+        },
+        {
+          "id": "markdown",
+          "name": "Markdown",
+          "category": "format",
+          "count": 2
+        },
+        {
+          "id": "http",
+          "name": "HTTP",
+          "category": "protocol",
+          "count": 2
+        },
+        {
+          "id": "git",
+          "name": "Git",
+          "category": "vcs",
+          "count": 3
+        }
+      ],
+      "timelineEvent": "hero-next 站点公开后，完整跑通了私有自动化仓库的扫描、Codex 生成、内容 PR、检查、合并与 Vercel 生产部署链路，并完成公开状态下的凭据特征复核。",
+      "tools": [
+        "GitHub Actions 私有定时 workflow 与手动触发",
+        "GitHub Apps（hero-next-publisher、hero-next-session-store）与 Environment/Repository Secrets",
+        "Codex 生成与自动审查",
+        "Vercel Production 部署与公开快照验证",
+        "Git 历史、Actions 日志、artifact 与静态资源的凭据特征扫描",
+        "README/Markdown 文档与 data/projects.json 数据文件"
+      ],
+      "work": [
+        "仓库可见性切换与链路验证：确认 agenticnoob/hero-next 已改为 Public，agenticnoob/hero-next-automation 保持 Private，私有定时开关保持 active。公开后手动触发私有 workflow，完整走通收集、Codex 生成、Environment Secret 写回、容器停止与清理、结构化输出传递、自动审查、内容 PR 创建与检查、自动合并、正常 main push 生产部署、Vercel 发布与公开快照验证。",
+        "内容 PR 与部署：公开后首次运行生成内容 PR #5，仅新增 hero-next 自身的公开项目条目，来源仓库 ID 与链接由可信脚本填入，合并为 706c981…，对应生产运行完成 Vercel 发布。README 更新后再次触发扫描，生成仅修改 data/projects.json 的内容 PR #7，检查通过后自动合并，对应 main push 完成生产部署。",
+        "文档同步：在隔离检出中更新状态文档，修正 README 中仍写着 private 的可见性表述，通过本地检查与构建后提交文档 PR。网站文档 PR #6 与私有仓库文档 PR #2 均已合并，两仓库可见性回读确认，私有仓库检查通过。",
+        "公开状态下的安全复核：扫描网站 main 的 34 个历史提交、12 次相关 Actions 日志、四份旧站点 artifact、新生成运行的两份私有 artifact，以及新增运行日志、传递文件、公开页面和其加载的 13 个静态资源，均未检出常见令牌、私钥或认证 JSON 特征。生产 /projects 与新增 Hero Next 项目页均返回 HTTP 200。",
+        "收敛验证：触发最后一次无变化扫描，收集任务完成，生成和审查按预期跳过。最终确认两仓库均无待合并 PR，定时工作流 active，公开项目页面显示更新后的中文项目名称。",
+        "已知限制：历史上有一次取消运行的日志不完整；特征扫描只能证明未命中已检查的凭据特征，不能证明所有可能格式都不存在。旧网站仓库的 project-content Environment 已无订阅认证 Secret，网站现有日志部署 Secret 保留。"
+      ],
+      "resumeHighlight": "主导将一个 Next.js 站点从私有切换为公开后的端到端自动化验证：设计并跑通私有 GitHub Actions 定时 workflow 驱动的 Codex 生成、内容 PR 自动审查与合并、Vercel 生产部署链路，同时完成 Git 历史、Actions 日志、artifact 与静态资源的凭据特征审计，确保公开状态下无敏感信息泄露。"
+    },
     {
       "date": "2026-09-23",
       "sessionCount": 4,
