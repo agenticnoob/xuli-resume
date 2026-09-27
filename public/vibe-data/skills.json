@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "source": {
     "repository": "agenticnoob/vibe-journal-pipeline",
-    "revision": "ed37fec31233ca73029c4582350132be05903df5",
-    "generatedAt": "2026-09-27T00:05:39.096399+08:00"
+    "revision": "fbbc5bca17978b0052cf74111b22ed0d18c97054",
+    "generatedAt": "2026-09-28T00:06:10.121078+08:00"
   },
   "skills": [
     {
@@ -140,6 +140,15 @@
       "totalCount": 190,
       "firstSeen": "2026-05-16",
       "lastSeen": "2026-09-21"
+    },
+    {
+      "id": "bilibili",
+      "name": "Bilibili",
+      "category": "domain",
+      "dayCount": 1,
+      "totalCount": 3,
+      "firstSeen": "2026-09-27",
+      "lastSeen": "2026-09-27"
     },
     {
       "id": "blender",
@@ -412,6 +421,15 @@
       "lastSeen": "2026-07-15"
     },
     {
+      "id": "douyin",
+      "name": "Douyin",
+      "category": "domain",
+      "dayCount": 1,
+      "totalCount": 3,
+      "firstSeen": "2026-09-27",
+      "lastSeen": "2026-09-27"
+    },
+    {
       "id": "dpkg",
       "name": "dpkg",
       "category": "tool",
@@ -532,10 +550,10 @@
       "id": "ffmpeg",
       "name": "FFmpeg",
       "category": "tool",
-      "dayCount": 39,
-      "totalCount": 134,
+      "dayCount": 40,
+      "totalCount": 136,
       "firstSeen": "2026-06-26",
-      "lastSeen": "2026-09-25"
+      "lastSeen": "2026-09-27"
     },
     {
       "id": "ffprobe",
@@ -739,10 +757,10 @@
       "id": "gpt6sol",
       "name": "GPT-6 Sol",
       "category": "ai-model",
-      "dayCount": 1,
-      "totalCount": 1,
+      "dayCount": 2,
+      "totalCount": 2,
       "firstSeen": "2026-09-26",
-      "lastSeen": "2026-09-26"
+      "lastSeen": "2026-09-27"
     },
     {
       "id": "gsap",
@@ -761,6 +779,15 @@
       "totalCount": 26,
       "firstSeen": "2026-07-09",
       "lastSeen": "2026-09-12"
+    },
+    {
+      "id": "hackernews",
+      "name": "Hacker News",
+      "category": "domain",
+      "dayCount": 1,
+      "totalCount": 1,
+      "firstSeen": "2026-09-27",
+      "lastSeen": "2026-09-27"
     },
     {
       "id": "hermes",
@@ -883,10 +910,10 @@
       "id": "javascript",
       "name": "JavaScript",
       "category": "language",
-      "dayCount": 19,
-      "totalCount": 111,
+      "dayCount": 20,
+      "totalCount": 117,
       "firstSeen": "2026-07-05",
-      "lastSeen": "2026-09-26"
+      "lastSeen": "2026-09-27"
     },
     {
       "id": "jdk",
@@ -919,10 +946,10 @@
       "id": "json",
       "name": "JSON",
       "category": "format",
-      "dayCount": 31,
-      "totalCount": 189,
+      "dayCount": 32,
+      "totalCount": 191,
       "firstSeen": "2026-05-19",
-      "lastSeen": "2026-09-25"
+      "lastSeen": "2026-09-27"
     },
     {
       "id": "jsonschema",
@@ -982,10 +1009,10 @@
       "id": "markdown",
       "name": "Markdown",
       "category": "format",
-      "dayCount": 8,
-      "totalCount": 34,
+      "dayCount": 9,
+      "totalCount": 36,
       "firstSeen": "2026-07-23",
-      "lastSeen": "2026-09-24"
+      "lastSeen": "2026-09-27"
     },
     {
       "id": "mcp",
@@ -1117,19 +1144,19 @@
       "id": "nodejs",
       "name": "Node.js",
       "category": "runtime",
-      "dayCount": 70,
-      "totalCount": 344,
+      "dayCount": 71,
+      "totalCount": 347,
       "firstSeen": "2026-05-18",
-      "lastSeen": "2026-09-26"
+      "lastSeen": "2026-09-27"
     },
     {
       "id": "npm",
       "name": "npm",
       "category": "package-manager",
-      "dayCount": 79,
-      "totalCount": 455,
+      "dayCount": 80,
+      "totalCount": 459,
       "firstSeen": "2026-06-05",
-      "lastSeen": "2026-09-26"
+      "lastSeen": "2026-09-27"
     },
     {
       "id": "numpy",
@@ -1189,10 +1216,10 @@
       "id": "openai",
       "name": "OpenAI",
       "category": "ai-provider",
-      "dayCount": 11,
-      "totalCount": 33,
+      "dayCount": 12,
+      "totalCount": 35,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-08-29"
+      "lastSeen": "2026-09-27"
     },
     {
       "id": "openaiapi",
@@ -1306,10 +1333,10 @@
       "id": "playwright",
       "name": "Playwright",
       "category": "tool",
-      "dayCount": 38,
-      "totalCount": 96,
+      "dayCount": 39,
+      "totalCount": 99,
       "firstSeen": "2026-05-20",
-      "lastSeen": "2026-09-26"
+      "lastSeen": "2026-09-27"
     },
     {
       "id": "png",
@@ -1495,10 +1522,10 @@
       "id": "remotion",
       "name": "Remotion",
       "category": "framework",
-      "dayCount": 67,
-      "totalCount": 547,
+      "dayCount": 68,
+      "totalCount": 550,
       "firstSeen": "2026-05-26",
-      "lastSeen": "2026-09-25"
+      "lastSeen": "2026-09-27"
     },
     {
       "id": "repositorydispatch",
@@ -1801,10 +1828,10 @@
       "id": "toml",
       "name": "TOML",
       "category": "format",
-      "dayCount": 1,
-      "totalCount": 2,
+      "dayCount": 2,
+      "totalCount": 3,
       "firstSeen": "2026-07-05",
-      "lastSeen": "2026-07-05"
+      "lastSeen": "2026-09-27"
     },
     {
       "id": "tsup",
@@ -1828,10 +1855,10 @@
       "id": "typescript",
       "name": "TypeScript",
       "category": "language",
-      "dayCount": 117,
-      "totalCount": 963,
+      "dayCount": 118,
+      "totalCount": 966,
       "firstSeen": "2026-05-17",
-      "lastSeen": "2026-09-25"
+      "lastSeen": "2026-09-27"
     },
     {
       "id": "ubuntu",
@@ -2032,6 +2059,15 @@
       "lastSeen": "2026-08-24"
     },
     {
+      "id": "xiaohongshu",
+      "name": "Xiaohongshu",
+      "category": "domain",
+      "dayCount": 1,
+      "totalCount": 3,
+      "firstSeen": "2026-09-27",
+      "lastSeen": "2026-09-27"
+    },
+    {
       "id": "xrdp",
       "name": "xrdp",
       "category": "tool",
@@ -2039,6 +2075,15 @@
       "totalCount": 1,
       "firstSeen": "2026-07-02",
       "lastSeen": "2026-07-02"
+    },
+    {
+      "id": "xtwitter",
+      "name": "X (Twitter)",
+      "category": "domain",
+      "dayCount": 1,
+      "totalCount": 2,
+      "firstSeen": "2026-09-27",
+      "lastSeen": "2026-09-27"
     },
     {
       "id": "xvfb",
