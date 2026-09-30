@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "source": {
     "repository": "agenticnoob/vibe-journal-pipeline",
-    "revision": "fbbc5bca17978b0052cf74111b22ed0d18c97054",
-    "generatedAt": "2026-09-28T00:06:10.121078+08:00"
+    "revision": "d7df6c089255ca19f1d29c228fc3d7732508807a",
+    "generatedAt": "2026-10-01T00:07:35.706475+08:00"
   },
   "skills": [
     {
@@ -37,10 +37,10 @@
       "id": "aac",
       "name": "AAC",
       "category": "format",
-      "dayCount": 11,
-      "totalCount": 22,
+      "dayCount": 12,
+      "totalCount": 23,
       "firstSeen": "2026-07-09",
-      "lastSeen": "2026-09-08"
+      "lastSeen": "2026-09-30"
     },
     {
       "id": "actionlint",
@@ -86,6 +86,15 @@
       "totalCount": 2,
       "firstSeen": "2026-09-10",
       "lastSeen": "2026-09-10"
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "category": "ai-provider",
+      "dayCount": 2,
+      "totalCount": 2,
+      "firstSeen": "2026-09-28",
+      "lastSeen": "2026-09-29"
     },
     {
       "id": "appdmg",
@@ -181,10 +190,10 @@
       "id": "canvas2d",
       "name": "Canvas 2D",
       "category": "api",
-      "dayCount": 4,
-      "totalCount": 8,
+      "dayCount": 5,
+      "totalCount": 9,
       "firstSeen": "2026-06-08",
-      "lastSeen": "2026-09-18"
+      "lastSeen": "2026-09-28"
     },
     {
       "id": "cdp",
@@ -199,10 +208,10 @@
       "id": "chrome",
       "name": "Chrome",
       "category": "tool",
-      "dayCount": 8,
-      "totalCount": 22,
+      "dayCount": 10,
+      "totalCount": 27,
       "firstSeen": "2026-06-07",
-      "lastSeen": "2026-09-18"
+      "lastSeen": "2026-09-30"
     },
     {
       "id": "chromium",
@@ -230,6 +239,15 @@
       "totalCount": 1,
       "firstSeen": "2026-09-16",
       "lastSeen": "2026-09-16"
+    },
+    {
+      "id": "claudesonnet55",
+      "name": "Claude Sonnet 5.5",
+      "category": "ai-model",
+      "dayCount": 1,
+      "totalCount": 1,
+      "firstSeen": "2026-09-29",
+      "lastSeen": "2026-09-29"
     },
     {
       "id": "cloudflare",
@@ -271,10 +289,10 @@
       "id": "codex",
       "name": "Codex CLI",
       "category": "ai-coding-tool",
-      "dayCount": 34,
-      "totalCount": 202,
+      "dayCount": 35,
+      "totalCount": 205,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-09-25"
+      "lastSeen": "2026-09-30"
     },
     {
       "id": "comfyui",
@@ -469,10 +487,10 @@
       "id": "egobrowser",
       "name": "ego-browser",
       "category": "tool",
-      "dayCount": 6,
-      "totalCount": 27,
+      "dayCount": 7,
+      "totalCount": 28,
       "firstSeen": "2026-06-24",
-      "lastSeen": "2026-09-11"
+      "lastSeen": "2026-09-29"
     },
     {
       "id": "electron",
@@ -547,6 +565,15 @@
       "lastSeen": "2026-07-02"
     },
     {
+      "id": "fasturi",
+      "name": "fast-uri",
+      "category": "library",
+      "dayCount": 1,
+      "totalCount": 1,
+      "firstSeen": "2026-09-29",
+      "lastSeen": "2026-09-29"
+    },
+    {
       "id": "ffmpeg",
       "name": "FFmpeg",
       "category": "tool",
@@ -586,19 +613,19 @@
       "id": "git",
       "name": "Git",
       "category": "vcs",
-      "dayCount": 89,
-      "totalCount": 437,
+      "dayCount": 92,
+      "totalCount": 445,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-09-25"
+      "lastSeen": "2026-09-30"
     },
     {
       "id": "github",
       "name": "GitHub",
       "category": "vcs-host",
-      "dayCount": 9,
-      "totalCount": 24,
+      "dayCount": 10,
+      "totalCount": 25,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-09-25"
+      "lastSeen": "2026-09-28"
     },
     {
       "id": "githubactions",
@@ -745,6 +772,15 @@
       "lastSeen": "2026-09-12"
     },
     {
+      "id": "gpt61sol",
+      "name": "GPT-6.1 Sol",
+      "category": "ai-model",
+      "dayCount": 1,
+      "totalCount": 1,
+      "firstSeen": "2026-09-30",
+      "lastSeen": "2026-09-30"
+    },
+    {
       "id": "gpt6astra",
       "name": "GPT-6 Astra",
       "category": "ai-model",
@@ -775,10 +811,10 @@
       "id": "h264",
       "name": "H.264",
       "category": "format",
-      "dayCount": 13,
-      "totalCount": 26,
+      "dayCount": 14,
+      "totalCount": 28,
       "firstSeen": "2026-07-09",
-      "lastSeen": "2026-09-12"
+      "lastSeen": "2026-09-30"
     },
     {
       "id": "hackernews",
@@ -793,10 +829,10 @@
       "id": "hermes",
       "name": "Hermes Agent",
       "category": "agent-framework",
-      "dayCount": 24,
-      "totalCount": 246,
+      "dayCount": 25,
+      "totalCount": 249,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-09-23"
+      "lastSeen": "2026-09-30"
     },
     {
       "id": "homebrew",
@@ -820,10 +856,10 @@
       "id": "html",
       "name": "HTML",
       "category": "format",
-      "dayCount": 4,
-      "totalCount": 12,
+      "dayCount": 5,
+      "totalCount": 14,
       "firstSeen": "2026-07-05",
-      "lastSeen": "2026-09-25"
+      "lastSeen": "2026-09-28"
     },
     {
       "id": "html5audio",
@@ -910,10 +946,10 @@
       "id": "javascript",
       "name": "JavaScript",
       "category": "language",
-      "dayCount": 20,
-      "totalCount": 117,
+      "dayCount": 21,
+      "totalCount": 120,
       "firstSeen": "2026-07-05",
-      "lastSeen": "2026-09-27"
+      "lastSeen": "2026-09-29"
     },
     {
       "id": "jdk",
@@ -1000,10 +1036,10 @@
       "id": "macos",
       "name": "macOS",
       "category": "os",
-      "dayCount": 6,
-      "totalCount": 25,
+      "dayCount": 7,
+      "totalCount": 27,
       "firstSeen": "2026-05-17",
-      "lastSeen": "2026-09-19"
+      "lastSeen": "2026-09-30"
     },
     {
       "id": "markdown",
@@ -1063,10 +1099,10 @@
       "id": "mihomo",
       "name": "Mihomo",
       "category": "infrastructure",
-      "dayCount": 4,
-      "totalCount": 11,
+      "dayCount": 5,
+      "totalCount": 13,
       "firstSeen": "2026-05-26",
-      "lastSeen": "2026-08-22"
+      "lastSeen": "2026-09-30"
     },
     {
       "id": "mikktspaced",
@@ -1144,19 +1180,19 @@
       "id": "nodejs",
       "name": "Node.js",
       "category": "runtime",
-      "dayCount": 71,
-      "totalCount": 347,
+      "dayCount": 74,
+      "totalCount": 356,
       "firstSeen": "2026-05-18",
-      "lastSeen": "2026-09-27"
+      "lastSeen": "2026-09-30"
     },
     {
       "id": "npm",
       "name": "npm",
       "category": "package-manager",
-      "dayCount": 80,
-      "totalCount": 459,
+      "dayCount": 83,
+      "totalCount": 473,
       "firstSeen": "2026-06-05",
-      "lastSeen": "2026-09-27"
+      "lastSeen": "2026-09-30"
     },
     {
       "id": "numpy",
@@ -1216,10 +1252,10 @@
       "id": "openai",
       "name": "OpenAI",
       "category": "ai-provider",
-      "dayCount": 12,
-      "totalCount": 35,
+      "dayCount": 13,
+      "totalCount": 36,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-09-27"
+      "lastSeen": "2026-09-28"
     },
     {
       "id": "openaiapi",
@@ -1486,10 +1522,10 @@
       "id": "react",
       "name": "React",
       "category": "framework",
-      "dayCount": 79,
-      "totalCount": 458,
+      "dayCount": 80,
+      "totalCount": 461,
       "firstSeen": "2026-05-20",
-      "lastSeen": "2026-09-25"
+      "lastSeen": "2026-09-30"
     },
     {
       "id": "reactdoctor",
@@ -1522,10 +1558,10 @@
       "id": "remotion",
       "name": "Remotion",
       "category": "framework",
-      "dayCount": 68,
-      "totalCount": 550,
+      "dayCount": 71,
+      "totalCount": 563,
       "firstSeen": "2026-05-26",
-      "lastSeen": "2026-09-27"
+      "lastSeen": "2026-09-30"
     },
     {
       "id": "repositorydispatch",
@@ -1609,6 +1645,15 @@
       "lastSeen": "2026-06-22"
     },
     {
+      "id": "seedance",
+      "name": "Seedance",
+      "category": "ai-provider",
+      "dayCount": 1,
+      "totalCount": 1,
+      "firstSeen": "2026-09-28",
+      "lastSeen": "2026-09-28"
+    },
+    {
       "id": "sensenova",
       "name": "Sensenova",
       "category": "ai-provider",
@@ -1621,10 +1666,10 @@
       "id": "sha256",
       "name": "SHA-256",
       "category": "tool",
-      "dayCount": 1,
-      "totalCount": 8,
+      "dayCount": 3,
+      "totalCount": 11,
       "firstSeen": "2026-08-29",
-      "lastSeen": "2026-08-29"
+      "lastSeen": "2026-09-30"
     },
     {
       "id": "sha256sum",
@@ -1634,6 +1679,15 @@
       "totalCount": 4,
       "firstSeen": "2026-08-08",
       "lastSeen": "2026-08-08"
+    },
+    {
+      "id": "sha512",
+      "name": "SHA-512",
+      "category": "tool",
+      "dayCount": 1,
+      "totalCount": 1,
+      "firstSeen": "2026-09-30",
+      "lastSeen": "2026-09-30"
     },
     {
       "id": "shadcn",
@@ -1729,10 +1783,10 @@
       "id": "svg",
       "name": "SVG",
       "category": "format",
-      "dayCount": 10,
-      "totalCount": 21,
+      "dayCount": 11,
+      "totalCount": 23,
       "firstSeen": "2026-07-17",
-      "lastSeen": "2026-09-09"
+      "lastSeen": "2026-09-28"
     },
     {
       "id": "swiper",
@@ -1801,10 +1855,10 @@
       "id": "threejs",
       "name": "Three.js",
       "category": "library",
-      "dayCount": 42,
-      "totalCount": 214,
+      "dayCount": 43,
+      "totalCount": 216,
       "firstSeen": "2026-06-04",
-      "lastSeen": "2026-09-15"
+      "lastSeen": "2026-09-28"
     },
     {
       "id": "tinyhttp",
@@ -1855,10 +1909,10 @@
       "id": "typescript",
       "name": "TypeScript",
       "category": "language",
-      "dayCount": 118,
-      "totalCount": 966,
+      "dayCount": 121,
+      "totalCount": 979,
       "firstSeen": "2026-05-17",
-      "lastSeen": "2026-09-27"
+      "lastSeen": "2026-09-30"
     },
     {
       "id": "ubuntu",
@@ -2017,10 +2071,10 @@
       "id": "webpack",
       "name": "Webpack",
       "category": "build-tool",
-      "dayCount": 2,
-      "totalCount": 11,
+      "dayCount": 3,
+      "totalCount": 13,
       "firstSeen": "2026-07-31",
-      "lastSeen": "2026-08-02"
+      "lastSeen": "2026-09-29"
     },
     {
       "id": "websocket",

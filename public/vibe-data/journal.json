@@ -2,10 +2,355 @@
   "schemaVersion": 1,
   "source": {
     "repository": "agenticnoob/vibe-journal-pipeline",
-    "revision": "fbbc5bca17978b0052cf74111b22ed0d18c97054",
-    "generatedAt": "2026-09-28T00:06:10.121078+08:00"
+    "revision": "d7df6c089255ca19f1d29c228fc3d7732508807a",
+    "generatedAt": "2026-10-01T00:07:35.706475+08:00"
   },
   "entries": [
+    {
+      "date": "2026-09-30",
+      "sessionCount": 14,
+      "turnCount": 115,
+      "skillsTouched": [
+        {
+          "id": "npm",
+          "name": "npm",
+          "category": "package-manager",
+          "count": 6
+        },
+        {
+          "id": "typescript",
+          "name": "TypeScript",
+          "category": "language",
+          "count": 4
+        },
+        {
+          "id": "react",
+          "name": "React",
+          "category": "framework",
+          "count": 3
+        },
+        {
+          "id": "remotion",
+          "name": "Remotion",
+          "category": "framework",
+          "count": 3
+        },
+        {
+          "id": "nodejs",
+          "name": "Node.js",
+          "category": "runtime",
+          "count": 3
+        },
+        {
+          "id": "git",
+          "name": "Git",
+          "category": "vcs",
+          "count": 4
+        },
+        {
+          "id": "h264",
+          "name": "H.264",
+          "category": "format",
+          "count": 2
+        },
+        {
+          "id": "aac",
+          "name": "AAC",
+          "category": "format",
+          "count": 1
+        },
+        {
+          "id": "chrome",
+          "name": "Chrome",
+          "category": "tool",
+          "count": 2
+        },
+        {
+          "id": "hermes",
+          "name": "Hermes Agent",
+          "category": "agent-framework",
+          "count": 3
+        },
+        {
+          "id": "mihomo",
+          "name": "mihomo",
+          "category": "tool",
+          "count": 2
+        },
+        {
+          "id": "gpt61sol",
+          "name": "GPT-6.1 Sol",
+          "category": "ai-model",
+          "count": 1
+        },
+        {
+          "id": "codex",
+          "name": "Codex CLI",
+          "category": "ai-coding-tool",
+          "count": 3
+        },
+        {
+          "id": "macos",
+          "name": "macOS",
+          "category": "os",
+          "count": 2
+        },
+        {
+          "id": "sha512",
+          "name": "SHA-512",
+          "category": "tool",
+          "count": 1
+        },
+        {
+          "id": "sha256",
+          "name": "SHA-256",
+          "category": "tool",
+          "count": 1
+        }
+      ],
+      "timelineEvent": "完成 AXMORF Studio 0.1.15 发布与升级验证，并修复 Agent 未使用既有视觉能力的问题，将 9 类能力、101 个公开 API 接入 Catalog 与任务输入，全量 973 项测试通过。",
+      "tools": [
+        "npm 发布与依赖管理（@axmorf/studio、create-axmorf-studio）",
+        "TypeScript / React / Remotion 视频合成管线",
+        "Git 多分支合并与 worktree 操作",
+        "Chrome 149.0.7790.0 无头渲染与 doctor 检查",
+        "Hermes 配置（v0.21.5）与 MCP 管理",
+        "mihomo 代理配置（Ubuntu）",
+        "Codex 桌面端诊断（macOS 15.7.1, Intel）",
+        "GPT-6.1 Sol 定时任务模型配置",
+        "SHA-256 / SHA-512 校验"
+      ],
+      "work": [
+        "【AXMORF Studio 0.1.15 发布与验证】完成 @axmorf/studio 与 create-axmorf-studio 的 npm 发布，公共 latest 均为 0.1.15，tag v0.1.15 指向发布提交。发布前验证包括无代理直连浏览器下载、doctor 六项检查、compositions、revision 渲染、四文件交付检查、候选包指纹与 Codex 收据核验。公共包全新 Workspace 安装成功，SHA-512 与发布 tarball 一致，生成 1920×1080、32.896 秒视频和两张封面，七项 final 校验及媒体解码通过。未通过发布后首次使用监督验收：Codex 在同一次制作中成功执行了两次 project:execution:resolve，而验收规则要求恰好一次，独立 recorder 拒绝签发流程收据；视频交付本身通过。结论：对当前视频和 npm 包不严重，受影响的是严格流程验收。",
+        "【升级 ~/AgentWorkspace/axmorf 到 0.1.15】原 Workspace 由 0.1.14 模板生成，升级前备份改动文件到 axmorf-015-upgrade-backup-20260930。升级后运行包为 0.1.15，bootstrap 成功，doctor 六项通过，compositions 识别 9 个组合，npm 依赖审计零漏洞。升级前记录的 767 个受保护文件校验值未变，现有 Project、私有配置和交付物未被覆盖。新建测试 Project《影子的一天》1080×1920、约 24.7 秒，视频和两张封面交付，七项 final 校验、完整解码、project:scene:review 均通过。注意：五个旧 Project 的 current final 校验显示产物版本不匹配，另一个交付目录含 .DS_Store，不符合严格四文件要求，未覆盖或重制旧作品。",
+        "【每日 AI 视频流程】项目 ~/AgentWorkspace/projects/automation/we-media，当日选题《常驻AI代理，哪一步该由你确认？》，围绕 AI 代理权限边界。使用 @axmorf/studio 0.1.15 制作，1080×1920、30fps、中文配音，保留品牌片头片尾。语音实测总长 143.47 秒，超过 130 秒目标但在允许范围内，18 次语音请求均命中缓存，共 11 个 Agent 任务。初版 final 检查通过，但视觉复核发现 4:3 封面底部说明压到边框，创建隔离候选修订，重新生成失效场景、全局装饰和封面。修订版 final 通过，两张封面文字均在内框内，无覆盖交接与离线预检通过。三平台最终提交：B站已公开（BV1R6a964E1Z），小红书、抖音均处于审核中，小红书提交后封面与交付图片像素比对一致。昨日作品次日指标：小红书 39 播放、抖音 210、B站 121，评论与转发均为 0，样本不足未据此推断流量规律。",
+        "【定时任务模型配置】将每日 AI 视频定时任务模型改为 GPT-6.1 Sol、推理能力 high，已修改并核验，从下次定时运行生效。",
+        "【视觉质量问题诊断】用户反馈每日任务视频效果差，像 PPT，画面表达不清。诊断依据 9 月 29、30 日成片抽帧和场景代码。问题：画面只摆出符号没有演示过程（如授权场景只有静止门和钥匙，没有插钥匙开门）；动画主要是淡入和画线；昨天速度与价格场景计算了动画进度但图形未使用导致静止；分镜要求未落实但验收仍放行。建议方向：升级 Studio 视觉导演阶段、提高场景执行能力、建立独立视觉质量返工关卡、调整每日任务不固定统一手绘风。当前尚未修改 Studio 或每日任务配置。",
+        "【axmorf-studio 能力暴露修复】用户指出项目已有丰富视觉能力但 Agent 实际制作时不使用。只读分析确认画面逻辑：Agent 按 StoryBeat 编写 Scene（React + Remotion 逐帧渲染），统一合成字幕、旁白、声音。定位三个断点：Scene 任务输入只有资源 ID 白名单缺少组件 API 参数示例；默认创建示例资源池为空无先评估已有能力步骤；非空资源记录格式冲突（finalizer 要求直接引用，Scene checker 要求 { selected, descriptor } 包装）。修复内容：统一非空资源格式补 finalize→check 回归测试；将 9 类能力、101 个公开导出 API 的指南示例指纹接入 Catalog 与 immutable task 输入；提交时校验声明能力是否在源码中实际调用挂载，空 import 拒绝；AnimatedText 支持自定义中文文案与排版。验证：全量 841/841 测试、类型检查、lint、构建、宿主 Composition 检查通过。本地新 Workspace 测试：独立安装 250 依赖、bootstrap、browser:prepare、doctor 通过，复用同版本 Chrome 149.0.7790.0 缓存完成真实渲染。样片结果 project-production-complete，22.53 秒竖屏 1080×1920、30fps、H.264/AAC、676 帧，两张封面 + publish.json，final 检查 7/7 通过，关键帧确认图表、镜头聚焦、中文文字动画进入成片。测试记录写入 docs/evidence/2026-09-30-capability-workspace-smoke.json。",
+        "【基线错误与合并】用户反馈片头片尾 HUD 又出现深底深字。原因：当前目录 HEAD 停在 dd4368e（0.1.9，9 月 8 日），落后远端 17 个提交；首尾配色修复在 f0c6b4e，最新基线为 d403f3e（0.1.15）。用户要求把能力暴露修复与最新代码统一合并到主分支 axmorf/npm-workspace-open-source。已备份 80 个变更文件，建立本地整合分支，合并最新主分支、其余本地功能分支及能力暴露修复。合并冲突集中在 Scene 任务合同、创建示例、Skill 文档，需同时保留新版统一主题/尺寸覆盖/错误诊断与新增能力 API 指引/资源格式/真实调用校验。新增回归确认 Scene 可同时收到能力 API 指引和统一主题配色。",
+        "【AXMORF Studio 集成分支合并与验证】默认主分支为 axmorf/npm-workspace-open-source，远端 main 是废弃 Desktop 架构未混入。11 个本地功能分支提交全部纳入，含能力暴露优化、主题修复、文字动画等。修复旧构建产物残留问题：源码 0.1.15 但 dist 类型声明仍为 0.1.9 缺少主题接口，重建发行包后解决。全量 npm run check 通过：973 项测试 0 失败 0 跳过，类型/lint/构建/宿主检查通过。用合并代码创建全新 Workspace，安装 255 个运行包文件与主分支打包内容一致，doctor、浏览器渲染通过。实际制作测试视频：1080×1920、30fps、深色主题，2 秒片头 + 8 秒片尾，目标 25 秒，旁白实测 22.53 秒，正文含折线图、镜头变化、中文文字动画。最终交付 7/7 通过，final 检查通过，成片位于 out/main-integration-20260930/delivery/video.mp4。已本地提交 HEAD 93f7c3d，工作区干净，尚未推送远端或发布 npm。",
+        "【clash-party 下载】用户要求下载 clash-party-macos-2.0.3-x64.pkg（约 262 MB），直连慢。经代理首段约 130 KB/s，改用加速服务直连约 840 KB/s，分段下载平均约 3.6 MB/s。最终完成 262 MB，约 2 分钟，平均 2.17 MB/s，SHA-256 与 GitHub 官方一致。",
+        "【Codex Dot 侧栏排查】用户问 Codex 桌面端为何没有 Dot 侧栏，怀疑与 Intel 芯片有关。Agent 检查本机：Intel i7，Codex 版本 26.928.20755，应用包内含 Dot 代码，本地已保存一个 Dot 状态 available: true。侧栏显示逻辑检查账号权限与 side-orb-enabled 开关，未按芯片区分。结论：无证据表明 Intel 导致，更像功能开关或加载问题，官方说明 Dot 逐步开放。建议用同账号打开 ChatGPT 网页版对比 dots 入口。未做修改。",
+        "【Hermes 配置兼容性调整】版本 v0.21.5+4905.gf42f579，main 渠道最新，配置版本 49 匹配。用户确认不再使用 MiniMax。已调整：删除失效的 auxiliary.session_search；tts_audio_tags 改为 provider: auto 并清空 MiniMax 模型绑定；将 nivdia、sensenova、dayaai 从 custom_providers 迁移到 providers；设置 web.extract_backend: keenable 修复网页提取；llm-wiki MCP 因本地脚本不存在设为 enabled: false。清除不再生效字段：auxiliary.web_extract、session_reset、memory.flush_min_turns、sessions.write_json_snapshots、logging.memory_monitor、checkpoints.delete_orphans、moa.max_tokens、.env 中 BROWSER_SESSION_TIMEOUT。验证：hermes config check 通过，hermes doctor All checks passed，新进程主模型测试返回 CONFIG_SMOKE_OK，网页提取成功。保留限制：codegraph 握手成功但返回 0 个工具未算完整验证通过，飞书保持禁用。备份目录 ~/.hermes/backups/config-compat-20260930-174901 含 report.json。未重启当前会话，下次重开 Hermes 后 MCP 停用等启动时设置生效。",
+        "【Ubuntu VPN 订阅地址修改（未完成）】用户要求修改 Ubuntu 上 VPN 订阅地址。Agent 定位到 mihomo：配置文件 /etc/mihomo/config.yaml，字段 proxy-providers.my-sub.url（第 21 行），节点缓存 /etc/mihomo/providers/my-sub.yaml。用户先后提供两个临时订阅链接（2 分钟过期），第二个链接 https://links.rockey-repo.org/s/ot/a6bec175355803502fec98224abbd60d 时操作被中断，尚未完成替换、备份或验证。原配置未动。",
+        "【Mac Codex 诊断】用户问题：Codex 屏幕快照、电脑控制、锁屏控制打不开，怀疑权限未获取成功。环境：macOS 15.7.1，Intel MacBook Pro，Codex 版本 26.928.21956，官方安装未手动修改签名或替换文件。排查结论：主程序屏幕录制、辅助功能授权记录已存在，应用签名正常（此前沙箱内签名报错为误报）。日志反复出现 Failed to spawn managed Computer Use service，截图失败也发生在该阶段。程序包及本地目录均缺少 Codex Computer Use.app，这是截图与电脑控制同时不可用的直接原因。进一步核验官方安装包：当前 Intel ZIP 包不含 Computer Use 服务组件，Apple Silicon 包含组件但仅 arm64 无法在 Intel Mac 运行。因此重装同一版本或重置权限均无法修复，需官方提供兼容 Intel 的组件或修复版。已产出诊断报告与英文反馈文本 ~/Documents/Codex/2026-09-30/mac-codex/outputs/mac-codex-diagnostics.md，建议用户通过 / 反馈入口提交给官方。临时替代：⌘⇧4 后按空格截取窗口再拖入聊天。状态：功能未恢复，未修改系统权限或应用配置。"
+      ],
+      "resumeHighlight": "主导 AXMORF Studio 0.1.15 发布与能力暴露修复：定位 Agent 未使用既有视觉能力的三个断点（任务输入缺 API 指引、示例资源池为空、非空资源格式冲突），将 9 类能力、101 个公开 API 接入 Catalog 与 immutable task 输入，新增真实调用校验与 finalize→check 回归测试，合并 11 个本地功能分支后全量 973 项测试通过，并在全新 Workspace 完成 1080×1920 竖屏样片端到端验证（final 7/7 通过）。"
+    },
+    {
+      "date": "2026-09-29",
+      "sessionCount": 4,
+      "turnCount": 83,
+      "skillsTouched": [
+        {
+          "id": "typescript",
+          "name": "TypeScript",
+          "category": "language",
+          "count": 3
+        },
+        {
+          "id": "javascript",
+          "name": "JavaScript",
+          "category": "language",
+          "count": 3
+        },
+        {
+          "id": "nodejs",
+          "name": "Node.js",
+          "category": "runtime",
+          "count": 3
+        },
+        {
+          "id": "npm",
+          "name": "npm",
+          "category": "package-manager",
+          "count": 4
+        },
+        {
+          "id": "remotion",
+          "name": "Remotion",
+          "category": "framework",
+          "count": 5
+        },
+        {
+          "id": "webpack",
+          "name": "Webpack",
+          "category": "build-tool",
+          "count": 2
+        },
+        {
+          "id": "git",
+          "name": "Git",
+          "category": "vcs",
+          "count": 3
+        },
+        {
+          "id": "chrome",
+          "name": "Chrome Headless Shell",
+          "category": "tool",
+          "count": 3
+        },
+        {
+          "id": "fasturi",
+          "name": "fast-uri",
+          "category": "library",
+          "count": 1
+        },
+        {
+          "id": "sha256",
+          "name": "SHA-256",
+          "category": "protocol",
+          "count": 2
+        },
+        {
+          "id": "anthropic",
+          "name": "Anthropic",
+          "category": "ai-provider",
+          "count": 1
+        },
+        {
+          "id": "claudesonnet55",
+          "name": "Claude Sonnet 5.5",
+          "category": "ai-model",
+          "count": 1
+        },
+        {
+          "id": "egobrowser",
+          "name": "ego-browser",
+          "category": "tool",
+          "count": 1
+        }
+      ],
+      "timelineEvent": "AXMORF Studio 0.1.15 完成双宿主验收与全量 957 项检查，Codex 端真实渲染通过，npm 发布尚待 revision 闭环确认。",
+      "tools": [
+        "TypeScript / JavaScript / Node.js 用于 AXMORF Studio 源码、测试与发布脚本",
+        "npm 用于依赖安装、审计、本地发布检查与包发布",
+        "Remotion 用于视频合成、渲染与浏览器准备",
+        "Chrome Headless Shell 作为本机浏览器可执行文件供 Remotion 渲染",
+        "Webpack 用于 Remotion 编码阶段的构建配置加载",
+        "Git 用于同步远端提交、解决冲突与提交推送",
+        "fast-uri 用于安全漏洞升级与依赖审计",
+        "SHA-256 用于素材指纹与封面/场景去重校验",
+        "Anthropic Claude Sonnet 5.5 作为 we-media 选题的官方原文核实对象",
+        "ego-browser 用于 Boss 直聘简历更新的已登录指纹操作"
+      ],
+      "work": [
+        "AXMORF Studio（codex:axmorf-studio）：先关闭代理并延长浏览器准备等待，直连下载浏览器依赖成功，npm run doctor 通过；同步 3 个 Workspace-local Skill 文件并链接本地 @axmorf/studio。制作了“月相如何形成”测试样片（33.47 秒，目标 35 秒），3 个原创 Scene 加片头片尾，交付校验通过，但逐帧发现片头标识偏暗、片尾中段近乎空白。根因是本地检出 HEAD dd4368e 落后 origin 15 个提交，未包含提交 f0c6b4e 的主题修复，片头模板固定深色 #242424 文字配深靛蓝 #080f27 背景导致不可读。用户明确不修当前视频，而是修好后续制作流程。",
+        "AXMORF Studio 修复与发布：用 @axmorf/studio@0.1.14 创建新 Workspace axmorf-future-video-workspace，doctor 六项通过，18 项主题测试通过，真实渲染深浅主题/横竖屏 144 张关键帧加 4 段动画通过，深色背景片头 Logo 与片尾文字清晰。发布 0.1.15 时合并远端最新代码与本地未提交改动并解决冲突，类型检查通过，修复 4 处合并问题（示例时长断言、Skill 文档表述、两个测试夹具缺新版 Scene 合同字段）。fast-uri 高危漏洞升级到上游修复版，审计归零，同步 Workspace 生成模板锁文件。",
+        "AXMORF Studio 浏览器直连阻塞：Remotion 下载器内部 20 秒无数据即失败，外层 60 分钟等待无效。解决方案是 Workspace 支持显式指定本机已有浏览器可执行文件（Chrome 149），doctor、浏览器准备、渲染共用该路径，仍做真实渲染验证。",
+        "AXMORF Studio 双宿主验收（Codex + Hermes，各全新 Workspace，4 槽配置）：Hermes 首轮失败于封面子任务等待用户确认未绑定；Codex 5 个创作任务均提交成功但固定 Remotion 编码阶段失败。根因是新 Workspace 生成 remotion.config.mjs，当前锁定的 Remotion CLI 不自动加载该文件，渲染时未使用已配置浏览器而重新下载浏览器失败。用户授权修复：改配置文件名并加回归检查验证 CLI 加载配置。配置修复和定向测试通过，完整检查 955/955 通过，git diff --check 无空白错误，两个包本地发布检查与安全审计通过，新候选包已生成，两个全新 Workspace 安装和 doctor 通过，Codex Workspace npm run compositions 成功且日志显示 Webpack 设置被加载。",
+        "AXMORF Studio 0.1.15 最终验收：Hermes 首轮成片通过 project:check --level final 7 项检查，1920×1080、30fps、约 39.87 秒，深色主题抽帧对比度清楚，但发布凭据因探针批次后调用了一次被禁止的 delegate_task list 状态轮询而判失败，证据已保留。修复是把禁止该调用的指令写得更明确；新增指令一度超出主 Skill 字数预算导致完整检查 1 项失败，后将具体禁令移入对应执行指南、恢复主 Skill 预算，定向测试通过。全量检查最终 957 项测试零失败，类型检查、lint、文档链接、构建、宿主 Composition 检查、两包发行检查均通过，依赖审计零漏洞。旧 Codex 端自然完成浅色主题视频与双封面，7/7 通过，1920×1080、30fps、31.8 秒。用户明确 Hermes 校验暂不考虑，本次仅以 Codex 为验收目标。新候选包已重新打出并在全新 Workspace 完成实际渲染，Codex 首次使用验收原始进程正常结束，收据通过独立校验（默认 4 并发、5 个创作任务、一次补位均有原生记录，四文件媒体与 EOF 解码通过），浅色主题片头/正文/片尾抽帧对比度清楚。环境细节：候选制作使用本机已安装的 Chrome Headless Shell，Workspace 无浏览器副本；已在隔离 Workspace 启动无代理直连下载，验证不设置浏览器路径时默认命令可运行，下载仍在后台进行。发布状态：npm 上 0.1.15 尚不存在，远端仍指向基线提交，正在做已完成 Workspace 的隔离 revision 闭环，验证发布元数据更新能否复用现有素材并正确推广到 current。",
+        "we-media 每日 AI 视频（codex:we-media）：选题为 Sonnet 5.5 标价未降、单任务为何可能更省，按 Anthropic 官方原文核实。画风定为温暖克制手绘插画，米白纸张底色、铅笔/墨线轮廓、低饱和色块，避免深蓝黑底科技面板、霓虹、HUD、粒子、金属质感。制作约 125.9 秒旁白、19 段，8 个手绘场景加全局视觉与双封面。第一次尝试失败于场景字号校验与封面任务失败，恢复检查判定不可恢复，无 final 四件交付物，未交接未发布。抖音登录恢复后补采指标：播放 337、点赞 2、收藏 2、评论/分享 0。新尝试复用 31 项素材，只补画面测试段和双封面，封面指纹 sha256:6d5e6cb08fc580e942106834504f2b1d1684e2c0e11561a944c47b82b9f89379，test-method 场景指纹 sha256:0791124dd8eecef4fd1ac32d4f5fd7d1c9639b40bd19cd612eb8294115307f9f。交接预检发现格式兼容问题：选题证据使用带时区时间和新类型，交接脚本只接受旧格式，已扩展校验并补回归测试。",
+        "we-media 发布：三平台命令均超时记为 unknown。小红书合集选择超时，后台确认无同标题作品，原编辑页保留，补齐原创与 AI 声明后从原表单提交成功，公开，ID 6abb478e00000000180137ae，线上封面匹配。B 站上传页等待提交控件超时，平台把投稿控件标识从 88 改为 85，在原上传任务上提交，审核中后转公开，BV1uhan6sEC4。抖音跳转超时，后台无作品，复用原表单提交，公开，https://www.douyin.com/video/7690820266326248713。修复了指标采集、选题证据交接及两个平台页面控件兼容问题，相关测试通过。明天采集本条作品次日指标。",
+        "hero-next Boss 直聘简历更新（codex:hero-next）：用户要求根据项目个人信息和简历更新 Boss 直聘简历，使用 ego-browser 已有登录指纹，并弱化以前项目经历只保留“低代码平台”项目。已完成：个人优势已保存；删除 6 条旧项目经历只保留“低代码平台”；新增并回读确认 AXMORF Studio、庐居、Vibe Journal Pipeline、Viselora、Hero Next、SyringeMeter 共 6 个当前方向项目加 1 个保留旧项目；两段芝立软件工作描述已更新，远程兼职时间改为 2025.09–2026.04；期望职位改为上海全栈工程师（平台无“AI 应用开发”精确分类，沿用全栈工程师，用个人优势和项目内容体现 AI 应用方向）。重写个人优势突出 AI 应用、Agent 协作与全栈交付。上传新附件《AXMORF-AI应用与全栈工程师.pdf》并移除旧附件，平台显示新附件为唯一附件；旧附件若已发送给 Boss，删除不会撤回已发送副本。平台无精确的“AI 应用/Agent 应用工程师”职位分类。"
+      ],
+      "resumeHighlight": "主导 AXMORF Studio 0.1.15 的发布验收：定位并修复 Remotion CLI 不加载新 Workspace 配置文件导致的浏览器重下载失败，引入本机浏览器可执行文件显式指定与回归检查，完成 957 项测试零失败、依赖审计零漏洞、Codex 端真实渲染 1920×1080/30fps 成片与双封面交付，并推动 fast-uri 高危漏洞升级与安全审计归零。"
+    },
+    {
+      "date": "2026-09-28",
+      "sessionCount": 3,
+      "turnCount": 61,
+      "skillsTouched": [
+        {
+          "id": "typescript",
+          "name": "TypeScript",
+          "category": "language",
+          "count": 6
+        },
+        {
+          "id": "remotion",
+          "name": "Remotion",
+          "category": "framework",
+          "count": 5
+        },
+        {
+          "id": "npm",
+          "name": "npm",
+          "category": "package-manager",
+          "count": 4
+        },
+        {
+          "id": "nodejs",
+          "name": "Node.js",
+          "category": "runtime",
+          "count": 3
+        },
+        {
+          "id": "threejs",
+          "name": "Three.js",
+          "category": "library",
+          "count": 2
+        },
+        {
+          "id": "html",
+          "name": "HTML",
+          "category": "format",
+          "count": 2
+        },
+        {
+          "id": "svg",
+          "name": "SVG",
+          "category": "format",
+          "count": 2
+        },
+        {
+          "id": "canvas2d",
+          "name": "Canvas 2D",
+          "category": "api",
+          "count": 1
+        },
+        {
+          "id": "git",
+          "name": "Git",
+          "category": "vcs",
+          "count": 1
+        },
+        {
+          "id": "github",
+          "name": "GitHub",
+          "category": "vcs-host",
+          "count": 1
+        },
+        {
+          "id": "seedance",
+          "name": "Seedance",
+          "category": "ai-provider",
+          "count": 1
+        },
+        {
+          "id": "openai",
+          "name": "OpenAI",
+          "category": "ai-provider",
+          "count": 1
+        },
+        {
+          "id": "anthropic",
+          "name": "Anthropic",
+          "category": "ai-provider",
+          "count": 1
+        }
+      ],
+      "timelineEvent": "we-media 每日视频《AI 越界，谁来守门？》完成 AXMORF 制作并三平台（小红书、抖音、B站）全部提交进入审核；同日 AXMORF Studio 画面语言改版源码改动通过 825/825 测试但未提交，样片制作因浏览器依赖下载反复超时阻塞。",
+      "tools": [
+        "TypeScript / Node.js / npm：AXMORF Studio 源码改动、超时参数修改、本地包重建与测试",
+        "Remotion：AXMORF 视频渲染主链，Scene 任务合同与示例工程改造",
+        "Three.js / HTML / SVG / Canvas：调研 awesome-opus5-5-videos 案例的技术路线",
+        "Git / GitHub：仓库改动与外部案例调研",
+        "OpenAI / Anthropic：作为选题《AI 越界，谁来守门？》的评估依据来源",
+        "Seedance：调研中提及的视频生成 provider，当前生产链未接入"
+      ],
+      "work": [
+        "we-media 每日任务：选题定为《AI 越界，谁来守门？》，依据 OpenAI 第三方网络安全评估说明与 Anthropic 事故评估，区分模型越界、环境隔离失效与人的授权边界。AXMORF 成片规格 1080×1920、30fps、中文，保留品牌片头片尾；旁白封存后实测 161.5 秒，超过原 120 秒目标但未裁切。",
+        "制作中发现部分场景小标题出现多余 SUB 字样，通过 AXMORF 隔离候选修订 7 段场景说明，旁白与时长不变；候选晋升后 project:check --level final 通过，实帧复查确认问题消失，无覆盖交接与离线预检通过。",
+        "首次三平台最终提交全部未确认：小红书封面保存后图像核验不一致停在最终点击前，抖音点击后跳转超时，B站最终表单提交按钮计数为 0；后台回查记录为小红书 blocked、抖音 unknown、B站 blocked。用户关闭页面后要求重新发布，再次后台确认无重复作品后逐项修复：小红书重新上传并选中封面、保存后线上封面与交付图匹配；B站确认是脚本过早检查提交按钮，重填字段后提交成功；抖音重新上传、绑定话题、上传两种封面并比对通过后提交。",
+        "最终三平台均核到审核中：小红书 ID 6ab9f40d000000001500b080（公开页暂不可浏览）、抖音 ID 7690457098257239338、B站 BV1u6ai6eEMP，未重复提交。",
+        "发布脚本优化：三平台提交前间隔 1.5 秒连续读取两次页面状态，标题、正文、话题、封面、声明、发布设置或按钮状态缺失/变化则停在表单；--run 也执行同样稳定性检查但停在按钮前。发布测试 22/22、B站与恢复流程测试 14/14 通过。用户澄清测试不点击发布，每日正式任务仍要发布，已确认自动任务配置仍使用 --publish-final --platforms xhs,douyin,bili，正式流程未被改动取消。",
+        "AXMORF Studio 工作流一（画面语言改版，已完成源码改动、未提交）：用户反馈现有流程能成片但画面泛化、表达不清，希望参考 yihui-dev/awesome-opus5-5-videos 优化画面语言。Agent 判断该仓库只提供创意案例、不提供可接入引擎，因此只提炼镜头设计方法，不搬素材或代码，不换 Remotion 主链。project-create-context.ts 改为「被困住 → 找到一步」两个连续 Scene，示范同一主体、视觉转折与结果承接，指导文字要求按实际题材重新设计隐喻；task-execution-contract.ts 要求 Agent 交代主体、因果变化、镜头焦点及旁白对齐，移除易诱导通用圆形动效的示例画面；Workspace 创作指南与生产指南加入交付后对照 brief 审片、发现失配走隔离 revision 的步骤。验证 npm run check 通过（825/825 测试，含类型、Lint、构建、宿主 Composition 检查），npm run packages:build 通过。改动仍在本地未提交，仓库零 Project、无成片，测试通过只证明流程与合同可用，不能证明实际画面已变好，需下一条同题材成片检验。",
+        "AXMORF Studio 工作流二（浏览器准备与样片制作，阻塞未完成）：计划制作三段因果画面样片（圆缺问题 → 太阳始终照亮月球一半 → 地球视角亮面比例变化）。仓库根目录缺少 private/producer.config.json，因此用 Creator 生成独立测试 Workspace 并安装本地 @axmorf/studio 源码。browser:prepare 通过 7890 代理下载浏览器依赖始终无法完成：超时从 5 分钟改为 10 分钟，下载到 76.4/98.4 MB 超时；再改为 30 分钟有界等待（workspace-browser.ts:148），下载到 47.7/98.4 MB 超时且速度更慢；关闭代理直连也无进度。每次超时后 doctor 复验均报告浏览器缺失，下载锁正常释放。按 axmorf-video 规则 doctor 未通过不得进入生产，且禁止外部下载失败后无限自动重试，因此未启动 Project 创建或配音任务。结论：单纯延长等待无法可靠解决，需要更稳定的下载连接或支持断点续传的下载流程。",
+        "调研 GitHub awesome-opus5-5-videos：核心逻辑是语言模型生成 HTML/Canvas/SVG/Three.js 动画代码再录制成视频，并非语言模型直接生成像素；部分案例使用 Seedance 生成基础镜头再叠加 JS 动画。AXMORF Studio 当前路线相近（Agent 编写 Remotion Scene，Remotion 渲染 MP4）。动态图形、图解、文字动画可借鉴其创意提示词；真人表演或写实镜头才更可能需要视频生成模型。当前自动生产链未接入 Seedance 等视频生成 provider。"
+      ],
+      "resumeHighlight": "主导 AXMORF Studio 画面语言改版：将示例工程重构为「被困住 → 找到一步」双 Scene 隐喻范式，重写 Scene 任务合同以强制交代主体、因果变化、镜头焦点与旁白对齐，并在创作/生产指南中加入交付后对照 brief 审片与隔离 revision 流程；npm run check 全量 825/825 测试与 packages:build 通过。同时定位并修复每日发布脚本的稳定性缺陷（提交前 1.5 秒双读页面状态校验），使小红书、抖音、B站三平台首次提交失败后能可靠恢复并完成提交，发布测试 22/22、B站与恢复流程测试 14/14 通过。"
+    },
     {
       "date": "2026-09-27",
       "sessionCount": 5,
