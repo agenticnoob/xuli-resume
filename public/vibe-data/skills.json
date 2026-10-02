@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "source": {
     "repository": "agenticnoob/vibe-journal-pipeline",
-    "revision": "4dc333e9c463c963d6b07e7e4df0f469d291a965",
-    "generatedAt": "2026-10-02T00:07:04.169059+08:00"
+    "revision": "c43106599de37ef9ce37b172be1163019e118dce",
+    "generatedAt": "2026-10-03T00:09:39.953060+08:00"
   },
   "skills": [
     {
@@ -145,10 +145,10 @@
       "id": "bash",
       "name": "Bash",
       "category": "shell",
-      "dayCount": 30,
-      "totalCount": 190,
+      "dayCount": 31,
+      "totalCount": 193,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-09-21"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "bilibili",
@@ -205,6 +205,15 @@
       "lastSeen": "2026-07-14"
     },
     {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "category": "ai-model",
+      "dayCount": 1,
+      "totalCount": 2,
+      "firstSeen": "2026-10-02",
+      "lastSeen": "2026-10-02"
+    },
+    {
       "id": "chrome",
       "name": "Chrome",
       "category": "tool",
@@ -217,10 +226,10 @@
       "id": "chromium",
       "name": "Chromium",
       "category": "tool",
-      "dayCount": 15,
-      "totalCount": 44,
+      "dayCount": 16,
+      "totalCount": 46,
       "firstSeen": "2026-06-28",
-      "lastSeen": "2026-09-10"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "claude",
@@ -235,10 +244,10 @@
       "id": "claude-code",
       "name": "Claude Code",
       "category": "ai-coding-tool",
-      "dayCount": 1,
-      "totalCount": 1,
+      "dayCount": 2,
+      "totalCount": 3,
       "firstSeen": "2026-09-16",
-      "lastSeen": "2026-09-16"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "claudesonnet55",
@@ -289,19 +298,19 @@
       "id": "codex",
       "name": "Codex CLI",
       "category": "ai-coding-tool",
-      "dayCount": 35,
-      "totalCount": 205,
+      "dayCount": 36,
+      "totalCount": 211,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-09-30"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "comfyui",
       "name": "ComfyUI",
       "category": "creative",
-      "dayCount": 1,
-      "totalCount": 14,
+      "dayCount": 2,
+      "totalCount": 15,
       "firstSeen": "2026-05-24",
-      "lastSeen": "2026-05-24"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "cron",
@@ -388,10 +397,10 @@
       "id": "deepseek",
       "name": "DeepSeek",
       "category": "ai-provider",
-      "dayCount": 5,
-      "totalCount": 9,
+      "dayCount": 6,
+      "totalCount": 10,
       "firstSeen": "2026-06-18",
-      "lastSeen": "2026-09-16"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "deploykey",
@@ -577,10 +586,10 @@
       "id": "ffmpeg",
       "name": "FFmpeg",
       "category": "tool",
-      "dayCount": 40,
-      "totalCount": 136,
+      "dayCount": 41,
+      "totalCount": 138,
       "firstSeen": "2026-06-26",
-      "lastSeen": "2026-09-27"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "ffprobe",
@@ -610,22 +619,31 @@
       "lastSeen": "2026-07-23"
     },
     {
+      "id": "gemini",
+      "name": "Gemini",
+      "category": "ai-model",
+      "dayCount": 1,
+      "totalCount": 1,
+      "firstSeen": "2026-10-02",
+      "lastSeen": "2026-10-02"
+    },
+    {
       "id": "git",
       "name": "Git",
       "category": "vcs",
-      "dayCount": 92,
-      "totalCount": 445,
+      "dayCount": 93,
+      "totalCount": 449,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-09-30"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "github",
       "name": "GitHub",
       "category": "vcs-host",
-      "dayCount": 10,
-      "totalCount": 25,
+      "dayCount": 11,
+      "totalCount": 27,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-09-28"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "githubactions",
@@ -757,10 +775,10 @@
       "id": "gpt56sol",
       "name": "gpt-5.6-sol",
       "category": "ai-model",
-      "dayCount": 5,
-      "totalCount": 17,
+      "dayCount": 6,
+      "totalCount": 19,
       "firstSeen": "2026-08-14",
-      "lastSeen": "2026-09-23"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "gpt56terra",
@@ -775,10 +793,10 @@
       "id": "gpt61sol",
       "name": "GPT-6.1 Sol",
       "category": "ai-model",
-      "dayCount": 1,
-      "totalCount": 1,
+      "dayCount": 2,
+      "totalCount": 4,
       "firstSeen": "2026-09-30",
-      "lastSeen": "2026-09-30"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "gpt6astra",
@@ -829,10 +847,10 @@
       "id": "hermes",
       "name": "Hermes Agent",
       "category": "agent-framework",
-      "dayCount": 25,
-      "totalCount": 249,
+      "dayCount": 26,
+      "totalCount": 250,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-09-30"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "homebrew",
@@ -946,10 +964,10 @@
       "id": "javascript",
       "name": "JavaScript",
       "category": "language",
-      "dayCount": 22,
-      "totalCount": 124,
+      "dayCount": 23,
+      "totalCount": 130,
       "firstSeen": "2026-07-05",
-      "lastSeen": "2026-10-01"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "jdk",
@@ -1018,10 +1036,10 @@
       "id": "linux",
       "name": "Linux",
       "category": "os",
-      "dayCount": 4,
-      "totalCount": 38,
+      "dayCount": 5,
+      "totalCount": 40,
       "firstSeen": "2026-05-24",
-      "lastSeen": "2026-08-23"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "m4a",
@@ -1045,10 +1063,10 @@
       "id": "markdown",
       "name": "Markdown",
       "category": "format",
-      "dayCount": 9,
-      "totalCount": 36,
+      "dayCount": 10,
+      "totalCount": 38,
       "firstSeen": "2026-07-23",
-      "lastSeen": "2026-09-27"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "mcp",
@@ -1112,6 +1130,15 @@
       "totalCount": 1,
       "firstSeen": "2026-09-01",
       "lastSeen": "2026-09-01"
+    },
+    {
+      "id": "minimax",
+      "name": "MiniMax",
+      "category": "ai-provider",
+      "dayCount": 1,
+      "totalCount": 1,
+      "firstSeen": "2026-10-02",
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "minmax",
@@ -1180,19 +1207,19 @@
       "id": "nodejs",
       "name": "Node.js",
       "category": "runtime",
-      "dayCount": 75,
-      "totalCount": 362,
+      "dayCount": 76,
+      "totalCount": 367,
       "firstSeen": "2026-05-18",
-      "lastSeen": "2026-10-01"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "npm",
       "name": "npm",
       "category": "package-manager",
-      "dayCount": 84,
-      "totalCount": 475,
+      "dayCount": 85,
+      "totalCount": 482,
       "firstSeen": "2026-06-05",
-      "lastSeen": "2026-10-01"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "numpy",
@@ -1238,6 +1265,15 @@
       "totalCount": 6,
       "firstSeen": "2026-05-17",
       "lastSeen": "2026-05-17"
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama",
+      "category": "ai-serving",
+      "dayCount": 1,
+      "totalCount": 1,
+      "firstSeen": "2026-10-02",
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "onnx",
@@ -1346,6 +1382,15 @@
       "totalCount": 3,
       "firstSeen": "2026-08-05",
       "lastSeen": "2026-08-07"
+    },
+    {
+      "id": "pdf",
+      "name": "PDF",
+      "category": "format",
+      "dayCount": 1,
+      "totalCount": 2,
+      "firstSeen": "2026-10-02",
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "pexels",
@@ -1510,6 +1555,15 @@
       "lastSeen": "2026-09-04"
     },
     {
+      "id": "qwen",
+      "name": "Qwen",
+      "category": "ai-model",
+      "dayCount": 1,
+      "totalCount": 1,
+      "firstSeen": "2026-10-02",
+      "lastSeen": "2026-10-02"
+    },
+    {
       "id": "rapier",
       "name": "Rapier",
       "category": "library",
@@ -1558,10 +1612,10 @@
       "id": "remotion",
       "name": "Remotion",
       "category": "framework",
-      "dayCount": 71,
-      "totalCount": 563,
+      "dayCount": 72,
+      "totalCount": 571,
       "firstSeen": "2026-05-26",
-      "lastSeen": "2026-09-30"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "repositorydispatch",
@@ -1855,10 +1909,10 @@
       "id": "threejs",
       "name": "Three.js",
       "category": "library",
-      "dayCount": 43,
-      "totalCount": 216,
+      "dayCount": 44,
+      "totalCount": 219,
       "firstSeen": "2026-06-04",
-      "lastSeen": "2026-09-28"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "tinyhttp",
@@ -1909,19 +1963,19 @@
       "id": "typescript",
       "name": "TypeScript",
       "category": "language",
-      "dayCount": 121,
-      "totalCount": 979,
+      "dayCount": 122,
+      "totalCount": 991,
       "firstSeen": "2026-05-17",
-      "lastSeen": "2026-09-30"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "ubuntu",
       "name": "Ubuntu",
       "category": "os",
-      "dayCount": 7,
-      "totalCount": 31,
+      "dayCount": 8,
+      "totalCount": 34,
       "firstSeen": "2026-05-31",
-      "lastSeen": "2026-09-23"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "ufw",
@@ -1981,10 +2035,10 @@
       "id": "vercel",
       "name": "Vercel",
       "category": "cloud",
-      "dayCount": 15,
-      "totalCount": 55,
+      "dayCount": 16,
+      "totalCount": 56,
       "firstSeen": "2026-06-29",
-      "lastSeen": "2026-09-25"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "viseloradomwebgl",
@@ -2044,10 +2098,10 @@
       "id": "wav",
       "name": "WAV",
       "category": "format",
-      "dayCount": 3,
-      "totalCount": 8,
+      "dayCount": 4,
+      "totalCount": 10,
       "firstSeen": "2026-08-02",
-      "lastSeen": "2026-08-05"
+      "lastSeen": "2026-10-02"
     },
     {
       "id": "webgl",
