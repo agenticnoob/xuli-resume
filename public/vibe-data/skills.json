@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "source": {
     "repository": "agenticnoob/vibe-journal-pipeline",
-    "revision": "c43106599de37ef9ce37b172be1163019e118dce",
-    "generatedAt": "2026-10-03T00:09:39.953060+08:00"
+    "revision": "e35cf9c5ce36490c9408d6e068a64ea2cf82ef50",
+    "generatedAt": "2026-10-04T00:07:17.856222+08:00"
   },
   "skills": [
     {
@@ -586,10 +586,10 @@
       "id": "ffmpeg",
       "name": "FFmpeg",
       "category": "tool",
-      "dayCount": 41,
-      "totalCount": 138,
+      "dayCount": 42,
+      "totalCount": 140,
       "firstSeen": "2026-06-26",
-      "lastSeen": "2026-10-02"
+      "lastSeen": "2026-10-03"
     },
     {
       "id": "ffprobe",
@@ -599,6 +599,15 @@
       "totalCount": 18,
       "firstSeen": "2026-08-03",
       "lastSeen": "2026-09-03"
+    },
+    {
+      "id": "flux3image",
+      "name": "FLUX 3 Image",
+      "category": "ai-model",
+      "dayCount": 1,
+      "totalCount": 1,
+      "firstSeen": "2026-10-03",
+      "lastSeen": "2026-10-03"
     },
     {
       "id": "framermotion",
@@ -631,10 +640,10 @@
       "id": "git",
       "name": "Git",
       "category": "vcs",
-      "dayCount": 93,
-      "totalCount": 449,
+      "dayCount": 94,
+      "totalCount": 452,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-10-02"
+      "lastSeen": "2026-10-03"
     },
     {
       "id": "github",
@@ -793,10 +802,10 @@
       "id": "gpt61sol",
       "name": "GPT-6.1 Sol",
       "category": "ai-model",
-      "dayCount": 2,
-      "totalCount": 4,
+      "dayCount": 3,
+      "totalCount": 6,
       "firstSeen": "2026-09-30",
-      "lastSeen": "2026-10-02"
+      "lastSeen": "2026-10-03"
     },
     {
       "id": "gpt6astra",
@@ -1000,10 +1009,10 @@
       "id": "json",
       "name": "JSON",
       "category": "format",
-      "dayCount": 32,
-      "totalCount": 191,
+      "dayCount": 33,
+      "totalCount": 194,
       "firstSeen": "2026-05-19",
-      "lastSeen": "2026-09-27"
+      "lastSeen": "2026-10-03"
     },
     {
       "id": "jsonschema",
@@ -1063,10 +1072,10 @@
       "id": "markdown",
       "name": "Markdown",
       "category": "format",
-      "dayCount": 10,
-      "totalCount": 38,
+      "dayCount": 11,
+      "totalCount": 40,
       "firstSeen": "2026-07-23",
-      "lastSeen": "2026-10-02"
+      "lastSeen": "2026-10-03"
     },
     {
       "id": "mcp",
@@ -1171,10 +1180,10 @@
       "id": "mp4",
       "name": "MP4",
       "category": "format",
-      "dayCount": 6,
-      "totalCount": 25,
+      "dayCount": 7,
+      "totalCount": 27,
       "firstSeen": "2026-08-02",
-      "lastSeen": "2026-09-09"
+      "lastSeen": "2026-10-03"
     },
     {
       "id": "nestjs",
@@ -1207,19 +1216,19 @@
       "id": "nodejs",
       "name": "Node.js",
       "category": "runtime",
-      "dayCount": 76,
-      "totalCount": 367,
+      "dayCount": 77,
+      "totalCount": 369,
       "firstSeen": "2026-05-18",
-      "lastSeen": "2026-10-02"
+      "lastSeen": "2026-10-03"
     },
     {
       "id": "npm",
       "name": "npm",
       "category": "package-manager",
-      "dayCount": 85,
-      "totalCount": 482,
+      "dayCount": 86,
+      "totalCount": 486,
       "firstSeen": "2026-06-05",
-      "lastSeen": "2026-10-02"
+      "lastSeen": "2026-10-03"
     },
     {
       "id": "numpy",
@@ -1375,6 +1384,15 @@
       "lastSeen": "2026-05-17"
     },
     {
+      "id": "opus",
+      "name": "Opus",
+      "category": "domain",
+      "dayCount": 1,
+      "totalCount": 1,
+      "firstSeen": "2026-10-03",
+      "lastSeen": "2026-10-03"
+    },
+    {
       "id": "pcm",
       "name": "PCM",
       "category": "format",
@@ -1387,10 +1405,10 @@
       "id": "pdf",
       "name": "PDF",
       "category": "format",
-      "dayCount": 1,
-      "totalCount": 2,
+      "dayCount": 2,
+      "totalCount": 3,
       "firstSeen": "2026-10-02",
-      "lastSeen": "2026-10-02"
+      "lastSeen": "2026-10-03"
     },
     {
       "id": "pexels",
@@ -1423,10 +1441,10 @@
       "id": "png",
       "name": "PNG",
       "category": "format",
-      "dayCount": 2,
-      "totalCount": 13,
+      "dayCount": 3,
+      "totalCount": 14,
       "firstSeen": "2026-08-02",
-      "lastSeen": "2026-09-06"
+      "lastSeen": "2026-10-03"
     },
     {
       "id": "pnpm",
@@ -2098,10 +2116,10 @@
       "id": "wav",
       "name": "WAV",
       "category": "format",
-      "dayCount": 4,
-      "totalCount": 10,
+      "dayCount": 5,
+      "totalCount": 11,
       "firstSeen": "2026-08-02",
-      "lastSeen": "2026-10-02"
+      "lastSeen": "2026-10-03"
     },
     {
       "id": "webgl",

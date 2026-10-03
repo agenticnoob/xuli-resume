@@ -2,10 +2,119 @@
   "schemaVersion": 1,
   "source": {
     "repository": "agenticnoob/vibe-journal-pipeline",
-    "revision": "c43106599de37ef9ce37b172be1163019e118dce",
-    "generatedAt": "2026-10-03T00:09:39.953060+08:00"
+    "revision": "e35cf9c5ce36490c9408d6e068a64ea2cf82ef50",
+    "generatedAt": "2026-10-04T00:07:17.856222+08:00"
   },
   "entries": [
+    {
+      "date": "2026-10-03",
+      "sessionCount": 5,
+      "turnCount": 113,
+      "skillsTouched": [
+        {
+          "id": "npm",
+          "name": "npm",
+          "category": "package-manager",
+          "count": 4
+        },
+        {
+          "id": "nodejs",
+          "name": "Node.js",
+          "category": "runtime",
+          "count": 2
+        },
+        {
+          "id": "git",
+          "name": "Git",
+          "category": "vcs",
+          "count": 3
+        },
+        {
+          "id": "ffmpeg",
+          "name": "FFmpeg",
+          "category": "tool",
+          "count": 2
+        },
+        {
+          "id": "json",
+          "name": "JSON",
+          "category": "format",
+          "count": 3
+        },
+        {
+          "id": "markdown",
+          "name": "Markdown",
+          "category": "format",
+          "count": 2
+        },
+        {
+          "id": "gpt61sol",
+          "name": "GPT-6.1 Sol",
+          "category": "ai-model",
+          "count": 2
+        },
+        {
+          "id": "flux3image",
+          "name": "FLUX 3 Image",
+          "category": "ai-model",
+          "count": 1
+        },
+        {
+          "id": "opus",
+          "name": "Opus",
+          "category": "domain",
+          "count": 1
+        },
+        {
+          "id": "mp4",
+          "name": "MP4",
+          "category": "format",
+          "count": 2
+        },
+        {
+          "id": "wav",
+          "name": "WAV",
+          "category": "format",
+          "count": 1
+        },
+        {
+          "id": "png",
+          "name": "PNG",
+          "category": "format",
+          "count": 1
+        },
+        {
+          "id": "pdf",
+          "name": "PDF",
+          "category": "format",
+          "count": 1
+        }
+      ],
+      "timelineEvent": "完成 AXMORF Studio 0.1.16 正式发布与发布后烟测，并在同一工作空间用 0.1.16 制作出 34.47 秒个人主页介绍竖屏短片。",
+      "tools": [
+        "npm 与 Node.js 环境，用于发布、安装与版本核对",
+        "Git 与 release worktree，隔离修复与保留原工作区改动",
+        "FFmpeg 相关渲染与音频校验（LUFS、真峰值、音画偏移）",
+        "JSON 配置（sound-plan.json、publish.json）与 Markdown 文档（authoring.md）",
+        "GPT-6.1 Sol / max 与原生 subagents/4/shared-workspace 执行真实制作",
+        "FLUX 3 Image 作为每日视频选题背景",
+        "MP4、WAV、PNG、PDF 等交付格式"
+      ],
+      "work": [
+        "AXMORF 0.1.16 发布：在独立 release worktree 中修复首用流程缺陷，原工作区 73 项改动与提交 7352dc9 全程保持不变。修复覆盖固定模板误检、场景衔接冲突、局部修订范围、旧场景源码传递、诊断字段遗漏、任务派发输出截断、验收记录器进程句柄/原生返回格式/并发证据适配，以及 npm 安全审计中 braces 依赖链漏洞。",
+        "AXMORF 真实制作验证：四个原生子 Agent 绑定，累计重叠约 515.914 秒，两次释放槽位后由新会话补位；局部修订两次均只重做目标 Scene，每次复用 25 个 artifact，旁白、封面、其他场景字节一致，新增语音请求为 0。成片 1080×1920、30 fps、约 106.83 秒，20 条字幕，音画偏移约 42.7 ms，−15.9 LUFS，真峰值 −2.2 dBFS。",
+        "AXMORF 发布流程：经历 3 次 CI（安全审计失败 → npm 异步处理超时 → 成功），最终发布源码 3f913b2，runtime/creator 指纹 2f528b35… / 5fc7408f…。发布后烟测在全新 Workspace 安装两包 0.1.16，内容与候选逐字节一致，doctor 六项检查全部 pass。验收记录提交 c3431f6。未验证项包括连续观看、完整动作时序观感、主观试听、实机手机与 Hermes。",
+        "每日视频发布：选题《AI画图，先抽卡还是先排版？》，基于 FLUX 3 Image 布局控制讨论，风格为温暖手绘插画、米白纸张底色、铅笔轮廓、低饱和色块。成片 106.83 秒，含 2 秒片头 + 8 秒片尾，8 段原创画面 + 双封面。三平台均已公开：小红书 6ac0597a0000000015000f4f（封面已核验）、抖音 7692246955514154280、B站 BV1XFHh6FE7y（复用原上传任务，补齐 AI 声明、封面、合集后单次提交）。到期指标已采集并记录，缺失字段保留原因。",
+        "简历优化：方向为 AI 应用、Agent 工作流、全栈工程，突出 Agent 工作流设计、Skills/MCP 维护、工程验收与完整交付职责；压缩工具尝试经历，保留早期 AI 关注与环境选型；补充 AXMORF、Viselora 的 Skill 维护成果。个人优势 855/1000 字，已同步 BOSS 在线简历与 PDF 附件，删除旧附件，本地简历文件已同步更新。",
+        "0.1.16 音效与文档核对：下载 npm 正式发布包确认 24 个 WAV 文件齐全，Catalog 登记 24 条，checksum 与文件大小均通过；音效目录另有原有片头音效不计入。随 Workspace 生成的 authoring.md 指导 Agent 查询音效库，每条素材含用途、时长和卡点说明；Agent 将选中音效加入项目和 Scene 资源列表，在 sound-plan.json 中安排播放时机、音量及与画面动作同步，制作系统通过 SoundDesignTrack 将音效加入成片。",
+        "工作空间版本确认：核对 package.json、package-lock.json、实际安装版本与 npm registry，确认当前依赖、锁文件和安装版本均为 @axmorf/studio@0.1.16，registry 最新版也是 0.1.16；但现有文件无法证明最初创建版本，只能确认当前已对齐最新版。",
+        "个人主页介绍视频制作：参考 awesome-opus5-5-videos 开源项目风格，主题为介绍 zzzxc.com。先运行环境检查，真实浏览器渲染通过；查看主页确认包含 noobli、Agent-first 构建方式、四面体导航，以及 AXMORF Studio、Viselora 等项目；参考页面视频未成功加载，但继续基于仓库风格制作。",
+        "制作参数：约 40 秒中文竖屏短片，继承工作空间 1080×1920、30fps 设置；片头片尾合计 10 秒，正文预算约 30 秒。视觉采用四面体展开、大字排版和项目展示；点击、落位与转场音效对齐画面动作。project:create 后确认符合 1080×1920、30fps、中文设置；produce inspect 显示当前为已配置创作稿，预计 5 次旁白请求，缓存命中为 0，尚无旧成片或任务复用计划，执行方式继承工作空间串行设置。",
+        "旁白封装后实测总时长 34.47 秒，比 40 秒目标短 5.53 秒，包含 10 秒片头片尾。随后制作五段正文动效、全局装饰和封面，节奏按实测旁白落点安排；全局装饰和正文收尾通过任务校验，收尾将四面体收拢并把箭头送到完整网址，留出阅读时间。网址输入、构建流程、正文收尾和两种比例封面均通过校验，七项制作任务全部通过校验并提交。",
+        "正文配置 31 处音效落点，覆盖网址键入、点击、四面体展开、分镜落位和验证完成。渲染完成后，成片和封面通过交付校验。最终成片为 34.47 秒竖屏视频，1080×1920、30fps，包含片头片尾、中文旁白与字幕，以及 31 处动作音效，采用深色荧光绿、四面体变形和文字动效。交付文件位于 deliveries/zzzxc-homepage-opus-motion-20261003/，包括 video.mp4、cover-3x4.png、cover-4x3.png、publish.json，四文件交付校验通过，关键帧已检查；完整动效与试听尚未人工验收。"
+      ],
+      "resumeHighlight": "主导 AXMORF Studio 0.1.16 从缺陷修复、真实并发与局部修订验证到 npm 发布与发布后烟测的完整交付，并在同一版本上产出 34.47 秒个人主页介绍竖屏短片，覆盖 31 处动作音效卡点、双比例封面与四文件交付校验。"
+    },
     {
       "date": "2026-10-02",
       "sessionCount": 7,
