@@ -2,10 +2,114 @@
   "schemaVersion": 1,
   "source": {
     "repository": "agenticnoob/vibe-journal-pipeline",
-    "revision": "e35cf9c5ce36490c9408d6e068a64ea2cf82ef50",
-    "generatedAt": "2026-10-04T00:07:17.856222+08:00"
+    "revision": "9ca71c7176badc5166501eca00e43ffc2b2371fe",
+    "generatedAt": "2026-10-05T00:06:32.119943+08:00"
   },
   "entries": [
+    {
+      "date": "2026-10-04",
+      "sessionCount": 2,
+      "turnCount": 19,
+      "skillsTouched": [
+        {
+          "id": "git",
+          "name": "Git",
+          "category": "vcs",
+          "count": 4
+        },
+        {
+          "id": "npm",
+          "name": "npm",
+          "category": "package-manager",
+          "count": 3
+        },
+        {
+          "id": "githubactions",
+          "name": "GitHub Actions",
+          "category": "cloud",
+          "count": 1
+        },
+        {
+          "id": "typescript",
+          "name": "TypeScript",
+          "category": "language",
+          "count": 2
+        },
+        {
+          "id": "nodejs",
+          "name": "Node.js",
+          "category": "runtime",
+          "count": 3
+        },
+        {
+          "id": "remotion",
+          "name": "Remotion",
+          "category": "framework",
+          "count": 2
+        },
+        {
+          "id": "ffmpeg",
+          "name": "FFmpeg",
+          "category": "tool",
+          "count": 1
+        },
+        {
+          "id": "svg",
+          "name": "SVG",
+          "category": "format",
+          "count": 1
+        },
+        {
+          "id": "h264",
+          "name": "H.264",
+          "category": "format",
+          "count": 1
+        },
+        {
+          "id": "aac",
+          "name": "AAC",
+          "category": "format",
+          "count": 1
+        },
+        {
+          "id": "png",
+          "name": "PNG",
+          "category": "format",
+          "count": 1
+        },
+        {
+          "id": "json",
+          "name": "JSON",
+          "category": "format",
+          "count": 1
+        },
+        {
+          "id": "zsh",
+          "name": "Zsh",
+          "category": "shell",
+          "count": 1
+        }
+      ],
+      "timelineEvent": "完成 AXMORF Studio 本地工作区与远端发布版本的安全同步，并制作发布《AI缓存省钱，就别改提示词？》手绘视频，三平台最终提交成功（B站已公开，小红书与抖音审核中）。",
+      "tools": [
+        "Git（含 worktree、tag、分支同步与状态核对）",
+        "npm 与 GitHub Actions（核对 0.1.16 发布流程与 provenance 发布）",
+        "Node.js / TypeScript（运行测试、类型检查、发布脚本）",
+        "AXMORF Studio 生产链（project:create、produce:inspect/prepare、Remotion 渲染、final 校验）",
+        "Remotion + FFmpeg（131 秒成片、H.264/AAC、PNG 封面、EOF 解码检查）",
+        "SVG 手绘场景与静态可读性校验",
+        "we-media 发布脚本（handoff-axmorf.js、publish.js、collect-metrics.js、metrics.js）"
+      ],
+      "work": [
+        "AXMORF Studio 工作区同步：用户发现本地有大量未提交/未跟踪文件并询问 npm 发布方式。核对后确认 npm 两包 latest 均为 0.1.16，远端分支领先本地 3 个提交；上次发布是在独立 release worktree 中完成（源码 3f913b2、标签 v0.1.16），GitHub Actions 从标签检出后执行检查、构建、打包与首次使用证据校验，再 npm publish --access public --provenance，发布工作流成功。本地 73 项文件路径全部已存在于发布标签中（49 项内容一致、24 项不同），因此不能当作遗漏提交重复提交。",
+        "AXMORF Studio 收尾：先对 73 个文件做完整备份并逐项校验，再把当前目录同步到远端最新提交 c3431f6，工作区变为干净状态（无未提交、无未跟踪文件）。同步后重新安装依赖，构建、类型检查与 34 项相关测试全部通过。随后确认当前分支为 axmorf/npm-workspace-open-source，与 origin 同名分支及 GitHub 默认分支一致，两边最新提交均为 c3431f6。",
+        "we-media 每日流程（选题与制作）：读取运行记忆与两项目 AGENTS.md、DAILY_RUNBOOK.md、TOPIC_RULES.md 及 axmorf-video Skill，用 run-state.js 记录阶段。先复核昨日作品已在三平台公开，运行 collect-metrics.js --run 采集到期次日/第七天指标，并查看 metrics.js report --days 1 与 --days 7；因可见评论样本过少，未据此臆测流量规律。X 搜索可访问，看到独立创作者关于缓存省 token 的分享但不构成热门趋势，官方文档确认缓存复用输入处理仍会生成新回答，据此选定常青主题《AI缓存省钱，就别改提示词？》，用“复用印章、修改便签”的手绘比喻展开。",
+        "we-media 制作执行：创建项目，竖屏 1080×1920、30fps，沿用 2 秒品牌片头与 8 秒片尾；制作预检显示无可复用产物、预计 24 次旁白请求、缓存命中 0、执行方式为 inline。旁白实测总时长 131.43 秒（含 10 秒片头片尾），比目标长约 6.4 秒仍在常规范围。按每段旁白实际时间编排印章、纸带与计时器动作，共 10 个制作任务全部校验入库；其中一处静态可读性检查失败，将十格图形改为明确 SVG 元素后复检通过。",
+        "we-media 交付与验收：131 秒成片与 3:4、4:3 两种封面交付，AXMORF final 校验通过，音视频完整解码检查通过；首帧为品牌淡入浅色底，一秒内出现可辨图形，首秒预检通过。时间采样确认底稿与便签区别、前缀变化、天平取舍、计时器到期与改稿记录均清晰，字幕无遮挡。发布脚本 25 项测试通过。",
+        "we-media 发布受阻与恢复：首次三平台最终提交均在点击前被页面校验拦下——小红书与 B 站正文两段被显示为两个换行，脚本按单换行精确比较失败；抖音同一封面选择器匹配四个控件，无法唯一定位。三平台均记录为 blocked，未点击发布，原页面与素材保留。随后接管原页面，先查账号确认无同题作品且无发布点击记录，再逐段核对正文、补齐小红书话题/封面/声明，B 站沿用原独立上传任务未重传视频。最终三平台提交确认：小红书审核中且线上封面与交付图匹配，抖音审核中且双封面像素核验通过，B 站已公开（BV1AEHk62E9T）。作品 ID 与证据写入 retry-report-20261004.md；日常脚本的永久适配尚未修改。"
+      ],
+      "resumeHighlight": "独立完成一次跨工作区的发布收尾：定位到 npm 0.1.16 是在独立 release worktree 中经 GitHub Actions 从 v0.1.16 标签构建并以 provenance 发布的，通过逐项校验 73 项文件与发布标签的差异、先备份再同步，将本地工作区安全对齐到远端 c3431f6，并通过构建、类型检查与 34 项测试验证；同日完成一条 131 秒原创手绘 AI 视频的端到端制作与三平台发布，在页面校验阻塞后基于真实后台证据恢复提交，最终 B 站公开、小红书与抖音进入审核。"
+    },
     {
       "date": "2026-10-03",
       "sessionCount": 5,
