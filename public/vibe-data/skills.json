@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "source": {
     "repository": "agenticnoob/vibe-journal-pipeline",
-    "revision": "9ca71c7176badc5166501eca00e43ffc2b2371fe",
-    "generatedAt": "2026-10-05T00:06:32.119943+08:00"
+    "revision": "32648adc1305fada6a3a4d8dad745e3fc4b6fa6c",
+    "generatedAt": "2026-10-06T00:06:19.127882+08:00"
   },
   "skills": [
     {
@@ -133,6 +133,15 @@
       "lastSeen": "2026-08-05"
     },
     {
+      "id": "axmorfvideo",
+      "name": "axmorf-video",
+      "category": "ai-coding-tool",
+      "dayCount": 1,
+      "totalCount": 3,
+      "firstSeen": "2026-10-05",
+      "lastSeen": "2026-10-05"
+    },
+    {
       "id": "babel",
       "name": "Babel",
       "category": "build-tool",
@@ -154,10 +163,10 @@
       "id": "bilibili",
       "name": "Bilibili",
       "category": "domain",
-      "dayCount": 1,
-      "totalCount": 3,
+      "dayCount": 2,
+      "totalCount": 6,
       "firstSeen": "2026-09-27",
-      "lastSeen": "2026-09-27"
+      "lastSeen": "2026-10-05"
     },
     {
       "id": "blender",
@@ -451,10 +460,10 @@
       "id": "douyin",
       "name": "Douyin",
       "category": "domain",
-      "dayCount": 1,
-      "totalCount": 3,
+      "dayCount": 2,
+      "totalCount": 6,
       "firstSeen": "2026-09-27",
-      "lastSeen": "2026-09-27"
+      "lastSeen": "2026-10-05"
     },
     {
       "id": "dpkg",
@@ -496,10 +505,10 @@
       "id": "egobrowser",
       "name": "ego-browser",
       "category": "tool",
-      "dayCount": 8,
-      "totalCount": 29,
+      "dayCount": 9,
+      "totalCount": 31,
       "firstSeen": "2026-06-24",
-      "lastSeen": "2026-10-01"
+      "lastSeen": "2026-10-05"
     },
     {
       "id": "electron",
@@ -973,10 +982,10 @@
       "id": "javascript",
       "name": "JavaScript",
       "category": "language",
-      "dayCount": 23,
-      "totalCount": 130,
+      "dayCount": 24,
+      "totalCount": 133,
       "firstSeen": "2026-07-05",
-      "lastSeen": "2026-10-02"
+      "lastSeen": "2026-10-05"
     },
     {
       "id": "jdk",
@@ -1216,19 +1225,19 @@
       "id": "nodejs",
       "name": "Node.js",
       "category": "runtime",
-      "dayCount": 78,
-      "totalCount": 372,
+      "dayCount": 79,
+      "totalCount": 378,
       "firstSeen": "2026-05-18",
-      "lastSeen": "2026-10-04"
+      "lastSeen": "2026-10-05"
     },
     {
       "id": "npm",
       "name": "npm",
       "category": "package-manager",
-      "dayCount": 87,
-      "totalCount": 489,
+      "dayCount": 88,
+      "totalCount": 491,
       "firstSeen": "2026-06-05",
-      "lastSeen": "2026-10-04"
+      "lastSeen": "2026-10-05"
     },
     {
       "id": "numpy",
@@ -2188,10 +2197,10 @@
       "id": "xiaohongshu",
       "name": "Xiaohongshu",
       "category": "domain",
-      "dayCount": 1,
-      "totalCount": 3,
+      "dayCount": 2,
+      "totalCount": 6,
       "firstSeen": "2026-09-27",
-      "lastSeen": "2026-09-27"
+      "lastSeen": "2026-10-05"
     },
     {
       "id": "xrdp",
