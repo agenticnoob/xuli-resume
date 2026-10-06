@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "source": {
     "repository": "agenticnoob/vibe-journal-pipeline",
-    "revision": "32648adc1305fada6a3a4d8dad745e3fc4b6fa6c",
-    "generatedAt": "2026-10-06T00:06:19.127882+08:00"
+    "revision": "f78cc9d10708eeee83be30dbe0b43f416265ac16",
+    "generatedAt": "2026-10-07T00:06:19.500933+08:00"
   },
   "skills": [
     {
@@ -595,10 +595,10 @@
       "id": "ffmpeg",
       "name": "FFmpeg",
       "category": "tool",
-      "dayCount": 43,
-      "totalCount": 141,
+      "dayCount": 44,
+      "totalCount": 142,
       "firstSeen": "2026-06-26",
-      "lastSeen": "2026-10-04"
+      "lastSeen": "2026-10-06"
     },
     {
       "id": "ffprobe",
@@ -982,10 +982,10 @@
       "id": "javascript",
       "name": "JavaScript",
       "category": "language",
-      "dayCount": 24,
-      "totalCount": 133,
+      "dayCount": 25,
+      "totalCount": 136,
       "firstSeen": "2026-07-05",
-      "lastSeen": "2026-10-05"
+      "lastSeen": "2026-10-06"
     },
     {
       "id": "jdk",
@@ -1225,19 +1225,19 @@
       "id": "nodejs",
       "name": "Node.js",
       "category": "runtime",
-      "dayCount": 79,
-      "totalCount": 378,
+      "dayCount": 80,
+      "totalCount": 382,
       "firstSeen": "2026-05-18",
-      "lastSeen": "2026-10-05"
+      "lastSeen": "2026-10-06"
     },
     {
       "id": "npm",
       "name": "npm",
       "category": "package-manager",
-      "dayCount": 88,
-      "totalCount": 491,
+      "dayCount": 89,
+      "totalCount": 493,
       "firstSeen": "2026-06-05",
-      "lastSeen": "2026-10-05"
+      "lastSeen": "2026-10-06"
     },
     {
       "id": "numpy",
@@ -1306,10 +1306,10 @@
       "id": "openai",
       "name": "OpenAI",
       "category": "ai-provider",
-      "dayCount": 13,
-      "totalCount": 36,
+      "dayCount": 14,
+      "totalCount": 37,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-09-28"
+      "lastSeen": "2026-10-06"
     },
     {
       "id": "openaiapi",
@@ -1328,6 +1328,15 @@
       "totalCount": 4,
       "firstSeen": "2026-06-02",
       "lastSeen": "2026-06-02"
+    },
+    {
+      "id": "openaistructuredoutputs",
+      "name": "OpenAI Structured Outputs",
+      "category": "ai-model",
+      "dayCount": 1,
+      "totalCount": 1,
+      "firstSeen": "2026-10-06",
+      "lastSeen": "2026-10-06"
     },
     {
       "id": "opencli",
