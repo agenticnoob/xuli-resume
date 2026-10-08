@@ -2,10 +2,200 @@
   "schemaVersion": 1,
   "source": {
     "repository": "agenticnoob/vibe-journal-pipeline",
-    "revision": "f78cc9d10708eeee83be30dbe0b43f416265ac16",
-    "generatedAt": "2026-10-07T00:06:19.500933+08:00"
+    "revision": "d209894bd2c66580fb3d1b546beb8c061f8b8c8e",
+    "generatedAt": "2026-10-09T00:08:10.825734+09:00"
   },
   "entries": [
+    {
+      "date": "2026-10-08",
+      "sessionCount": 7,
+      "turnCount": 134,
+      "skillsTouched": [
+        {
+          "id": "typescript",
+          "name": "TypeScript",
+          "category": "language",
+          "count": 12
+        },
+        {
+          "id": "remotion",
+          "name": "Remotion",
+          "category": "framework",
+          "count": 8
+        },
+        {
+          "id": "ffmpeg",
+          "name": "FFmpeg",
+          "category": "tool",
+          "count": 5
+        },
+        {
+          "id": "h264",
+          "name": "H.264",
+          "category": "format",
+          "count": 4
+        },
+        {
+          "id": "aac",
+          "name": "AAC",
+          "category": "format",
+          "count": 4
+        },
+        {
+          "id": "pcm",
+          "name": "PCM",
+          "category": "format",
+          "count": 3
+        },
+        {
+          "id": "mp4",
+          "name": "MP4",
+          "category": "format",
+          "count": 3
+        },
+        {
+          "id": "nodejs",
+          "name": "Node.js",
+          "category": "runtime",
+          "count": 4
+        },
+        {
+          "id": "npm",
+          "name": "npm",
+          "category": "package-manager",
+          "count": 6
+        },
+        {
+          "id": "git",
+          "name": "Git",
+          "category": "vcs",
+          "count": 10
+        },
+        {
+          "id": "githubactions",
+          "name": "GitHub Actions",
+          "category": "ci",
+          "count": 3
+        },
+        {
+          "id": "adb",
+          "name": "ADB",
+          "category": "tool",
+          "count": 8
+        },
+        {
+          "id": "android",
+          "name": "Android",
+          "category": "platform",
+          "count": 6
+        },
+        {
+          "id": "ocr",
+          "name": "OCR",
+          "category": "tool",
+          "count": 5
+        },
+        {
+          "id": "vision",
+          "name": "macOS Vision",
+          "category": "tool",
+          "count": 3
+        },
+        {
+          "id": "python",
+          "name": "Python",
+          "category": "language",
+          "count": 3
+        },
+        {
+          "id": "excel",
+          "name": "Excel",
+          "category": "format",
+          "count": 3
+        },
+        {
+          "id": "csv",
+          "name": "CSV",
+          "category": "format",
+          "count": 3
+        },
+        {
+          "id": "json",
+          "name": "JSON",
+          "category": "format",
+          "count": 4
+        },
+        {
+          "id": "markdown",
+          "name": "Markdown",
+          "category": "format",
+          "count": 2
+        },
+        {
+          "id": "html",
+          "name": "HTML",
+          "category": "format",
+          "count": 2
+        },
+        {
+          "id": "bash",
+          "name": "Bash",
+          "category": "shell",
+          "count": 4
+        },
+        {
+          "id": "tar",
+          "name": "tar",
+          "category": "tool",
+          "count": 2
+        },
+        {
+          "id": "lufs",
+          "name": "LUFS",
+          "category": "domain",
+          "count": 2
+        },
+        {
+          "id": "svg",
+          "name": "SVG",
+          "category": "format",
+          "count": 2
+        },
+        {
+          "id": "png",
+          "name": "PNG",
+          "category": "format",
+          "count": 2
+        },
+        {
+          "id": "react",
+          "name": "React",
+          "category": "framework",
+          "count": 2
+        }
+      ],
+      "timelineEvent": "AXMORF Studio 完成 0.1.18 版本合并发布，修复音频延迟与时间基问题，并通过 CI 与 npm provenance 验证；同日完成约 12.3 GiB 旧工作区清理与抖音团购商家评论采集。",
+      "tools": [
+        "TypeScript / Node.js / npm / Git / GitHub Actions：AXMORF Studio 合并、发布、CI 与 npm provenance 验证",
+        "Remotion / FFmpeg / H.264 / AAC / PCM / MP4：视频渲染链路重构、音频延迟修复与时间基校正",
+        "ADB / Android / macOS Vision OCR / Python：抖音团购商家与评论采集、去重与数据整理",
+        "Excel / CSV / JSON / Markdown / HTML：采集结果输出、方法文档与诊断报告",
+        "Bash / tar：旧工作区归档压缩与清理"
+      ],
+      "work": [
+        "AXMORF Studio（视频制作引擎）：完成音频延迟根因修复，原 Remotion 路径先输出 AAC/ADTS 再封装 MP4 丢失 AAC priming 信息，实测偏移 2048 samples / 42.67ms；新链 render-h264-aac.ts 统一正式、草稿、proof 路径，一次渲染输出 H.264 + 独立 PCM 后直接编码 AAC 到 MP4 并保留 skip_samples，PCM↔AAC lag=0 samples、相关度 0.9999992。修复短片时间基问题：并行编码路径将帧时间舍入到毫秒，改用 disallowParallelEncoding 保留帧渲染并发，1/12/120 帧均精确 30fps、time_base=1/90000。修复 continuity 与旁白类型耦合，isSceneOwnerBeat 统一识别 narrated 和 silent scene-owner，四处 handoff 校验共用；纯视觉相邻 owner 可冻结同一 seam。修复无旁白修订合同、无字幕布局（纯动效项目使用完整安全区 1100×540）、片尾布局（限制长引用显示长度并标示省略，15 张真实渲染画面无文字裁切）。升级参考分析为 reference-diagnostics-v2：最多 120 粗采样、12 窗口各 8 次细化、216 次灰帧解码、24 张彩色 PNG，输出 JSON/Markdown/HTML/逐帧 checksum manifest，30/30 focused tests 通过。全量检查 1270 项测试全部通过，类型、lint、构建、Composition 与宿主检查通过。真实验收《行动的起点》26 秒 1280×720 纯动效，四个语义段共用连续 Scene，局部修订仅重做 1 个 Scene、复用 5 项产物、零 provider 调用。复杂样片《一座城市，如何醒来》58 秒 1080×1920 七项交付检查通过，但发现审阅工具 scene-review/plan.ts 误判纯动效章节，尚未修复。升级 axmorf-video Skill 新增 film-direction.md 创作指南，53 项相关测试通过。",
+        "AXMORF Studio 发布（0.1.18）：用户要求直接提交推送并发布，不再重跑完整验证。发现默认分支仍基于 0.1.16，而 npm 上已发布 0.1.17，0.1.17 的分支 axmorf/visual-narrative-quality（提交 d323d69）和标签 v0.1.17（提交 3b2a01c）都还在，只是未合回默认分支，Agent 承认开发前未核对最新发布基线属疏漏。合并 0.1.17 与本次升级产生 63 个文件冲突，涉及时间轴、生产流程、声音合同、无旁白模式、背景音乐范围、修订流程。用户选择完成合并并复验受影响部分。合并后保留 0.1.17 的纯视觉时间轴、共享 SVG、逐场景预览、整片音乐能力，并接入本次连续多 Beat 场景能力；已有项目继续使用各自时间轴合同。类型检查通过，48 项针对性检查通过，603 项受影响回归全部通过。依赖审计发现 2 个新披露漏洞，按官方范围更新间接依赖并同步 Workspace 锁定配置，Remotion 版本保持不变，修复后审计为零漏洞。合并提交 b467f91，推送 v0.1.18 标签。CI 通过：受影响回归、类型检查、lint、构建、安全审计、2 秒真实视频渲染及完整解码、全新 Workspace 安装/doctor/Remotion 检查、CI 包与本地候选一致性。两个 npm 包 @axmorf/studio 与 creator 的 latest 均回读为 0.1.18，官方 provenance 指向 b467f91，GitHub Release 已发布，公开包 291/42 个文件逐项核对完整。已将'开发前核对最新发布标签与默认分支'写入 AGENTS.md（约第 296 行）。",
+        "we-media（每日 AI 视频选题制作与发布）：完成《网页一句话，就能指挥AI？》89.9 秒，主题提示注入，5 个原创场景、双封面、全局视觉，综合响度 −15.7 LUFS、真峰值 −2.0 dBFS。三平台均已确认提交并进入审核：小红书 6ac6f18c000000001c02c905、抖音 7694102935713729827、B站 BV194Hm61EoN。抖音核验超时已解决，未重复发布。昨日三平台作品已核实公开，完成 5 条到期数据复盘，小红书 43 播放、抖音 213 播放，样本仍小。",
+        "hero-next（个人主站与简历）：将 6 月 Agent 协作实践与 Dots 对照写入简历、主站中英文个人介绍和'命题二'文章。427 项测试、构建及桌面/手机检查通过。已发布到 https://zzzxc.com/，线上中英文内容核对通过。",
+        "旧工作区清理：检查发现 19 个旧创作/验收工作区（约 10.6 GiB，多为 9 月底测试 0.1.15 遗留）+ 2 个旧 Git worktree（axmorf-studio-hermes-closure、axmorf-studio-release-0.1.10，约 1.65 GiB，无未提交修改，提交已含于主仓库）。分类：8 个未创建项目的安装/测试目录（4.1 GiB）、3 个有项目无完整交付（1.7 GiB）、8 个有成片旧工作区（4.8 GiB）。保留 projects/axmorf-studio（当前开发源码，有大量未提交修改）和 AgentWorkspace/axmorf（日常创作目录，8 个项目及交付文件，自动任务仍使用）。确认 21 个目标目录无运行进程占用、worktree 干净后，将作品/源码/素材/配置压缩到 AgentWorkspace/archives/axmorf-workspace-cleanup-20261008-193220/workspace-backup.tar.gz（约 406 MiB，8,579 个文件校验和全部匹配，省略可重装依赖和构建缓存），再移除原目录。清理后日常创作目录 6,352 个文件校验一致；主仓库在清理期间因另一聊天的合并发布新增文件，已核对并记入清理记录。合计释放约 12.3 GiB。",
+        "抖音团购商家与评论采集（Android/ADB）：通过 ADB 控制外接安卓设备（华为手机 8KE5T19628048077），采集抖音团购'附近'美食商家信息及评论并分析，沉淀采集方法，模拟人为操作节奏。确认范围：当前定位（遂昌）3 公里内，尽量采全当前列表和可见评论。筛选口径经用户多次调整：排除奶茶、咖啡、酒吧等饮品店；进一步排除炸鸡、汉堡、披萨、甜品、烘焙；主样本为中式正餐和火锅，烧烤/烤肉单独列为补充。评论采集规则：仅采页面显示评价数 ≥20 条的门店；折叠评价排除；评价不足 20 条或未显示评价数的门店只保留商家信息。采集进度：3 公里列表已翻到'暂无更多商户'，筛出 60 家中餐/火锅门店，其中 33 家达到 20 条评价门槛；烧烤烤肉 17 家作补充。已完成普通评论末尾的门店：曾家厨房（无公开评论）、星龙海鲜、老郑大油边（41 条，与页面显示一致）、米道（显示 24 条，实际采到 19 条）、幺妹重庆火锅、醉忆餐厅、喜欢李老火锅（平台显示 1,425 条，主样本最多）等，共 7 家完成。普通评论累计约 850 条，其中中餐火锅 317 条以上。数据质量处理：发现并修复两类评论串接问题——长日期/悬浮按钮遮挡导致相邻评论被拼接；滑动惯性越过作者栏导致正文归属错误。修复通过 8 项验证，已保存截图重新整理，无法确认作者栏的正文单独保留为待核对片段。发现普通评价列表中会重复显示同一条评价，按头像/日期/正文/照片去重；不同顾客相同短评保留。昵称 OCR 细微差异导致重复计数，已按头像、日期、正文、照片核对并保存校正依据。平台显示评价总数包含未展示或折叠内容，报告将'平台显示数'与'实际采到的普通评价数'分开呈现。价格数据：中式正餐人均中位数 58 元，火锅及锅类 62 元（Agent 曾播报 54/63 有误，已更正，以表格为准）。输出：可筛选 Excel（门店、普通评论、采集状态分表，中餐火锅与烧烤补充分开，每条评论保留截图出处）；方法文档记录页面和识别问题；原始截图完整保留。采集仍在进行中，幺妹重庆火锅等门店状态保持'采集中'或'未采集'。",
+        "餐饮门店评价数据整理/去重（codex:android 会话）：处理'喜欢李老火锅'门店，已推进到普通评价末尾。对评价进行重复核对与去重，最终保留 442 张评价卡片。该门店处理基本完成，下一步是继续补齐其他达到 20 条门槛的中餐和火锅门店。",
+        "本地操作与文档整理：确认 Mac 已安装 ADB（/usr/local/bin/adb，版本 1.0.41），USB 连接安卓设备 8KE5T19628048077，授权后成功打开抖音。通过 ADB 截屏 + macOS Vision OCR 从抖音团购页面采集遂昌商家资料，首批 12 家，保存 CSV/JSON/报告/证据到 ~/suichang-merchants/2026-10-08/。整理桌面文档 Agent-First-Collaboration-Vision.md，标题《让人表达意图，让 Agent 组织执行》，含 2026-06-02 五条历史原话证据、中心思想、Dots 对照。",
+        "用户核心思想与协作模式：用户 2026-06-02 明确提出人只与本地入口 Agent（m-hermes）交互，由它理解需求、协调远端 Ubuntu 团队（UHF/UHF-M3）按 Kanban 执行，人保留关键决定与最终验收权，强调'我不会直接和 uhf 做交互'。用户认为该想法有前瞻性，与 OpenAI 2026-09-29 发布的 Dots 产品方向呼应，但非技术首创。用户要求保留该思想作为个人主页亮点，已整理为文档并写入简历和主站。",
+        "未解决/待跟进：axmorf-studio 审阅工具 scene-review/plan.ts 对纯动效章节误判，尚未修复；axmorf-studio 所有改动未提交、未推送、未发布 npm（注：0.1.18 已发布，但后续 Skill 升级等改动未提交）；主观听审未验证；遂昌商家资料为首批 12 家，非全县完整名录，OCR 可能误读，未做独立来源二次验证；用户最后询问视频制作是否使用独立 workspace，尚未回答。"
+      ],
+      "resumeHighlight": "主导 AXMORF Studio 0.1.18 版本合并发布：定位并修复 Remotion 音频延迟根因（AAC priming 丢失导致 2048 samples / 42.67ms 偏移），重构渲染链路为 H.264 + PCM 直编 AAC 保留 skip_samples，实现 PCM↔AAC lag=0 samples、相关度 0.9999992；同时修复并行编码时间基舍入问题，确保 1/12/120 帧均精确 30fps、time_base=1/90000。合并 0.1.17 与本次升级产生 63 个文件冲突，完成合并后 603 项受影响回归全部通过，依赖审计零漏洞，CI 全绿，npm provenance 指向合并提交 b467f91，GitHub Release 已发布。"
+    },
     {
       "date": "2026-10-06",
       "sessionCount": 1,

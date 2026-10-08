@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "source": {
     "repository": "agenticnoob/vibe-journal-pipeline",
-    "revision": "f78cc9d10708eeee83be30dbe0b43f416265ac16",
-    "generatedAt": "2026-10-07T00:06:19.500933+08:00"
+    "revision": "d209894bd2c66580fb3d1b546beb8c061f8b8c8e",
+    "generatedAt": "2026-10-09T00:08:10.825734+09:00"
   },
   "skills": [
     {
@@ -37,10 +37,10 @@
       "id": "aac",
       "name": "AAC",
       "category": "format",
-      "dayCount": 13,
-      "totalCount": 24,
+      "dayCount": 14,
+      "totalCount": 28,
       "firstSeen": "2026-07-09",
-      "lastSeen": "2026-10-04"
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "actionlint",
@@ -50,6 +50,15 @@
       "totalCount": 9,
       "firstSeen": "2026-08-24",
       "lastSeen": "2026-09-23"
+    },
+    {
+      "id": "adb",
+      "name": "ADB",
+      "category": "tool",
+      "dayCount": 1,
+      "totalCount": 8,
+      "firstSeen": "2026-10-08",
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "agentmemory",
@@ -68,6 +77,15 @@
       "totalCount": 3,
       "firstSeen": "2026-06-18",
       "lastSeen": "2026-06-18"
+    },
+    {
+      "id": "android",
+      "name": "Android",
+      "category": "platform",
+      "dayCount": 1,
+      "totalCount": 6,
+      "firstSeen": "2026-10-08",
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "androidsdk",
@@ -154,10 +172,10 @@
       "id": "bash",
       "name": "Bash",
       "category": "shell",
-      "dayCount": 31,
-      "totalCount": 193,
+      "dayCount": 32,
+      "totalCount": 197,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-10-02"
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "bilibili",
@@ -352,10 +370,10 @@
       "id": "csv",
       "name": "CSV",
       "category": "format",
-      "dayCount": 3,
-      "totalCount": 3,
+      "dayCount": 4,
+      "totalCount": 6,
       "firstSeen": "2026-07-23",
-      "lastSeen": "2026-07-25"
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "cuda",
@@ -556,6 +574,15 @@
       "lastSeen": "2026-09-18"
     },
     {
+      "id": "excel",
+      "name": "Excel",
+      "category": "format",
+      "dayCount": 1,
+      "totalCount": 3,
+      "firstSeen": "2026-10-08",
+      "lastSeen": "2026-10-08"
+    },
+    {
       "id": "express",
       "name": "Express",
       "category": "framework",
@@ -595,10 +622,10 @@
       "id": "ffmpeg",
       "name": "FFmpeg",
       "category": "tool",
-      "dayCount": 44,
-      "totalCount": 142,
+      "dayCount": 45,
+      "totalCount": 147,
       "firstSeen": "2026-06-26",
-      "lastSeen": "2026-10-06"
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "ffprobe",
@@ -649,10 +676,10 @@
       "id": "git",
       "name": "Git",
       "category": "vcs",
-      "dayCount": 95,
-      "totalCount": 456,
+      "dayCount": 96,
+      "totalCount": 466,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-10-04"
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "github",
@@ -667,10 +694,10 @@
       "id": "githubactions",
       "name": "GitHub Actions",
       "category": "tool",
-      "dayCount": 24,
-      "totalCount": 116,
+      "dayCount": 25,
+      "totalCount": 119,
       "firstSeen": "2026-06-10",
-      "lastSeen": "2026-10-04"
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "githubapi",
@@ -847,10 +874,10 @@
       "id": "h264",
       "name": "H.264",
       "category": "format",
-      "dayCount": 15,
-      "totalCount": 29,
+      "dayCount": 16,
+      "totalCount": 33,
       "firstSeen": "2026-07-09",
-      "lastSeen": "2026-10-04"
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "hackernews",
@@ -892,10 +919,10 @@
       "id": "html",
       "name": "HTML",
       "category": "format",
-      "dayCount": 5,
-      "totalCount": 14,
+      "dayCount": 6,
+      "totalCount": 16,
       "firstSeen": "2026-07-05",
-      "lastSeen": "2026-09-28"
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "html5audio",
@@ -1018,10 +1045,10 @@
       "id": "json",
       "name": "JSON",
       "category": "format",
-      "dayCount": 34,
-      "totalCount": 195,
+      "dayCount": 35,
+      "totalCount": 199,
       "firstSeen": "2026-05-19",
-      "lastSeen": "2026-10-04"
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "jsonschema",
@@ -1060,6 +1087,15 @@
       "lastSeen": "2026-10-02"
     },
     {
+      "id": "lufs",
+      "name": "LUFS",
+      "category": "domain",
+      "dayCount": 1,
+      "totalCount": 2,
+      "firstSeen": "2026-10-08",
+      "lastSeen": "2026-10-08"
+    },
+    {
       "id": "m4a",
       "name": "M4A",
       "category": "format",
@@ -1081,10 +1117,10 @@
       "id": "markdown",
       "name": "Markdown",
       "category": "format",
-      "dayCount": 11,
-      "totalCount": 40,
+      "dayCount": 12,
+      "totalCount": 42,
       "firstSeen": "2026-07-23",
-      "lastSeen": "2026-10-03"
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "mcp",
@@ -1189,10 +1225,10 @@
       "id": "mp4",
       "name": "MP4",
       "category": "format",
-      "dayCount": 7,
-      "totalCount": 27,
+      "dayCount": 8,
+      "totalCount": 30,
       "firstSeen": "2026-08-02",
-      "lastSeen": "2026-10-03"
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "nestjs",
@@ -1225,19 +1261,19 @@
       "id": "nodejs",
       "name": "Node.js",
       "category": "runtime",
-      "dayCount": 80,
-      "totalCount": 382,
+      "dayCount": 81,
+      "totalCount": 386,
       "firstSeen": "2026-05-18",
-      "lastSeen": "2026-10-06"
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "npm",
       "name": "npm",
       "category": "package-manager",
-      "dayCount": 89,
-      "totalCount": 493,
+      "dayCount": 90,
+      "totalCount": 499,
       "firstSeen": "2026-06-05",
-      "lastSeen": "2026-10-06"
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "numpy",
@@ -1274,6 +1310,15 @@
       "totalCount": 9,
       "firstSeen": "2026-05-19",
       "lastSeen": "2026-05-19"
+    },
+    {
+      "id": "ocr",
+      "name": "OCR",
+      "category": "tool",
+      "dayCount": 1,
+      "totalCount": 5,
+      "firstSeen": "2026-10-08",
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "ohmycodex",
@@ -1414,10 +1459,10 @@
       "id": "pcm",
       "name": "PCM",
       "category": "format",
-      "dayCount": 2,
-      "totalCount": 3,
+      "dayCount": 3,
+      "totalCount": 6,
       "firstSeen": "2026-08-05",
-      "lastSeen": "2026-08-07"
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "pdf",
@@ -1459,10 +1504,10 @@
       "id": "png",
       "name": "PNG",
       "category": "format",
-      "dayCount": 4,
-      "totalCount": 15,
+      "dayCount": 5,
+      "totalCount": 17,
       "firstSeen": "2026-08-02",
-      "lastSeen": "2026-10-04"
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "pnpm",
@@ -1549,10 +1594,10 @@
       "id": "python",
       "name": "Python",
       "category": "language",
-      "dayCount": 43,
-      "totalCount": 168,
+      "dayCount": 44,
+      "totalCount": 171,
       "firstSeen": "2026-05-17",
-      "lastSeen": "2026-09-23"
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "pytorch",
@@ -1612,10 +1657,10 @@
       "id": "react",
       "name": "React",
       "category": "framework",
-      "dayCount": 80,
-      "totalCount": 461,
+      "dayCount": 81,
+      "totalCount": 463,
       "firstSeen": "2026-05-20",
-      "lastSeen": "2026-09-30"
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "reactdoctor",
@@ -1648,10 +1693,10 @@
       "id": "remotion",
       "name": "Remotion",
       "category": "framework",
-      "dayCount": 73,
-      "totalCount": 573,
+      "dayCount": 74,
+      "totalCount": 581,
       "firstSeen": "2026-05-26",
-      "lastSeen": "2026-10-04"
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "repositorydispatch",
@@ -1873,10 +1918,10 @@
       "id": "svg",
       "name": "SVG",
       "category": "format",
-      "dayCount": 13,
-      "totalCount": 25,
+      "dayCount": 14,
+      "totalCount": 27,
       "firstSeen": "2026-07-17",
-      "lastSeen": "2026-10-04"
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "swiper",
@@ -1913,6 +1958,15 @@
       "totalCount": 9,
       "firstSeen": "2026-05-20",
       "lastSeen": "2026-09-21"
+    },
+    {
+      "id": "tar",
+      "name": "tar",
+      "category": "tool",
+      "dayCount": 1,
+      "totalCount": 2,
+      "firstSeen": "2026-10-08",
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "taro",
@@ -1999,10 +2053,10 @@
       "id": "typescript",
       "name": "TypeScript",
       "category": "language",
-      "dayCount": 123,
-      "totalCount": 993,
+      "dayCount": 124,
+      "totalCount": 1005,
       "firstSeen": "2026-05-17",
-      "lastSeen": "2026-10-04"
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "ubuntu",
@@ -2093,6 +2147,15 @@
       "totalCount": 1,
       "firstSeen": "2026-07-12",
       "lastSeen": "2026-07-12"
+    },
+    {
+      "id": "vision",
+      "name": "macOS Vision",
+      "category": "tool",
+      "dayCount": 1,
+      "totalCount": 3,
+      "firstSeen": "2026-10-08",
+      "lastSeen": "2026-10-08"
     },
     {
       "id": "vite",
