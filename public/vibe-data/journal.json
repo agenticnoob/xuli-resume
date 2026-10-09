@@ -2,10 +2,124 @@
   "schemaVersion": 1,
   "source": {
     "repository": "agenticnoob/vibe-journal-pipeline",
-    "revision": "d209894bd2c66580fb3d1b546beb8c061f8b8c8e",
-    "generatedAt": "2026-10-09T00:08:10.825734+09:00"
+    "revision": "a75db9be6669fe1dddceab0b2c66f1f03019b82d",
+    "generatedAt": "2026-10-10T00:06:50.190434+09:00"
   },
   "entries": [
+    {
+      "date": "2026-10-09",
+      "sessionCount": 4,
+      "turnCount": 115,
+      "skillsTouched": [
+        {
+          "id": "remotion",
+          "name": "Remotion",
+          "category": "framework",
+          "count": 4
+        },
+        {
+          "id": "ffmpeg",
+          "name": "FFmpeg",
+          "category": "tool",
+          "count": 2
+        },
+        {
+          "id": "h264",
+          "name": "H.264",
+          "category": "format",
+          "count": 2
+        },
+        {
+          "id": "aac",
+          "name": "AAC",
+          "category": "format",
+          "count": 2
+        },
+        {
+          "id": "npm",
+          "name": "npm",
+          "category": "package-manager",
+          "count": 4
+        },
+        {
+          "id": "nodejs",
+          "name": "Node.js",
+          "category": "runtime",
+          "count": 2
+        },
+        {
+          "id": "react",
+          "name": "React",
+          "category": "framework",
+          "count": 2
+        },
+        {
+          "id": "typescript",
+          "name": "TypeScript",
+          "category": "language",
+          "count": 2
+        },
+        {
+          "id": "githubactions",
+          "name": "GitHub Actions",
+          "category": "tool",
+          "count": 2
+        },
+        {
+          "id": "excel",
+          "name": "Excel",
+          "category": "tool",
+          "count": 2
+        },
+        {
+          "id": "svg",
+          "name": "SVG",
+          "category": "format",
+          "count": 1
+        },
+        {
+          "id": "json",
+          "name": "JSON",
+          "category": "format",
+          "count": 1
+        },
+        {
+          "id": "cli",
+          "name": "CLI",
+          "category": "tool",
+          "count": 3
+        },
+        {
+          "id": "egobrowser",
+          "name": "ego-browser",
+          "category": "tool",
+          "count": 1
+        },
+        {
+          "id": "chatgpt",
+          "name": "ChatGPT",
+          "category": "ai-provider",
+          "count": 1
+        }
+      ],
+      "timelineEvent": "AXMORF Studio 0.1.20 完成源码提交、CI 与 npm 双包发布，公开下载包与验收候选包字节一致；同日 we-media 视频《温度调成0，AI就稳定了吗？》三平台提交审核。",
+      "tools": [
+        "Remotion、FFmpeg、H.264/AAC 用于 AXMORF 成片生产与验收",
+        "npm Workspace 冷安装、GitHub Actions CI、GitHub Release 用于 0.1.20 发布",
+        "TypeScript、React、Node.js、CLI 子命令（project:create/revise/produce/inspect/prepare/continue/preview）",
+        "ego-browser 与小红书/抖音/B站创作者页面用于 we-media 发布与指标采集",
+        "Excel 与手机页面截图用于 Android 商家评论采集",
+        "ChatGPT read_thread 用于读取历史对话"
+      ],
+      "work": [
+        "AXMORF Studio 发布验证（主线）：0.1.18 合并后仅验证过 2 秒默认片头，58 秒《一座城市，如何醒来》为合并前制作，故生成 0.1.19 候选包在仓库外全新 npm Workspace 冷安装验证。源码检查通过 1395 项测试、类型、lint、构建、宿主渲染、依赖审计零漏洞。制作 60 秒连续场景样片《一个包裹的旅程》（1080×1920、30fps、60 秒、无旁白、零 provider 调用、六阶段共用连续场景），发现真实缺陷：连续场景预览只核对首个 Beat，而生产器按多个 Beat 的完整时段冻结场景，触发 `Scene preview fixed inputs differ from its frozen task`；回归还发现显式 authored-frames 模式预览器错误要求读取不存在的旁白文件。修复方案为预览使用与生产相同的场景聚合逻辑，保留身份和校验强度，专项 46 项、完整 1399 项测试通过。60 秒成片最终通过：1800 帧、H.264/AAC 双声道、完整 EOF 解码、音频峰值约 −2.16 dBFS、浏览器完整静音播放无损坏帧。另做 40 秒六场景短片验证默认四路子 Agent 调度、8 个创作任务、4 次补位，1200 帧、1280×720、30fps，正式交付通过。发布记录器多次遇到日志核验问题（显示层截断、CLI 并行批量读取格式、错误堆栈格式、截图数据过长导致 JSON 解析失败），补充日志解析支持并加回归测试，拒绝缺失事件、进程错配、篡改结果和把生产修改混入诊断批次。0.1.19 发布时 CI 拦截清单错误：发布计划引用不存在的测试文件，两个包均未发布，保留失败标签改发 0.1.20。0.1.20 候选包逐文件确认仅版本元数据变化，620 项回归通过，审计零漏洞。",
+        "AXMORF Studio 0.1.20 正式发布：本地完整检查 1411 项通过；CI 1409 通过、2 项 macOS 专属用例在 Linux 跳过；发布回归 627 项通过。成片验收包括 60 秒连续场景和 40 秒六场景；四路原生并发约 421 秒，8 个创作任务完成，四文件检查 7/7 通过。两个 npm 包 `@axmorf/studio@0.1.20` 与 creator 包均已发布，公开下载包与验收候选包字节一致；GitHub Release 已创建。用户日常 axmorf 工作空间仍为 `@axmorf/studio@0.1.17`，未自动升级。",
+        "AXMORF Agent-First-Collaboration-Vision 视频：工作空间升级至 0.1.20，`doctor` 通过；React、Remotion 等保留官方兼容版本。第一版视频 93.67 秒、1080×1920、30fps，含中文旁白、字幕和音乐，四件交付验证通过；未完成人耳听审。用户要求重做：从最近 Dots 出发，联系六月二日构想，强调“人与固定入口 Agent 交互，Agent 协调其他 Agent”；语速改 1.2 倍，画面同步对齐。新版旁白实测 71.5 秒，16 段语音节点；正文预览 61.5 秒已生成。封面任务因漏建输出目录失败，恢复检查拒绝重试，正式成片尚未完成，需另行工程排查恢复阻塞。",
+        "we-media 每日 AI 视频任务：读取两项目 AGENTS.md 和创作指南，核实昨天小红书、抖音、B站作品均已发布，作品 ID 与原记录一致。采集 4 条完整指标快照，两条抖音因编辑页作品 ID 不匹配记为未知，只读查证。选题《温度调成 0，AI 就会每次给同样答案吗？》聚焦创作允许变化、业务规则要求稳定的取舍；核验发现部分新模型已不支持调温度，脚本明确适用范围，重点讲“参数一致不等于结果保证”。AXMORF 预检：预计 20 次旁白请求、0 次缓存命中，冻结 1080×1920、30fps、中文，批准 Sunlit Drive 循环配乐音量 0.15。成片 102.8 秒、1080×1920、30fps，混音 −15.7 LUFS、真峰值 −2.3 dBFS，技术检查与发布预检通过。双封面分支连线出现 SVG 默认填充导致的黑色三角；AXMORF 明确无 `patch.cover` 或 Cover-only revision API，未绕过交付校验，发布暂缓。用户接受现有封面后，三平台各提交一次并后台确认审核中：小红书 `6ac8adf5000000001b02de72`、抖音 `7694591651037121826`、B站 `BV1pFp46qEsS`。B站发布曾遇分区控件被固定页头遮挡，修正为分区已正确时直接保留，回归测试通过后续接原任务。另用 `read_thread` 读取 ChatGPT 对话《AI发展历程与趋势》最近 3 轮共 6 条消息；工具未提供消息级链接，仅返回消息 ID。",
+        "Android 门店评价采集：跨日到 10 月 9 日，手机页面返回后筛选恢复默认，已重新确认“3 公里、距离优先、有团购”。相对日期保留截图时间避免跨日误读。折叠评价、少于 20 条评价的店跳过。初始逐屏采好评导致耗时过多；用户要求改为中评、差评优先，好评仅保留少量对照。已整理 60 家中餐火锅商家、约 1,900 条评论卡片；33 家符合门槛的中评、差评已采到普通列表末尾或确认显示为 0，折叠评价未进入。已完成凯新风炉小厨 58 条、犇犇豆花美蛙鱼火锅 36 条、鲜货烧烤火锅自助 281 张卡片，主样本完成 9/33 家，累计约 1300 条评价，Excel 已更新。商家资料补到 54/60 家；发现昵称识别差异导致重复记录，需标出待核对项。分析发现反复反馈：上菜慢、催菜无回应、团购券和额外收费规则不清、自助补菜不及时、套餐主料分量不足。15 项回归检查通过，待导出 Excel 分析表。"
+      ],
+      "resumeHighlight": "主导 AXMORF Studio 0.1.20 从候选包冷安装验证到 npm 双包发布的完整闭环：定位并修复连续场景预览与生产冻结逻辑不一致导致的 `Scene preview fixed inputs differ from its frozen task` 缺陷，补齐发布记录器日志解析与回归测试，最终 1411 项本地测试、CI 1409 项、发布回归 627 项全部通过，公开下载包与验收候选包字节一致，GitHub Release 已创建。"
+    },
     {
       "date": "2026-10-08",
       "sessionCount": 7,
