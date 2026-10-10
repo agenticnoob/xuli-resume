@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "source": {
     "repository": "agenticnoob/vibe-journal-pipeline",
-    "revision": "a75db9be6669fe1dddceab0b2c66f1f03019b82d",
-    "generatedAt": "2026-10-10T00:06:50.190434+09:00"
+    "revision": "f763d2f6a1fc3e6b9e6fd8f010224984cd644c36",
+    "generatedAt": "2026-10-11T00:07:26.210203+09:00"
   },
   "skills": [
     {
@@ -235,10 +235,10 @@
       "id": "chatgpt",
       "name": "ChatGPT",
       "category": "ai-model",
-      "dayCount": 2,
-      "totalCount": 3,
+      "dayCount": 3,
+      "totalCount": 4,
       "firstSeen": "2026-10-02",
-      "lastSeen": "2026-10-09"
+      "lastSeen": "2026-10-10"
     },
     {
       "id": "chrome",
@@ -253,10 +253,10 @@
       "id": "chromium",
       "name": "Chromium",
       "category": "tool",
-      "dayCount": 16,
-      "totalCount": 46,
+      "dayCount": 17,
+      "totalCount": 48,
       "firstSeen": "2026-06-28",
-      "lastSeen": "2026-10-02"
+      "lastSeen": "2026-10-10"
     },
     {
       "id": "claude",
@@ -275,6 +275,15 @@
       "totalCount": 3,
       "firstSeen": "2026-09-16",
       "lastSeen": "2026-10-02"
+    },
+    {
+      "id": "claudeopus55",
+      "name": "Claude Opus 5.5",
+      "category": "ai-model",
+      "dayCount": 1,
+      "totalCount": 2,
+      "firstSeen": "2026-10-10",
+      "lastSeen": "2026-10-10"
     },
     {
       "id": "claudesonnet55",
@@ -379,10 +388,10 @@
       "id": "csv",
       "name": "CSV",
       "category": "format",
-      "dayCount": 4,
-      "totalCount": 6,
+      "dayCount": 5,
+      "totalCount": 8,
       "firstSeen": "2026-07-23",
-      "lastSeen": "2026-10-08"
+      "lastSeen": "2026-10-10"
     },
     {
       "id": "cuda",
@@ -586,10 +595,10 @@
       "id": "excel",
       "name": "Excel",
       "category": "format",
-      "dayCount": 2,
-      "totalCount": 5,
+      "dayCount": 3,
+      "totalCount": 7,
       "firstSeen": "2026-10-08",
-      "lastSeen": "2026-10-09"
+      "lastSeen": "2026-10-10"
     },
     {
       "id": "express",
@@ -631,10 +640,10 @@
       "id": "ffmpeg",
       "name": "FFmpeg",
       "category": "tool",
-      "dayCount": 46,
-      "totalCount": 149,
+      "dayCount": 47,
+      "totalCount": 151,
       "firstSeen": "2026-06-26",
-      "lastSeen": "2026-10-09"
+      "lastSeen": "2026-10-10"
     },
     {
       "id": "ffprobe",
@@ -676,28 +685,28 @@
       "id": "gemini",
       "name": "Gemini",
       "category": "ai-model",
-      "dayCount": 1,
-      "totalCount": 1,
+      "dayCount": 2,
+      "totalCount": 2,
       "firstSeen": "2026-10-02",
-      "lastSeen": "2026-10-02"
+      "lastSeen": "2026-10-10"
     },
     {
       "id": "git",
       "name": "Git",
       "category": "vcs",
-      "dayCount": 96,
-      "totalCount": 466,
+      "dayCount": 97,
+      "totalCount": 471,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-10-08"
+      "lastSeen": "2026-10-10"
     },
     {
       "id": "github",
       "name": "GitHub",
       "category": "vcs-host",
-      "dayCount": 11,
-      "totalCount": 27,
+      "dayCount": 12,
+      "totalCount": 31,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-10-02"
+      "lastSeen": "2026-10-10"
     },
     {
       "id": "githubactions",
@@ -779,6 +788,15 @@
       "totalCount": 6,
       "firstSeen": "2026-07-02",
       "lastSeen": "2026-07-06"
+    },
+    {
+      "id": "googleantigravity",
+      "name": "Google Antigravity",
+      "category": "ai-coding-tool",
+      "dayCount": 1,
+      "totalCount": 2,
+      "firstSeen": "2026-10-10",
+      "lastSeen": "2026-10-10"
     },
     {
       "id": "googlecloud",
@@ -869,6 +887,15 @@
       "totalCount": 2,
       "firstSeen": "2026-09-26",
       "lastSeen": "2026-09-27"
+    },
+    {
+      "id": "gptoss",
+      "name": "GPT-OSS",
+      "category": "ai-model",
+      "dayCount": 1,
+      "totalCount": 1,
+      "firstSeen": "2026-10-10",
+      "lastSeen": "2026-10-10"
     },
     {
       "id": "gsap",
@@ -1018,10 +1045,10 @@
       "id": "javascript",
       "name": "JavaScript",
       "category": "language",
-      "dayCount": 25,
-      "totalCount": 136,
+      "dayCount": 26,
+      "totalCount": 140,
       "firstSeen": "2026-07-05",
-      "lastSeen": "2026-10-06"
+      "lastSeen": "2026-10-10"
     },
     {
       "id": "jdk",
@@ -1126,10 +1153,10 @@
       "id": "markdown",
       "name": "Markdown",
       "category": "format",
-      "dayCount": 12,
-      "totalCount": 42,
+      "dayCount": 13,
+      "totalCount": 45,
       "firstSeen": "2026-07-23",
-      "lastSeen": "2026-10-08"
+      "lastSeen": "2026-10-10"
     },
     {
       "id": "mcp",
@@ -1234,10 +1261,10 @@
       "id": "mp4",
       "name": "MP4",
       "category": "format",
-      "dayCount": 8,
-      "totalCount": 30,
+      "dayCount": 9,
+      "totalCount": 31,
       "firstSeen": "2026-08-02",
-      "lastSeen": "2026-10-08"
+      "lastSeen": "2026-10-10"
     },
     {
       "id": "nestjs",
@@ -1270,19 +1297,19 @@
       "id": "nodejs",
       "name": "Node.js",
       "category": "runtime",
-      "dayCount": 82,
-      "totalCount": 388,
+      "dayCount": 83,
+      "totalCount": 393,
       "firstSeen": "2026-05-18",
-      "lastSeen": "2026-10-09"
+      "lastSeen": "2026-10-10"
     },
     {
       "id": "npm",
       "name": "npm",
       "category": "package-manager",
-      "dayCount": 91,
-      "totalCount": 503,
+      "dayCount": 92,
+      "totalCount": 509,
       "firstSeen": "2026-06-05",
-      "lastSeen": "2026-10-09"
+      "lastSeen": "2026-10-10"
     },
     {
       "id": "numpy",
@@ -1360,10 +1387,10 @@
       "id": "openai",
       "name": "OpenAI",
       "category": "ai-provider",
-      "dayCount": 14,
-      "totalCount": 37,
+      "dayCount": 15,
+      "totalCount": 39,
       "firstSeen": "2026-05-16",
-      "lastSeen": "2026-10-06"
+      "lastSeen": "2026-10-10"
     },
     {
       "id": "openaiapi",
@@ -1900,10 +1927,10 @@
       "id": "ssh",
       "name": "SSH",
       "category": "infrastructure",
-      "dayCount": 14,
-      "totalCount": 57,
+      "dayCount": 15,
+      "totalCount": 60,
       "firstSeen": "2026-05-24",
-      "lastSeen": "2026-09-19"
+      "lastSeen": "2026-10-10"
     },
     {
       "id": "stablediffusionimagegeneration",
@@ -1954,10 +1981,10 @@
       "id": "tailscale",
       "name": "Tailscale",
       "category": "tool",
-      "dayCount": 5,
-      "totalCount": 16,
+      "dayCount": 6,
+      "totalCount": 19,
       "firstSeen": "2026-05-26",
-      "lastSeen": "2026-09-16"
+      "lastSeen": "2026-10-10"
     },
     {
       "id": "tailwindcss",
@@ -2062,10 +2089,10 @@
       "id": "typescript",
       "name": "TypeScript",
       "category": "language",
-      "dayCount": 125,
-      "totalCount": 1007,
+      "dayCount": 126,
+      "totalCount": 1013,
       "firstSeen": "2026-05-17",
-      "lastSeen": "2026-10-09"
+      "lastSeen": "2026-10-10"
     },
     {
       "id": "ubuntu",
@@ -2206,10 +2233,10 @@
       "id": "wav",
       "name": "WAV",
       "category": "format",
-      "dayCount": 5,
-      "totalCount": 11,
+      "dayCount": 6,
+      "totalCount": 13,
       "firstSeen": "2026-08-02",
-      "lastSeen": "2026-10-03"
+      "lastSeen": "2026-10-10"
     },
     {
       "id": "webgl",
